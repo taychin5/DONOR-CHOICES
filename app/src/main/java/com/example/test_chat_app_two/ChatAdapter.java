@@ -2,15 +2,14 @@ package com.example.test_chat_app_two;
 
 import android.app.Activity;
 import android.content.Context;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -55,18 +54,30 @@ class ChatAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        ChatMessage chatMessage = getItem(position);
         LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
+        ChatMessage chatMessage = getItem(position);
+        int finalPosition = chatMessages.size()-1;
+
+        boolean myMsg = chatMessage.getIsme();
+        int layoutResource = 0;
+
+
+        if(myMsg){
+            layoutResource = R.layout.left_chat;
+        }else{
+            layoutResource = R.layout.right_chat;
+        }
+
         if(convertView == null){
-            convertView = vi.inflate(R.layout.chat_bubble,null);
+            convertView = vi.inflate(layoutResource,parent,false);
             holder = createViewHolder(convertView);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
-        }
+        }  // set recycle view
 
-        int finalPosition = chatMessages.size()-1;
+
 
         if(position == finalPosition){
             final Animation in = new AlphaAnimation(0.0f, 1.0f);
@@ -74,17 +85,30 @@ class ChatAdapter extends BaseAdapter {
 
             holder.txtMessage.startAnimation(in);
             holder.txtInfo.startAnimation(in);
+
             holder.txtMessage.setText(chatMessage.getMessage());
             holder.txtInfo.setText(chatMessage.getDate());
+
+            //left side character generatetion
+            if(layoutResource = R.layout.left_chat) {
+                holder.characterImage.startAnimation(in);
+                holder.characterImage.setImageResource(chatMessage.getCharacter());
+            }
 
         }else{
+
             holder.txtMessage.setText(chatMessage.getMessage());
             holder.txtInfo.setText(chatMessage.getDate());
+
+            // left side character generatation
+            if(layoutResource = R.layout.left_chat) {
+                holder.characterImage.setImageResource(chatMessage.getCharacter());
+            }
         }
 
-        boolean myMsg = chatMessage.getIsme() ;//Just a dummy check
+
         //to simulate whether it me or other sender
-        setAlignment(holder, myMsg);
+//        setAlignment(holder, myMsg);
 
 
 
@@ -98,7 +122,7 @@ class ChatAdapter extends BaseAdapter {
         chatMessages.addAll(messages);
     }
 
-    private void setAlignment(ViewHolder holder, boolean myMsg) {
+   /* private void setAlignment(ViewHolder holder, boolean myMsg) {
         if(myMsg){
             holder.contentWithBG.setBackgroundResource(R.drawable.bubble_in_9); // set chat back ground
 
@@ -139,15 +163,19 @@ class ChatAdapter extends BaseAdapter {
             layoutParams.gravity = Gravity.LEFT;
             holder.txtInfo.setLayoutParams(layoutParams);
         }
-    }
+    }*/ // setAlignment
 
 
     private  ViewHolder createViewHolder(View v) {
         ViewHolder holder = new ViewHolder();
+
         holder.txtMessage = (TextView) v.findViewById(R.id.txtMessage);
         holder.content = (LinearLayout) v.findViewById(R.id.content);
         holder.contentWithBG = (LinearLayout) v.findViewById(R.id.contentWithBackground);
         holder.txtInfo = (TextView) v.findViewById(R.id.txtInfo);
+        holder.characterImage = (ImageView) v.findViewById(R.id.imgCharacter);
+
+
         return holder;
     }
     private static class ViewHolder {
@@ -155,6 +183,7 @@ class ChatAdapter extends BaseAdapter {
         public TextView txtInfo;
         public LinearLayout content;
         public LinearLayout contentWithBG;
+        public ImageView characterImage;
     }
 
 }
