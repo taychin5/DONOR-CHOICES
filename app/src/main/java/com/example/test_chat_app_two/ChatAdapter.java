@@ -6,6 +6,8 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -64,11 +66,27 @@ class ChatAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
+        int finalPosition = chatMessages.size()-1;
+
+        if(position == finalPosition){
+            final Animation in = new AlphaAnimation(0.0f, 1.0f);
+            in.setDuration(1000);
+
+            holder.txtMessage.startAnimation(in);
+            holder.txtInfo.startAnimation(in);
+            holder.txtMessage.setText(chatMessage.getMessage());
+            holder.txtInfo.setText(chatMessage.getDate());
+
+        }else{
+            holder.txtMessage.setText(chatMessage.getMessage());
+            holder.txtInfo.setText(chatMessage.getDate());
+        }
+
         boolean myMsg = chatMessage.getIsme() ;//Just a dummy check
         //to simulate whether it me or other sender
         setAlignment(holder, myMsg);
-        holder.txtMessage.setText(chatMessage.getMessage());
-        holder.txtInfo.setText(chatMessage.getDate());
+
+
 
         return convertView;
     }
