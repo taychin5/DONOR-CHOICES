@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainConstraintLayout">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutBtn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+
+            android:id="@+id/chatSendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="8dp"
+            android:background="@color/background_floating_material_dark"
+            android:padding="2dp"
+            android:text="Send MSG"
+            android:textColor="@color/background_material_light" />
+    </RelativeLayout>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageMain"
+        android:layout_width="0dp"
+        android:layout_height="230dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/template"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </pl.droidsonroids.gif.GifImageView>
+
+    <TextView
+
+        android:id="@+id/meLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:singleLine="false"
+        android:text="MySelf"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gifImageMain" />
+
+    <TextView
+
+        android:id="@+id/friendLabel"
+        android:layout_width="0dp"
+        android:layout_height="27dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Friend"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gifImageMain" />
+
+    <ListView
+
+        android:id="@+id/messagesContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:divider="@null"
+        android:listSelector="@android:color/transparent"
+        android:transcriptMode="alwaysScroll"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayoutBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meLbl" />
+
+
+</android.support.constraint.ConstraintLayout>
