@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import pl.droidsonroids.gif.GifImageView;
+
 /**
  * Created by Toddy on 24/02/2018.
  */
@@ -21,6 +23,7 @@ import java.util.List;
 class ChatAdapter extends BaseAdapter {
 
     private final List<ChatMessage> chatMessages;
+
     private Activity context;
 
     public ChatAdapter(Activity context, List<ChatMessage> chatMessages) {
@@ -46,6 +49,7 @@ class ChatAdapter extends BaseAdapter {
         }
     }
 
+
     @Override
     public long getItemId(int position) {
         return position;
@@ -54,57 +58,62 @@ class ChatAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
 
         ChatMessage chatMessage = getItem(position);
         int finalPosition = chatMessages.size()-1;
 
         boolean myMsg = chatMessage.getIsme();
+        System.out.println("position : "+position+"  SIde : "+myMsg);
         int layoutResource = 0;
 
-
-        if(myMsg){
-            layoutResource = R.layout.left_chat;
-        }else{
-            layoutResource = R.layout.right_chat;
-        }
-
-        if(convertView == null){
-            convertView = vi.inflate(layoutResource,parent,false);
-            holder = createViewHolder(convertView);
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
-        }  // set recycle view
+      //  if(!chatMessage.isDone()) {
 
 
-
-        if(position == finalPosition){
-            final Animation in = new AlphaAnimation(0.0f, 1.0f);
-            in.setDuration(1000);
-
-            holder.txtMessage.startAnimation(in);
-            holder.txtInfo.startAnimation(in);
-
-            holder.txtMessage.setText(chatMessage.getMessage());
-            holder.txtInfo.setText(chatMessage.getDate());
-
-            //left side character generatetion
-            if(layoutResource = R.layout.left_chat) {
-                holder.characterImage.startAnimation(in);
-                holder.characterImage.setImageResource(chatMessage.getCharacter());
+            if (myMsg) {
+                layoutResource = R.layout.left_chat;
+            } else {
+                layoutResource = R.layout.right_chat;
             }
 
-        }else{
+            if (convertView == null) {
+                convertView = inflater.inflate(layoutResource, parent,false);
+                holder = createViewHolder(convertView);
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }  // set recycle view
 
-            holder.txtMessage.setText(chatMessage.getMessage());
-            holder.txtInfo.setText(chatMessage.getDate());
 
-            // left side character generatation
-            if(layoutResource = R.layout.left_chat) {
-                holder.characterImage.setImageResource(chatMessage.getCharacter());
+            if (position == finalPosition) {
+                final Animation in = new AlphaAnimation(0.0f, 1.0f);
+                in.setDuration(500);
+
+                holder.txtMessage.startAnimation(in);
+                holder.txtInfo.startAnimation(in);
+
+                holder.txtMessage.setText(chatMessage.getMessage());
+                holder.txtInfo.setText(chatMessage.getDate());
+
+                //left side character generatetor
+                if (layoutResource == R.layout.left_chat) {
+//                holder.characterImage.startAnimation(in);
+                    //  holder.characterImage.setImageResource(chatMessage.getCharacter());
+                }
+
+            } else {
+
+                holder.txtMessage.setText(chatMessage.getMessage());
+                holder.txtInfo.setText(chatMessage.getDate());
+
+                // left side character generatator
+                if (layoutResource == R.layout.left_chat) {
+                    //   holder.characterImage.setImageResource(chatMessage.getCharacter());
+                }
             }
-        }
+     //   }else{
+
+     //   }
 
 
         //to simulate whether it me or other sender
@@ -165,6 +174,18 @@ class ChatAdapter extends BaseAdapter {
         }
     }*/ // setAlignment
 
+    @Override
+    public int getViewTypeCount() {
+        // return the total number of view types. this value should never change
+        // at runtime. Value 2 is returned because of left and right views.
+        return 2;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        // return a value between 0 and (getViewTypeCount - 1)
+        return position % 2;
+    }
 
     private  ViewHolder createViewHolder(View v) {
         ViewHolder holder = new ViewHolder();
@@ -173,7 +194,7 @@ class ChatAdapter extends BaseAdapter {
         holder.content = (LinearLayout) v.findViewById(R.id.content);
         holder.contentWithBG = (LinearLayout) v.findViewById(R.id.contentWithBackground);
         holder.txtInfo = (TextView) v.findViewById(R.id.txtInfo);
-        holder.characterImage = (ImageView) v.findViewById(R.id.imgCharacter);
+        holder.characterImage = (GifImageView) v.findViewById(R.id.imgCharacter);
 
 
         return holder;
@@ -183,7 +204,7 @@ class ChatAdapter extends BaseAdapter {
         public TextView txtInfo;
         public LinearLayout content;
         public LinearLayout contentWithBG;
-        public ImageView characterImage;
+        public GifImageView characterImage;
     }
 
 }
