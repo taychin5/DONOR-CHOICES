@@ -3,9 +3,7 @@ package com.example.test_chat_app_two;
 /**
  * Created by Toddy on 25/02/2018.
  */
-
 public class MessageThisSeason {
-
 
     private boolean isMe[][] = {
             //path 1

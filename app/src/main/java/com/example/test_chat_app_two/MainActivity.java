@@ -1,116 +1,176 @@
 package com.example.test_chat_app_two;
 
+
+import android.content.Intent;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
+import it.michelelacorte.retractabletoolbar.RetractableToolbarUtil;
+import pl.droidsonroids.gif.GifImageView;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText messageET;
-    private ListView messagesContainer;
-    private Button sendBtn;
-    private ChatAdapter adapter;
+
+    private RecyclerView messagesContainer;
+    public static Button sendBtn;
+    public static Button buttonOnLeft;
+    public static Button buttonOnRight;
+    private ChatAdapterRecylerView adapter;
+    private RelativeLayout relativeLayout;
     private ArrayList<ChatMessage> chatHistory;
-    public int hit = 0;
+    private List<ChatMessage> messages = new ArrayList<>();
+    public static int hit = 0;
+    public static int totalHit = 0;
+    public static int path = 0;
+    GifImageView gifImageView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.chat_main);
         initControls();
 
     }
 
+
     private void initControls() {
-        messagesContainer = findViewById(R.id.messagesContainer);
-//        messageET = (EditText) findViewById(R.id.messageEdit);
+
+        messagesContainer = (RecyclerView) findViewById(R.id.messagesContainer);
         sendBtn = (Button) findViewById(R.id.chatSendButton);
+        gifImageView = findViewById(R.id.gifImageMain);
 
         TextView meLabel = (TextView) findViewById(R.id.meLbl);
         TextView companionLabel = (TextView) findViewById(R.id.friendLabel);
-        RelativeLayout container = (RelativeLayout) findViewById(R.id.container);
         companionLabel.setText("My Buddy");// Hard Coded
-        loadDummyHistory();
+
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setStackFromEnd(true);
+        //layoutManager.scrollToPositionWithOffset(hit, 20);
+
+
+        messagesContainer.setLayoutManager(layoutManager);
+        adapter = new ChatAdapterRecylerView(messages);
+        messagesContainer.setAdapter(adapter);
+
 
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                ChatMessage chatMessage = new ChatMessage();
+                MessageThisSeason messageStorage = new MessageThisSeason();
 
-//                String messageText = messageET.getText().toString();
-//                if(TextUtils.isEmpty(messageText)){
-//                    return;
-//                }
+                chatMessage.setId(totalHit);
+                chatMessage.setMessage(messageStorage.getMessage(path, hit));
+                chatMessage.setDate(DateFormat.getDateTimeInstance().format(new Date()));
+                chatMessage.setMe(messageStorage.isMe(path, hit));
+                chatMessage.setDone(messageStorage.isdone(path, hit));
 
-//              ChatMessage chatMessage = new ChatMessage();
 
-//                chatMessage.setId(122);//dummy
-//                chatMessage.setMessage(messageText);
-//                chatMessage.setDate(DateFormat.getDateTimeInstance().format(new Date()));
-//                chatMessage.setMe(true);
-//
-//                messageET.setText("");
+                if (chatMessage.isDone() == true) {
+                    sendBtn.setVisibility(v.INVISIBLE);
 
-//                displayMessage(chatMessage);
+                    relativeLayout = findViewById(R.id.relativeLayoutBtn);
 
-                ChatMessage message = chatHistory.get(hit);
-                displayMessage(message);
+                    buttonOnLeft = new Button(MainActivity.this);
+                    buttonOnLeft.setText("chose left");
+                    buttonOnLeft.setId(R.id.lef_btn);
+
+                    buttonOnLeft.setGravity(Gravity.LEFT);
+
+                    RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+                    lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
+                    lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+
+
+                    relativeLayout.addView(buttonOnLeft, lp);
+
+                    buttonOnLeft.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(getApplicationContext(), PopActivity.class);
+                            intent.putExtra("hit", hit);
+                            intent.putExtra("chose", true);
+                            startActivity(intent);
+
+                        }
+                    });
+
+
+                    buttonOnRight = new Button(MainActivity.this);
+                    buttonOnRight.setText("chose Right");
+                    buttonOnLeft.setId(R.id.lef_btn);
+
+                    buttonOnRight.setGravity(Gravity.RIGHT);
+
+                    RelativeLayout.LayoutParams lp2 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+                    lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
+                    lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+
+                    relativeLayout.addView(buttonOnRight, lp2);
+
+                    buttonOnRight.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(getApplicationContext(), PopActivity.class);
+                            intent.putExtra("hit", hit);
+                            intent.putExtra("chose", false);
+                            startActivity(intent);
+                        }
+                    });
+//set new btn
+
+                } else {
+                    messages.add(chatMessage);
+                    adapter.notifyItemInserted(messages.size() - 1);
+                    sendBtn.setVisibility(v.VISIBLE);
+                    GifImageGenerator();
+                    messagesContainer.smoothScrollToPosition(messages.size()-1);
+
+                } //set new btn
+                totalHit++;
                 hit++;
-
             }
         });
-
-
-
-
-
     }
 
-    private void displayMessage(ChatMessage chatMessage) {
-        adapter.add(chatMessage);
-        adapter.notifyDataSetChanged();
-        scroll();
-    }
-
-    private void scroll(){
-        messagesContainer.setSelection(messagesContainer.getCount()-1);
-    }
-    private void loadDummyHistory() {
-        chatHistory = new ArrayList<ChatMessage>();
-
-        ChatMessage msg = new ChatMessage();
-        msg.setId(1);
-        msg.setMe(false);
-        msg.setMessage("Hi");
-        msg.setDate(DateFormat.getDateTimeInstance().format(new Date()));
-        chatHistory.add(msg);
-
-
-        ChatMessage msg1 = new ChatMessage();
-        msg1.setId(2);
-        msg1.setMe(false);
-        msg1.setMessage("How r u doing???");
-        msg1.setDate(DateFormat.getDateTimeInstance().format(new Date()));
-       chatHistory.add(msg1);
-
-
-        adapter = new ChatAdapter(MainActivity.this, new ArrayList<ChatMessage>());
-        messagesContainer.setAdapter(adapter);
-
-//        for(int i=0; i<chatHistory.size(); i++) {
-//            ChatMessage message = chatHistory.get(i);
-//            displayMessage(message);
-//        }
-
+    private void GifImageGenerator() {
 
     }
 }
+
+
+
+
+
+
+
+
+

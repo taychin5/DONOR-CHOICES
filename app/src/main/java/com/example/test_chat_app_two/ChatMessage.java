@@ -10,6 +10,25 @@ class ChatMessage {
     private String message;
     private Long userId;
     private String dateTime;
+    private boolean isDone;
+
+    public boolean isDone() {
+        return isDone;
+    }
+
+    public void setDone(boolean done) {
+        isDone = done;
+    }
+
+    public char getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(char character) {
+        this.character = character;
+    }
+
+    private char character;
 
 
     public long getId() {

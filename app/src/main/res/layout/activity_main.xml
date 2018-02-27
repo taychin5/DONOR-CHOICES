@@ -1,39 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
 
     android:layout_height="match_parent"
 
-    android:orientation="vertical">
-
-    <RelativeLayout
-
-        android:id="@+id/container"
-
-        android:layout_width="match_parent"
-
-        android:layout_height="match_parent"
-
-        android:orientation="vertical"
-
-        android:padding="20dp">
-
-        <EditText
-
-            android:id="@+id/messageEdit"
-
-            android:layout_width="match_parent"
-
-            android:layout_height="wrap_content"
-
-            android:layout_alignParentBottom="true"
-
-            android:layout_toLeftOf="@+id/chatSendButton"
-
-            android:autoText="true"
-
-            android:hint="type message" />
+    >
 
         <Button
 
@@ -66,8 +40,6 @@
             android:layout_alignParentTop="false"
 
             android:layout_marginBottom="20dp"
-
-            android:layout_above="@+id/messageEdit"
 
             android:layout_below="@+id/meLbl"
 
@@ -109,5 +81,5 @@
 
             android:textSize="20dp" />
 
-    </RelativeLayout>
-</LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
