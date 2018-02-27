@@ -1,5 +1,7 @@
 package com.example.test_chat_app_two;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +10,7 @@ import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -79,8 +82,13 @@ public class PopActivity extends Activity {
                 MainActivity.hit = 0;
 
                 MainActivity.sendBtn.setVisibility(View.VISIBLE);
+                MainActivity.sendBtn.setY(MainActivity.sendBtn.getHeight()+10);
+                MainActivity.sendBtn.animate()
+                        .translationY(0).setInterpolator(new AccelerateInterpolator(2));
+
                 MainActivity.buttonOnLeft.setVisibility(View.GONE);
                 MainActivity.buttonOnRight.setVisibility(View.GONE);
+                MainActivity.textView.setVisibility(view.GONE);
                 finish();
 
             }

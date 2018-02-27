@@ -12,14 +12,17 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toolbar;
+import android.support.v7.widget.Toolbar;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     public static Button sendBtn;
     public static Button buttonOnLeft;
     public static Button buttonOnRight;
+    public static TextView textView;
     private ChatAdapterRecylerView adapter;
     private RelativeLayout relativeLayout;
     private ArrayList<ChatMessage> chatHistory;
@@ -47,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
     public static int totalHit = 0;
     public static int path = 0;
     GifImageView gifImageView;
+    private Toolbar toolbar;
+    private Toolbar toolbarTop;
+
 
 
     @Override
@@ -66,6 +73,18 @@ public class MainActivity extends AppCompatActivity {
         sendBtn = (Button) findViewById(R.id.chatSendButton);
         gifImageView = findViewById(R.id.gifImageMain);
 
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        setTitle(getString(R.string.app_name));
+        toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
+
+        toolbarTop = (Toolbar) findViewById(R.id.toolbartop);
+        setSupportActionBar(toolbarTop);
+        setTitle(getString(R.string.app_name));
+        toolbarTop.setTitleTextColor(getResources().getColor(android.R.color.white));
+
+
+
         TextView meLabel = (TextView) findViewById(R.id.meLbl);
         TextView companionLabel = (TextView) findViewById(R.id.friendLabel);
         companionLabel.setText("My Buddy");// Hard Coded
@@ -80,10 +99,25 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ChatAdapterRecylerView(messages);
         messagesContainer.setAdapter(adapter);
 
+        messagesContainer.setOnScrollListener(new HidingScrollListener() {
+            @Override
+            public void onHide() {hideToolBat();}
+
+            @Override
+            public void onShow() {showToolBat();}
+        });
+        messagesContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showToolBat();
+            }
+        });
+
 
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                hideToolBat();
                 ChatMessage chatMessage = new ChatMessage();
                 MessageThisSeason messageStorage = new MessageThisSeason();
 
@@ -104,11 +138,14 @@ public class MainActivity extends AppCompatActivity {
                     buttonOnLeft.setId(R.id.lef_btn);
 
                     buttonOnLeft.setGravity(Gravity.LEFT);
+                    buttonOnLeft.setX(500);
+                    buttonOnLeft.animate().translationX(0).setInterpolator(new AccelerateInterpolator(2));
+
+
 
                     RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.MATCH_PARENT);
                     lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
                     lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-
 
                     relativeLayout.addView(buttonOnLeft, lp);
 
@@ -126,8 +163,9 @@ public class MainActivity extends AppCompatActivity {
 
                     buttonOnRight = new Button(MainActivity.this);
                     buttonOnRight.setText("chose Right");
-                    buttonOnLeft.setId(R.id.lef_btn);
-
+                    buttonOnRight.setId(R.id.lef_btn);
+                    buttonOnRight.setX(-500);
+                    buttonOnRight.animate().translationX(0).setInterpolator(new AccelerateInterpolator(2));
                     buttonOnRight.setGravity(Gravity.RIGHT);
 
                     RelativeLayout.LayoutParams lp2 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.MATCH_PARENT);
@@ -146,6 +184,18 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
 //set new btn
+                     textView = new TextView(MainActivity.this);
+                    RelativeLayout.LayoutParams lptext = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+                    lptext.addRule(RelativeLayout.CENTER_HORIZONTAL);
+                    lptext.addRule(RelativeLayout.CENTER_IN_PARENT);
+
+
+
+                    textView.setText("Chose your destiny \n please choose carefully ");
+                    textView.setGravity(View.TEXT_ALIGNMENT_GRAVITY);
+                    relativeLayout.addView(textView, lptext);
+
+
 
                 } else {
                     messages.add(chatMessage);
@@ -159,14 +209,33 @@ public class MainActivity extends AppCompatActivity {
                 hit++;
             }
         });
+
     }
 
     private void GifImageGenerator() {
 
     }
+
+
+    private void hideToolBat(){
+
+        toolbar.animate().translationY(toolbar.getHeight()*20).setInterpolator(new AccelerateInterpolator(2));
+        toolbarTop.animate().translationY(-toolbarTop.getHeight()).setInterpolator(new AccelerateInterpolator(2));
+
+
+//                FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mFabButton.getLayoutParams();
+//                int fabBottomMargin = lp.bottomMargin;
+//                mFabButton.animate().translationY(mFabButton.getHeight()+fabBottomMargin).setInterpolator(new AccelerateInterpolator(2)).start();
+    }
+
+    private void showToolBat(){
+        toolbar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
+        toolbarTop.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
+//                mFabButton.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
+
+
+    }
 }
-
-
 
 
 
