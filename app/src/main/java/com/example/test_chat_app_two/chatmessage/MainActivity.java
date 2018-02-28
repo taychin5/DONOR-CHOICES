@@ -1,41 +1,35 @@
-package com.example.test_chat_app_two;
+package com.example.test_chat_app_two.chatmessage;
 
 
 import android.content.Intent;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.AbsListView;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
+import com.example.test_chat_app_two.HidingScrollListener;
+import com.example.test_chat_app_two.MessageThisSeason;
+import com.example.test_chat_app_two.R;
+
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import it.michelelacorte.retractabletoolbar.RetractableToolbarUtil;
 import pl.droidsonroids.gif.GifImageView;
 
 
 public class MainActivity extends AppCompatActivity {
+
+
 
 
     private RecyclerView messagesContainer;
@@ -47,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
     private RelativeLayout relativeLayout;
     private ArrayList<ChatMessage> chatHistory;
     private List<ChatMessage> messages = new ArrayList<>();
-    public static int hit = 0;
-    public static int totalHit = 0;
-    public static int path = 0;
+    public static int hit;
+    public static int totalHit;
+    public static int path ;
     GifImageView gifImageView;
     private Toolbar toolbar;
     private Toolbar toolbarTop;
@@ -66,6 +60,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+
+
+
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+    }
 
     private void initControls() {
 
@@ -79,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
 
         toolbarTop = (Toolbar) findViewById(R.id.toolbartop);
-        setSupportActionBar(toolbarTop);
+       setSupportActionBar(toolbarTop);
         setTitle(getString(R.string.app_name));
         toolbarTop.setTitleTextColor(getResources().getColor(android.R.color.white));
 
@@ -91,13 +99,16 @@ public class MainActivity extends AppCompatActivity {
 
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setStackFromEnd(true);
+       // layoutManager.setStackFromEnd(true);
+
         //layoutManager.scrollToPositionWithOffset(hit, 20);
 
 
         messagesContainer.setLayoutManager(layoutManager);
         adapter = new ChatAdapterRecylerView(messages);
         messagesContainer.setAdapter(adapter);
+
+
 
         messagesContainer.setOnScrollListener(new HidingScrollListener() {
             @Override
@@ -212,6 +223,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     private void GifImageGenerator() {
 
     }
@@ -235,7 +247,21 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    private void loadHistory(){
+
+        chatHistory = new ArrayList<ChatMessage>();
+        for(int i = 0;i<chatHistory.size();i++){
+            ChatMessage chatMessageHis = new ChatMessage();
+            chatMessageHis.setId(i);
+            chatMessageHis.setMessage(chatHistory.get(i).getMessage());
+            chatMessageHis.setDate(chatHistory.get(i).getDate());
+            chatMessageHis.setMe(chatHistory.get(i).getIsme());
+        }
+
+    }
 }
+
 
 
 

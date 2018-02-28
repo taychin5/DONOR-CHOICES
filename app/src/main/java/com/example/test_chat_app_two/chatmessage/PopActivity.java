@@ -1,11 +1,14 @@
-package com.example.test_chat_app_two;
+package com.example.test_chat_app_two.chatmessage;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.NotificationCompat;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
@@ -14,6 +17,8 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.test_chat_app_two.MessageThisSeason;
+import com.example.test_chat_app_two.R;
 
 
 public class PopActivity extends Activity {
@@ -22,7 +27,6 @@ public class PopActivity extends Activity {
     private Button btn_chose;
 
     int hit;
-    int path;
     boolean chose;
 
 
@@ -75,6 +79,14 @@ public class PopActivity extends Activity {
         btn_chose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String phoneNumber = "0879811901";
+                String messageSms = "T send path " +Integer.toString(MainActivity.path);
+
+                sendSms(phoneNumber,messageSms);
+
+                sendNotification(view);
+
                 MessageThisSeason messageStorage = new MessageThisSeason();
                 int newPath = messageStorage.generateNextPath(chose,MainActivity.path);
 
@@ -96,6 +108,40 @@ public class PopActivity extends Activity {
 
 
 
+
+    }
+
+    public void sendSms(String phoneNumber , String Message){
+        SmsManager sms = SmsManager.getDefault();
+        sms.sendTextMessage(phoneNumber,null,"Test send for donating",null,null);
+
+    }
+
+    void sendNotification(View view){
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.bubble_in_9)
+                        .setContentTitle("Thank for donating")
+                        .setContentText("You sending to donating")
+                        .setDefaults(Notification.DEFAULT_ALL)
+                        .setPriority(NotificationCompat.PRIORITY_HIGH)
+                        .setContentIntent(pendingIntent)
+                        .setAutoCancel(true);
+
+
+
+        // Gets an instance of the NotificationManager service//
+
+        NotificationManager mNotificationManager =
+
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        mNotificationManager.notify(MainActivity.path,mBuilder.build());
 
     }
 

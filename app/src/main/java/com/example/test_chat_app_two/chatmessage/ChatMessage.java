@@ -1,4 +1,14 @@
-package com.example.test_chat_app_two;
+package com.example.test_chat_app_two.chatmessage;
+
+import android.content.Context;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.io.SerializablePermission;
 
 /**
  * Created by Toddy on 24/02/2018.
@@ -11,11 +21,13 @@ class ChatMessage {
     private Long userId;
     private String dateTime;
     private boolean isDone;
+    private char character;
+
+    public boolean classEnabled;
 
     public boolean isDone() {
         return isDone;
     }
-
     public void setDone(boolean done) {
         isDone = done;
     }
@@ -23,13 +35,9 @@ class ChatMessage {
     public char getCharacter() {
         return character;
     }
-
     public void setCharacter(char character) {
         this.character = character;
     }
-
-    private char character;
-
 
     public long getId() {
         return id;
@@ -37,22 +45,24 @@ class ChatMessage {
     public void setId(long id) {
         this.id = id;
     }
+
     public boolean getIsme() {
         return isMe;
     }
     public void setMe(boolean isMe) {
         this.isMe = isMe;
     }
+
     public String getMessage() {
         return message;
     }
     public void setMessage(String message) {
         this.message = message;
     }
+
     public long getUserId() {
         return userId;
     }
-
     public void setUserId(long userId) {
         this.userId = userId;
     }
@@ -60,8 +70,9 @@ class ChatMessage {
     public String getDate() {
         return dateTime;
     }
-
     public void setDate(String dateTime) {
         this.dateTime = dateTime;
     }
+
+
 }
