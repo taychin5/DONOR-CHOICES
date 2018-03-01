@@ -1,4 +1,4 @@
-package com.example.test_chat_app_two.chatmessage;
+package com.example.test_chat_app_two.chatMessageMain;
 
 import android.app.Activity;
 import android.app.Notification;

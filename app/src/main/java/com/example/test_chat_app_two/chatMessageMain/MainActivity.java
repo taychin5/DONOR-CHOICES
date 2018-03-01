@@ -1,4 +1,4 @@
-package com.example.test_chat_app_two.chatmessage;
+package com.example.test_chat_app_two.chatMessageMain;
 
 
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
@@ -33,13 +34,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     private RecyclerView messagesContainer;
+    private ChatAdapterRecylerView adapter;
+
     public static Button sendBtn;
     public static Button buttonOnLeft;
     public static Button buttonOnRight;
     public static TextView textView;
-    private ChatAdapterRecylerView adapter;
+
     private RelativeLayout relativeLayout;
-    private ArrayList<ChatMessage> chatHistory;
+    private List<ChatMessage> chatHistory;
     private List<ChatMessage> messages = new ArrayList<>();
     public static int hit;
     public static int totalHit;
@@ -56,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat_main);
+
         initControls();
+        loadHistory();
 
     }
 
@@ -65,14 +70,20 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
 
-
-
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish(); // close this activity and return to preview activity (if there is any)
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initControls() {
@@ -90,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
        setSupportActionBar(toolbarTop);
         setTitle(getString(R.string.app_name));
         toolbarTop.setTitleTextColor(getResources().getColor(android.R.color.white));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
 
@@ -123,6 +136,8 @@ public class MainActivity extends AppCompatActivity {
                 showToolBat();
             }
         });
+
+
 
 
         sendBtn.setOnClickListener(new View.OnClickListener() {
@@ -210,6 +225,7 @@ public class MainActivity extends AppCompatActivity {
 
                 } else {
                     messages.add(chatMessage);
+                    chatHistory.add(chatMessage);
                     adapter.notifyItemInserted(messages.size() - 1);
                     sendBtn.setVisibility(v.VISIBLE);
                     GifImageGenerator();
@@ -232,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
     private void hideToolBat(){
 
         toolbar.animate().translationY(toolbar.getHeight()*20).setInterpolator(new AccelerateInterpolator(2));
-        toolbarTop.animate().translationY(-toolbarTop.getHeight()).setInterpolator(new AccelerateInterpolator(2));
+       // toolbarTop.animate().translationY(-toolbarTop.getHeight()).setInterpolator(new AccelerateInterpolator(2));
 
 
 //                FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mFabButton.getLayoutParams();
@@ -242,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void showToolBat(){
         toolbar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
-        toolbarTop.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
+     //   toolbarTop.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
 //                mFabButton.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
 
 
@@ -258,8 +274,13 @@ public class MainActivity extends AppCompatActivity {
             chatMessageHis.setDate(chatHistory.get(i).getDate());
             chatMessageHis.setMe(chatHistory.get(i).getIsme());
         }
+        adapter = new ChatAdapterRecylerView(chatHistory);
+        messagesContainer.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
 
     }
+
 }
 
 

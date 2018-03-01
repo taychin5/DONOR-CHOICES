@@ -1,14 +1,4 @@
-package com.example.test_chat_app_two.chatmessage;
-
-import android.content.Context;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import java.io.SerializablePermission;
+package com.example.test_chat_app_two.chatMessageMain;
 
 /**
  * Created by Toddy on 24/02/2018.
@@ -23,7 +13,6 @@ class ChatMessage {
     private boolean isDone;
     private char character;
 
-    public boolean classEnabled;
 
     public boolean isDone() {
         return isDone;
