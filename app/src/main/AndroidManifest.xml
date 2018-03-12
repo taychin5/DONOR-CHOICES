@@ -6,12 +6,18 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_new"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".chatmessage.MainActivity">
+        <activity android:name=".homePage.ListViewChoseActivity"></activity>
+        <activity android:name=".chatMessageMain.MainChatActivity"></activity>
+        <activity
+            android:name=".chatMessageMain.PopChooseActivity"
+            android:theme="@style/AppTheme.PopMe" />
+
+        <activity android:name=".first_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,12 +25,11 @@
             </intent-filter>
         </activity>
 
-        <!-- <activity android:name="" -->
 
-        <activity
-            android:name=".chatmessage.PopActivity"
-            android:theme="@style/AppTheme.PopMe" />
-        <activity android:name=".chatmessage.ListViewChoseActivity"></activity>
+        <activity android:name=".chatMessageMain.PopChooseDonateActivity"
+            android:theme="@style/AppTheme.PopMe"/>
+
+
     </application>
 
 </manifest>

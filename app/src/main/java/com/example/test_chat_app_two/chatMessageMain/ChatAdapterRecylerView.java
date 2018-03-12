@@ -1,5 +1,7 @@
 package com.example.test_chat_app_two.chatMessageMain;
 
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +24,11 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class ChatAdapterRecylerView extends RecyclerView.Adapter<MessageViewHolder> {
 
-    private static final int MESSAGE_LEFT = 0;
-    private static final int MESSAGE_RIGHT = 1;
+    private static final int MESSAGE_RIGHT = 0;
+    private static final int MESSAGE_LEFT = 1;
+    private static final int MESSAGE_RIGHT_THINK = 2;
+    private static final int MESSAGE_LEFT_HURT = 3;
+    private static final int MESSAGE_RIGHT_HURT = 4;
 
     private final List<ChatMessage> chatMessages;
 
@@ -35,6 +40,30 @@ public class ChatAdapterRecylerView extends RecyclerView.Adapter<MessageViewHold
     public MessageViewHolder onCreateViewHolder(final ViewGroup parent,final int viewType) {
         View itemView;
 
+
+
+        // Select Layout of message type
+//        switch (viewType) {
+//            case MESSAGE_RIGHT:
+//                itemView = LayoutInflater.from(parent.getContext())
+//                        .inflate(R.layout.right_chat, parent, false);
+//                break;
+//
+//            case MESSAGE_LEFT:
+//                itemView = LayoutInflater.from(parent.getContext())
+//                        .inflate(R.layout.left_chat, parent, false);
+//                break;
+//
+//            case MESSAGE_RIGHT_THINK:
+//                itemView = LayoutInflater.from(parent.getContext())
+//                        .inflate(R.layout.left_chat, parent, false);
+//                break;
+//
+//            default:itemView = LayoutInflater.from(parent.getContext())
+//                    .inflate(R.layout.left_chat, parent, false);
+//            break;
+//
+//        }
         if (viewType == MESSAGE_LEFT) {
             itemView = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.left_chat, parent, false);
@@ -42,6 +71,8 @@ public class ChatAdapterRecylerView extends RecyclerView.Adapter<MessageViewHold
             itemView = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.right_chat, parent, false);
         }
+
+
         return new MessageViewHolder(itemView);
     }
 
@@ -53,12 +84,8 @@ public class ChatAdapterRecylerView extends RecyclerView.Adapter<MessageViewHold
 
     @Override
     public int getItemViewType(int position) {
-        boolean isLeftMessage = chatMessages.get(position).getIsme();
-        if (isLeftMessage) {
-            return MESSAGE_LEFT;
-        } else {
-            return MESSAGE_RIGHT;
-        }
+        int isMeMessage = chatMessages.get(position).getIsme();
+        return isMeMessage;
     }
 
     @Override
@@ -80,6 +107,7 @@ class MessageViewHolder extends RecyclerView.ViewHolder {
     private LinearLayout contentWithBG;
     private GifImageView characterImage;
 
+
     public MessageViewHolder(View itemView) {
         super(itemView);
         txtMessage = (TextView) itemView.findViewById(R.id.txtMessage);
@@ -87,6 +115,10 @@ class MessageViewHolder extends RecyclerView.ViewHolder {
         contentWithBG = (LinearLayout) itemView.findViewById(R.id.contentWithBackground);
         txtInfo = (TextView) itemView.findViewById(R.id.txtInfo);
         characterImage = (GifImageView) itemView.findViewById(R.id.imgCharacter);
+
+        Typeface type = Typeface.createFromAsset(itemView.getContext().getAssets(),"fonts/2005_iannnnnAMD.ttf");
+        this.txtMessage.setTypeface(type);
+
     }
 
     public TextView getMessageTextView() {
@@ -96,5 +128,7 @@ class MessageViewHolder extends RecyclerView.ViewHolder {
     public GifImageView getCharacterImage(){
         return  characterImage;
     }
+
+
 }
 

@@ -6,20 +6,11 @@ package com.example.test_chat_app_two.chatMessageMain;
 
 class ChatMessage {
     private long id;
-    private boolean isMe;
+    private  static int isMe;
     private String message;
     private Long userId;
     private String dateTime;
-    private boolean isDone;
     private char character;
-
-
-    public boolean isDone() {
-        return isDone;
-    }
-    public void setDone(boolean done) {
-        isDone = done;
-    }
 
     public char getCharacter() {
         return character;
@@ -35,10 +26,10 @@ class ChatMessage {
         this.id = id;
     }
 
-    public boolean getIsme() {
+    static public int getIsme() {
         return isMe;
     }
-    public void setMe(boolean isMe) {
+    public void setMe(int isMe) {
         this.isMe = isMe;
     }
 

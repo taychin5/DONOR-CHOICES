@@ -43,11 +43,11 @@
 
             android:background="@drawable/bubble_in_9"
 
-            android:paddingLeft="10dp"
+            android:orientation="vertical"
 
             android:paddingBottom="10dp"
 
-            android:orientation="vertical">
+            android:paddingLeft="10dp">
 
             <TextView
 
@@ -57,9 +57,9 @@
 
                 android:layout_height="wrap_content"
 
-                android:textColor="@android:color/black"
+                android:maxWidth="240dp"
 
-                android:maxWidth="240dp" />
+                android:textColor="@android:color/black" />
 
         </LinearLayout>
 

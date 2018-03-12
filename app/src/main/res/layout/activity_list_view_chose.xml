@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.test_chat_app_two.chatmessage.ListViewChoseActivity">
+    tools:context="com.example.test_chat_app_two.homePage.ListViewChoseActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="384dp"
+        android:layout_width="0dp"
         android:layout_height="56dp"
         android:background="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
