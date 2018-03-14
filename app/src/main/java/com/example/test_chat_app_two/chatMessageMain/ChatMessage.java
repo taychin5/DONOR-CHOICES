@@ -6,7 +6,7 @@ package com.example.test_chat_app_two.chatMessageMain;
 
 class ChatMessage {
     private long id;
-    private  static int isMe;
+    private int isMe;
     private String message;
     private Long userId;
     private String dateTime;
@@ -26,7 +26,7 @@ class ChatMessage {
         this.id = id;
     }
 
-    static public int getIsme() {
+    public int getIsme() {
         return isMe;
     }
     public void setMe(int isMe) {

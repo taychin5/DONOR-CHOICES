@@ -60,8 +60,10 @@ public class MainChatActivity extends AppCompatActivity {
     private static final int MESSAGE_RIGHT = 0;
     private static final int MESSAGE_LEFT = 1;
     private static final int MESSAGE_RIGHT_THINK = 2;
-    private static final int MESSAGE_LEFT_HURT = 3;
-    private static final int MESSAGE_RIGHT_HURT = 4;
+    private static final int MESSAGE_RIGHT_HURT = 3;
+    private static final int MESSAGE_LEFT_HURT = 4;
+
+
 
 
     @Override
@@ -158,13 +160,14 @@ public class MainChatActivity extends AppCompatActivity {
                 hideCharacterIndex();
 
                 MessageThisSeason messageStorage = new MessageThisSeason();
+
                 boolean isDone = messageStorage.isdone(path, hit);
 
-                     if (isDone == true) {
+                if (isDone == true) {
 
                     chooseWhatToDO(v);
 
-                     } else {
+                } else {
 
                     //  CREATE MESSAGE
 
@@ -179,16 +182,13 @@ public class MainChatActivity extends AppCompatActivity {
 
                     GifImageGenerator();
                     displayChat();
-                     }
+
+                    if(chatMessage.getIsme()==MESSAGE_RIGHT_HURT){
+                        HPgen(0,20);
+                    }
 
 
-
-                switch (ChatMessage.getIsme()){
-                    case MESSAGE_LEFT_HURT  : HPgen(0,5); break;
-                    case MESSAGE_RIGHT_HURT : HPgen(0,5); break;
-                    default:break;
-                }
-
+                } //set new btn
                 totalHit++;
                 hit++;
             }
@@ -303,7 +303,7 @@ public class MainChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                showCharacterIndex();
+
                 switch (leftToDo) {
                     case DO_CHOICE:
                         Intent intentLeft1 = new Intent(getApplicationContext(), PopChooseActivity.class);
@@ -335,7 +335,6 @@ public class MainChatActivity extends AppCompatActivity {
         buttonOnRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showCharacterIndex();
                 switch (rightToDo) {
                     case DO_CHOICE:
                         Intent intentRight1 = new Intent(getApplicationContext(), PopChooseActivity.class);
@@ -405,7 +404,7 @@ public class MainChatActivity extends AppCompatActivity {
         if (health <= 0) {
             //game over
             health = 0;
-
+            displayHP();
             // finish();
         } else {
 
@@ -421,6 +420,7 @@ public class MainChatActivity extends AppCompatActivity {
         hpBar.setProgress(health);
 
     }
+
 
     public static void sendViewToBack(final View child) {
         final ViewGroup parent = (ViewGroup) child.getParent();

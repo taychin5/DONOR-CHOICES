@@ -20,8 +20,9 @@ public class MessageThisSeason {
     private static final int MESSAGE_RIGHT = 0;
     private static final int MESSAGE_LEFT = 1;
     private static final int MESSAGE_RIGHT_THINK = 2;
-    private static final int MESSAGE_LEFT_HURT = 3;
-    private static final int MESSAGE_RIGHT_HURT = 4;
+    private static final int MESSAGE_RIGHT_HURT = 3;
+    private static final int MESSAGE_LEFT_HURT = 4;
+
 
     private static final int DO_CHOICE = 0;
     private static final int DO_CHOICE_DONATE = 1;
@@ -33,20 +34,20 @@ public class MessageThisSeason {
             //path 1
             {
                     MESSAGE_RIGHT,//0
-                    MESSAGE_RIGHT,//1
+                    MESSAGE_RIGHT_HURT,//1
                     MESSAGE_RIGHT,//2
                     MESSAGE_RIGHT,//3
                     MESSAGE_RIGHT,//4
                     MESSAGE_LEFT,//5
                     MESSAGE_LEFT,//6
-                    MESSAGE_LEFT,//7
+                    MESSAGE_RIGHT_HURT,//7
 
             },
             //path 2
             {
                     MESSAGE_LEFT,//0
                     MESSAGE_LEFT,//1
-                    MESSAGE_RIGHT,//2
+                    MESSAGE_RIGHT_HURT,//2
                     MESSAGE_LEFT,//3
                     MESSAGE_LEFT,//4
                     MESSAGE_LEFT,//5
@@ -54,11 +55,11 @@ public class MessageThisSeason {
             //path 3
             {
                     MESSAGE_RIGHT,//0
-                    MESSAGE_RIGHT,//1
+                    MESSAGE_RIGHT_HURT,//1
                     MESSAGE_LEFT,//2
-                    MESSAGE_RIGHT,//3
+                    MESSAGE_RIGHT_HURT,//3
                     MESSAGE_LEFT,//4
-                    MESSAGE_RIGHT,//5
+                    MESSAGE_RIGHT_HURT,//5
             }
     };
 

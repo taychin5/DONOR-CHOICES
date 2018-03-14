@@ -27,8 +27,9 @@ public class ChatAdapterRecylerView extends RecyclerView.Adapter<MessageViewHold
     private static final int MESSAGE_RIGHT = 0;
     private static final int MESSAGE_LEFT = 1;
     private static final int MESSAGE_RIGHT_THINK = 2;
-    private static final int MESSAGE_LEFT_HURT = 3;
-    private static final int MESSAGE_RIGHT_HURT = 4;
+    private static final int MESSAGE_RIGHT_HURT = 3;
+    private static final int MESSAGE_LEFT_HURT = 4;
+
 
     private final List<ChatMessage> chatMessages;
 
@@ -41,35 +42,30 @@ public class ChatAdapterRecylerView extends RecyclerView.Adapter<MessageViewHold
         View itemView;
 
 
-
         // Select Layout of message type
-//        switch (viewType) {
-//            case MESSAGE_RIGHT:
-//                itemView = LayoutInflater.from(parent.getContext())
-//                        .inflate(R.layout.right_chat, parent, false);
-//                break;
-//
-//            case MESSAGE_LEFT:
-//                itemView = LayoutInflater.from(parent.getContext())
-//                        .inflate(R.layout.left_chat, parent, false);
-//                break;
-//
-//            case MESSAGE_RIGHT_THINK:
-//                itemView = LayoutInflater.from(parent.getContext())
-//                        .inflate(R.layout.left_chat, parent, false);
-//                break;
-//
-//            default:itemView = LayoutInflater.from(parent.getContext())
-//                    .inflate(R.layout.left_chat, parent, false);
-//            break;
-//
-//        }
-        if (viewType == MESSAGE_LEFT) {
-            itemView = LayoutInflater.from(parent.getContext())
+        switch (viewType) {
+            case MESSAGE_RIGHT:
+                itemView = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.right_chat, parent, false);
+                break;
+
+            case MESSAGE_LEFT:
+                itemView = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.left_chat, parent, false);
+                break;
+
+            case MESSAGE_RIGHT_THINK:
+                itemView = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.right_chat, parent, false);
+                break;
+            case MESSAGE_RIGHT_HURT:
+                itemView = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.right_chat, parent, false);
+                break;
+
+            default:itemView = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.left_chat, parent, false);
-        } else {
-            itemView = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.right_chat, parent, false);
+
         }
 
 
@@ -111,8 +107,6 @@ class MessageViewHolder extends RecyclerView.ViewHolder {
     public MessageViewHolder(View itemView) {
         super(itemView);
         txtMessage = (TextView) itemView.findViewById(R.id.txtMessage);
-        content = (LinearLayout) itemView.findViewById(R.id.content);
-        contentWithBG = (LinearLayout) itemView.findViewById(R.id.contentWithBackground);
         txtInfo = (TextView) itemView.findViewById(R.id.txtInfo);
         characterImage = (GifImageView) itemView.findViewById(R.id.imgCharacter);
 
