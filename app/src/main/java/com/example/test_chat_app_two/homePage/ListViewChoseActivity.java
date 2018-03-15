@@ -26,7 +26,7 @@ public class ListViewChoseActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        int image_list [] = {R.drawable.template,R.mipmap.ic_launcher, R.mipmap.ic_launcher};
+        int image_list [] = {R.drawable.template,R.drawable.template, R.drawable.template};
 
         itemContainer = (RecyclerView) findViewById(R.id.recyclerView);
         itemContainer.setHasFixedSize(true);
