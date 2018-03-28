@@ -1,4 +1,4 @@
-package com.example.test_chat_app_two;
+package com.example.test_chat_app_two.value_class;
 
 /**
  * Created by Toddy on 25/02/2018.

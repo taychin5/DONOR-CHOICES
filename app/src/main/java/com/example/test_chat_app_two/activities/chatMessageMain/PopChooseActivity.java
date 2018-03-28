@@ -1,8 +1,7 @@
-package com.example.test_chat_app_two.chatMessageMain;
+package com.example.test_chat_app_two.activities.chatMessageMain;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
@@ -11,7 +10,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.test_chat_app_two.MessageThisSeason;
+import com.example.test_chat_app_two.value_class.MessageThisSeason;
 import com.example.test_chat_app_two.R;
 
 import java.text.DateFormat;

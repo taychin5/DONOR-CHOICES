@@ -1,4 +1,4 @@
-package com.example.test_chat_app_two.chatMessageMain;
+package com.example.test_chat_app_two.activities.chatMessageMain;
 
 
 import android.app.Activity;
@@ -24,8 +24,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
-import com.example.test_chat_app_two.HidingScrollListener;
-import com.example.test_chat_app_two.MessageThisSeason;
+import com.example.test_chat_app_two.helper.HidingScrollListener;
+import com.example.test_chat_app_two.value_class.MessageThisSeason;
 import com.example.test_chat_app_two.R;
 
 import java.text.DateFormat;

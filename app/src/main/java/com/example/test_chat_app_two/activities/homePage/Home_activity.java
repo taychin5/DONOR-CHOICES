@@ -1,21 +1,16 @@
-package com.example.test_chat_app_two.homePage;
+package com.example.test_chat_app_two.activities.homePage;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.example.test_chat_app_two.R;
-import com.example.test_chat_app_two.homePage.fragment_home.DonateFragment;
-import com.example.test_chat_app_two.homePage.fragment_home.HomeFragment;
-import com.example.test_chat_app_two.homePage.fragment_home.ReadFragment;
+import com.example.test_chat_app_two.activities.homePage.fragment_home.DonateFragment;
+import com.example.test_chat_app_two.activities.homePage.fragment_home.HomeFragment;
+import com.example.test_chat_app_two.activities.homePage.fragment_home.ReadFragment;
 
 public class Home_activity extends AppCompatActivity implements DonateFragment.OnFragmentInteractionListener {
 

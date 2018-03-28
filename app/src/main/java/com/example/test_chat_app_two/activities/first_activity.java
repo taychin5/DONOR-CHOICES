@@ -1,4 +1,4 @@
-package com.example.test_chat_app_two;
+package com.example.test_chat_app_two.activities;
 
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.test_chat_app_two.homePage.Home_activity;
-import com.example.test_chat_app_two.homePage.ListViewChoseActivity;
+import com.example.test_chat_app_two.R;
+import com.example.test_chat_app_two.activities.homePage.Home_activity;
 
 
 public class first_activity extends AppCompatActivity {

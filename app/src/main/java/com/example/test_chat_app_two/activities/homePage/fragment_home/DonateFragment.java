@@ -1,36 +1,42 @@
-package com.example.test_chat_app_two.homePage.fragment_home;
+package com.example.test_chat_app_two.activities.homePage.fragment_home;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.test_chat_app_two.R;
+import com.example.test_chat_app_two.value_class.DonateList;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ReadFragment.OnFragmentInteractionListener} interface
+ * {@link DonateFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ReadFragment#newInstance} factory method to
+ * Use the {@link DonateFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ReadFragment extends Fragment {
+public class DonateFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    public static ArrayList<DonateList> donateListArrayList = new ArrayList<DonateList>();
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     private OnFragmentInteractionListener mListener;
+    // TODO: Rename and change types and number of parameters
+    private RecyclerView donateContainer;
 
-    public ReadFragment() {
+    public DonateFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +46,12 @@ public class ReadFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ReadFragment.
+     * @return A new instance of fragment DonateFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ReadFragment newInstance(String param1, String param2) {
-        ReadFragment fragment = new ReadFragment();
+
+    public static DonateFragment newInstance(String param1, String param2) {
+        DonateFragment fragment = new DonateFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,7 +72,8 @@ public class ReadFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_read, container, false);
+        View view = inflater.inflate(R.layout.fragment_donate, container, false);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -104,5 +112,43 @@ public class ReadFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+}
+
+class DonateFragmentRecyclerViewAdapter extends RecyclerView.Adapter<DonateFragmentRecyclerViewAdapter.DonateFragmentRecyclerViewHolder> {
+
+    Context context;
+    private LayoutInflater layoutInflater;
+    private ArrayList<DonateList> donateListArrayList;
+
+    public DonateFragmentRecyclerViewAdapter(Context context, ArrayList<DonateList> donateListArrayList) {
+        this.context = context;
+        this.donateListArrayList = donateListArrayList;
+    }
+
+    @Override
+    public DonateFragmentRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView;
+
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        itemView = inflater.inflate(R.layout.list_chose1, parent, false);
+        return new DonateFragmentRecyclerViewHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(DonateFragmentRecyclerViewHolder holder, int position) {
+    }
+
+    @Override
+    public int getItemCount() {
+        return donateListArrayList.size();
+    }
+
+
+    class DonateFragmentRecyclerViewHolder extends RecyclerView.ViewHolder {
+
+        public DonateFragmentRecyclerViewHolder(View itemView) {
+            super(itemView);
+        }
     }
 }

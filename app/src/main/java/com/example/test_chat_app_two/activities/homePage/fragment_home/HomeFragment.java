@@ -1,4 +1,4 @@
-package com.example.test_chat_app_two.homePage.fragment_home;
+package com.example.test_chat_app_two.activities.homePage.fragment_home;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,19 +9,15 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.test_chat_app_two.R;
-import com.example.test_chat_app_two.RecyclerItemClickListener;
-import com.example.test_chat_app_two.chatMessageMain.MainChatActivity;
-import com.example.test_chat_app_two.homePage.ChoseAdapterRecyclerView;
-import com.example.test_chat_app_two.homePage.Home_activity;
+import com.example.test_chat_app_two.helper.RecyclerItemClickListener;
+import com.example.test_chat_app_two.activities.chatMessageMain.MainChatActivity;
 
 import me.relex.circleindicator.CircleIndicator;
 
@@ -38,8 +34,9 @@ public class HomeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    ViewPager viewPager;
+
     // TODO: Rename and change types of parameters
+    ViewPager viewPager;
     private String mParam1;
     private String mParam2;
     private OnFragmentInteractionListener mListener;
@@ -88,7 +85,9 @@ public class HomeFragment extends Fragment {
         int image_list[] = {R.drawable.template, R.drawable.template, R.drawable.template};
 
         itemContainer = (RecyclerView) view.findViewById(R.id.recyclerView);
-        itemContainer.addOnItemTouchListener(new RecyclerItemClickListener(context, itemContainer, new RecyclerItemClickListener.OnItemClickListener() {
+        itemContainer.addOnItemTouchListener(new RecyclerItemClickListener(
+                context, itemContainer, new RecyclerItemClickListener.OnItemClickListener() {
+
             @Override
             public void onItemClick(View view, int position) {
                 Toast.makeText(getActivity(), "click", Toast.LENGTH_SHORT).show();
@@ -109,7 +108,7 @@ public class HomeFragment extends Fragment {
         layoutManager = new LinearLayoutManager(getActivity());
         itemContainer.setLayoutManager(layoutManager);
 
-        adapter = new HomeFragmentRecyclerViewAdapter(image_list, getActivity());
+        adapter = new HomeFragmentRecyclerViewAdapter(getActivity(), image_list);
         itemContainer.setAdapter(adapter);
 
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
@@ -167,10 +166,10 @@ class HomeFragmentRecyclerViewAdapter extends RecyclerView.Adapter<HomeFragmentR
     int image_list[];
     Context context;
 
-    public HomeFragmentRecyclerViewAdapter(int[] image_list, Context context) {
+    public HomeFragmentRecyclerViewAdapter(Context context, int[] image_list) {
         super();
-        this.image_list = image_list;
         this.context = context;
+        this.image_list = image_list;
     }
 
     @Override
@@ -184,7 +183,6 @@ class HomeFragmentRecyclerViewAdapter extends RecyclerView.Adapter<HomeFragmentR
 
     @Override
     public void onBindViewHolder(HomeFragmentRecyclerViewHolder holder, int position) {
-        System.out.println("Position " + position);
         holder.image_view_screen_item.setImageResource(image_list[position]);
     }
 

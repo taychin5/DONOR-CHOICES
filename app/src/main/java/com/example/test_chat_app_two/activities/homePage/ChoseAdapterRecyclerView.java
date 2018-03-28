@@ -1,4 +1,4 @@
-package com.example.test_chat_app_two.homePage;
+package com.example.test_chat_app_two.activities.homePage;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.test_chat_app_two.ItemClickListener;
+import com.example.test_chat_app_two.helper.ItemClickListener;
 import com.example.test_chat_app_two.R;
-import com.example.test_chat_app_two.chatMessageMain.MainChatActivity;
+import com.example.test_chat_app_two.activities.chatMessageMain.MainChatActivity;
 
 
 /**

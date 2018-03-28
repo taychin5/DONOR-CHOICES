@@ -1,4 +1,4 @@
-package com.example.test_chat_app_two.chatMessageMain;
+package com.example.test_chat_app_two.activities.chatMessageMain;
 
 /**
  * Created by Toddy on 24/02/2018.

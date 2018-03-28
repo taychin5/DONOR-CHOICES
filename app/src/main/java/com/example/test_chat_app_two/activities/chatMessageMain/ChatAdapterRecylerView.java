@@ -1,6 +1,5 @@
-package com.example.test_chat_app_two.chatMessageMain;
+package com.example.test_chat_app_two.activities.chatMessageMain;
 
-import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

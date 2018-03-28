@@ -11,12 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".homePage.ListViewChoseActivity" />
-        <activity android:name=".chatMessageMain.MainChatActivity" />
+        <activity android:name=".activities.chatMessageMain.MainChatActivity" />
         <activity
-            android:name=".chatMessageMain.PopChooseActivity"
+            android:name=".activities.chatMessageMain.PopChooseActivity"
             android:theme="@style/AppTheme.PopMe" />
-        <activity android:name=".first_activity">
+        <activity android:name=".activities.first_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,10 +23,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".chatMessageMain.PopChooseDonateActivity"
+            android:name=".activities.chatMessageMain.PopChooseDonateActivity"
             android:theme="@style/AppTheme.PopMe" />
         <activity
-            android:name=".homePage.Home_activity"
+            android:name=".activities.homePage.Home_activity"
             android:label="@string/title_activity_home_activity"></activity>
     </application>
 

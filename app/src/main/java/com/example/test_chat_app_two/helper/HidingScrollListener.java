@@ -1,4 +1,4 @@
-package com.example.test_chat_app_two;
+package com.example.test_chat_app_two.helper;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;

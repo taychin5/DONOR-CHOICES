@@ -1,4 +1,4 @@
-package com.example.test_chat_app_two.chatMessageMain;
+package com.example.test_chat_app_two.activities.chatMessageMain;
 
 import android.app.AlertDialog;
 import android.app.Notification;
@@ -20,7 +20,9 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.test_chat_app_two.MessageThisSeason;
+import com.example.test_chat_app_two.activities.homePage.fragment_home.DonateFragment;
+import com.example.test_chat_app_two.value_class.DonateList;
+import com.example.test_chat_app_two.value_class.MessageThisSeason;
 import com.example.test_chat_app_two.R;
 
 public class PopChooseDonateActivity extends AppCompatActivity {
@@ -103,6 +105,10 @@ public class PopChooseDonateActivity extends AppCompatActivity {
                 MessageThisSeason messageStorage = new MessageThisSeason();
                 int newPath = messageStorage.generateNextPath(chose, MainChatActivity.path);
 
+                String des = messageStorage.getChooseDescription(MainChatActivity.path, chose, 0);
+                DonateList donateList = new DonateList(19, 1, MainChatActivity.path, des);
+                DonateFragment.donateListArrayList.add(donateList);
+
                 MainChatActivity.path = newPath;
                 MainChatActivity.hit = 0;
 
@@ -113,6 +119,7 @@ public class PopChooseDonateActivity extends AppCompatActivity {
 
                 MainChatActivity.buttonOnLeft.setVisibility(View.GONE);
                 MainChatActivity.buttonOnRight.setVisibility(View.GONE);
+
 
                 finish();
             }
