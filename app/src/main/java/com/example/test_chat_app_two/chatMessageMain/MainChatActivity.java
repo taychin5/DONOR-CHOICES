@@ -10,10 +10,13 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -36,41 +39,44 @@ import pl.droidsonroids.gif.GifImageView;
 public class MainChatActivity extends AppCompatActivity {
 
 
-    private RecyclerView messagesContainer;
-    private ChatAdapterRecylerView adapter;
-
-    public static Button sendBtn;
-    public static Button buttonOnLeft;
-    public static Button buttonOnRight;
-    public static TextView textView;
-
-    private RelativeLayout relativeLayout;
-    private List<ChatMessage> chatHistory;
-    public static List<ChatMessage> messages = new ArrayList<>();
-    public static int hit;
-    public static int totalHit;
-    public static int path;
-    GifImageView gifImageView;
-    private Toolbar toolbarTop;
-
-    private ConstraintLayout characterIndex;
-
-    public static int health = 100;
-
     private static final int MESSAGE_RIGHT = 0;
     private static final int MESSAGE_LEFT = 1;
     private static final int MESSAGE_RIGHT_THINK = 2;
     private static final int MESSAGE_RIGHT_HURT = 3;
     private static final int MESSAGE_LEFT_HURT = 4;
+    public static Button sendBtn;
+    public static Button buttonOnLeft;
+    public static Button buttonOnRight;
+    public static TextView textView;
+    public static List<ChatMessage> messages = new ArrayList<>();
+    public static int hit;
+    public static int totalHit;
+    public static int path;
+    public static int health = 100;
+    GifImageView gifImageView;
+    private RecyclerView messagesContainer;
+    private ChatAdapterRecylerView adapter;
+    private RelativeLayout relativeLayout;
+    private List<ChatMessage> chatHistory;
+    private Toolbar toolbarTop;
+    private ConstraintLayout characterIndex;
 
-
-
+    public static void sendViewToBack(final View child) {
+        final ViewGroup parent = (ViewGroup) child.getParent();
+        if (null != parent) {
+            parent.removeView(child);
+            parent.addView(child, 0);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
 
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.chat_main);
 
         ProgressBar hpBar = (ProgressBar) findViewById(R.id.hp_bar);
@@ -130,7 +136,6 @@ public class MainChatActivity extends AppCompatActivity {
         messagesContainer.setLayoutManager(new WrapContentLinearLayoutManager(MainChatActivity.this));
         adapter = new ChatAdapterRecylerView(messages);
         messagesContainer.setAdapter(adapter);
-
 
         messagesContainer.setOnScrollListener(new HidingScrollListener() {
             @Override
@@ -207,7 +212,7 @@ public class MainChatActivity extends AppCompatActivity {
 
     }
 
-    private void displayChat() {
+    public void displayChat() {
         System.out.println(messages.size());
         adapter.notifyItemInserted(messages.size());
         messagesContainer.smoothScrollToPosition(messages.size());
@@ -230,6 +235,10 @@ public class MainChatActivity extends AppCompatActivity {
             @Override
             public void run() {
                 characterIndex.bringToFront();
+
+                //LinearLayoutManager llm = (LinearLayoutManager) messagesContainer.getLayoutManager();
+                //llm.scrollToPositionWithOffset(llm.findLastVisibleItemPosition(),50);
+
             }
         });
 
@@ -239,50 +248,81 @@ public class MainChatActivity extends AppCompatActivity {
     private void createChoiceButton(View v) {
         sendBtn.setVisibility(v.INVISIBLE);
 
+        MessageThisSeason messageStorage = new MessageThisSeason();
+
+        // getChooseDescription
+        // 0[x] = path
+        // 1[][x] = true -right
+        // false - left
+        // 2[][][x] = 0 head
+        //          = 1 description
+
+        String messageA = messageStorage.getChooseDescription(path, false, 0);
+        String messageB = messageStorage.getChooseDescription(path, true, 0);
+
+
         relativeLayout = findViewById(R.id.relativeLayoutBtn);
 
         buttonOnRight = new Button(MainChatActivity.this);
-        buttonOnRight.setText("choose right");
+
+        buttonOnRight.setText(messageA);
+        float paddingDp = 10f;
+        // Convert to pixels
+        int paddingPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, paddingDp,
+                getApplicationContext().getResources().getDisplayMetrics());
+
+        buttonOnRight.setPadding(paddingPx, paddingPx, paddingPx, paddingPx);
+
         buttonOnRight.setId(R.id.left_btn);
-        buttonOnRight.setGravity(Gravity.RIGHT);
+        buttonOnRight.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
         buttonOnRight.setX(-500);
         buttonOnRight.animate().translationX(0).setInterpolator(new AccelerateInterpolator(2));
 
 
-        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.MATCH_PARENT);
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
 
-        lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
+        lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
         lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        lp.addRule(RelativeLayout.ALIGN_TOP);
+        lp.addRule(RelativeLayout.ALIGN_END);
+        lp.setMargins(10, 2, 0, 2);
 
         relativeLayout.addView(buttonOnRight, lp);
 
+
         buttonOnLeft = new Button(MainChatActivity.this);
-        buttonOnLeft.setText("choose left");
+
+
+        buttonOnLeft.setText(messageB);
+        buttonOnLeft.setPadding(paddingPx, paddingPx, paddingPx, paddingPx);
         buttonOnLeft.setId(R.id.right_btn);
         buttonOnLeft.setX(500);
         buttonOnLeft.animate().translationX(0).setInterpolator(new AccelerateInterpolator(2));
-        buttonOnLeft.setGravity(Gravity.LEFT);
+        buttonOnLeft.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
 
-        RelativeLayout.LayoutParams lp2 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.MATCH_PARENT);
+        RelativeLayout.LayoutParams lp2 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
 
-        lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
-        lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        lp2.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+        lp2.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        lp2.addRule(RelativeLayout.BELOW, R.id.left_btn);
+        lp.setMargins(0, 2, 10, 2);
+
 
         relativeLayout.addView(buttonOnLeft, lp2);
 
-        textView = new TextView(MainChatActivity.this);
-        RelativeLayout.LayoutParams lptext = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.MATCH_PARENT);
-
-        lptext.addRule(RelativeLayout.CENTER_HORIZONTAL);
-        lptext.addRule(RelativeLayout.CENTER_IN_PARENT);
-
-
-        textView.setText("Chose your destiny \n please choose carefully ");
-        textView.setGravity(View.TEXT_ALIGNMENT_GRAVITY);
-        relativeLayout.addView(textView, lptext);
+//        textView = new TextView(MainChatActivity.this);
+//        RelativeLayout.LayoutParams lptext = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
+//                RelativeLayout.LayoutParams.MATCH_PARENT);
+//
+//        lptext.addRule(RelativeLayout.CENTER_HORIZONTAL);
+//        lptext.addRule(RelativeLayout.CENTER_IN_PARENT);
+//
+//
+//        textView.setText("Chose your destiny \n please choose carefully ");
+//        textView.setGravity(View.TEXT_ALIGNMENT_GRAVITY);
+//        relativeLayout.addView(textView, lptext);
 
 
     }
@@ -309,6 +349,7 @@ public class MainChatActivity extends AppCompatActivity {
                         Intent intentLeft1 = new Intent(getApplicationContext(), PopChooseActivity.class);
                         intentLeft1.putExtra("hit", hit);
                         intentLeft1.putExtra("choose", true);
+                        intentLeft1.putExtra("choosePath", path);
                         startActivity(intentLeft1);
                         break;
 
@@ -316,6 +357,7 @@ public class MainChatActivity extends AppCompatActivity {
                         Intent intentLeft2 = new Intent(getApplicationContext(), PopChooseDonateActivity.class);
                         intentLeft2.putExtra("hit", hit);
                         intentLeft2.putExtra("choose", true);
+                        intentLeft2.putExtra("choosePath", path);
                         startActivity(intentLeft2);
                         break;
 
@@ -323,6 +365,7 @@ public class MainChatActivity extends AppCompatActivity {
                         Intent intentLeft3 = new Intent(getApplicationContext(), PopChooseActivity.class);
                         intentLeft3.putExtra("hit", hit);
                         intentLeft3.putExtra("choose", true);
+                        intentLeft3.putExtra("choosePath", path);
                         startActivity(intentLeft3);
                         break;
                 }
@@ -340,6 +383,7 @@ public class MainChatActivity extends AppCompatActivity {
                         Intent intentRight1 = new Intent(getApplicationContext(), PopChooseActivity.class);
                         intentRight1.putExtra("hit", hit);
                         intentRight1.putExtra("choose", false);
+                        intentRight1.putExtra("choosePath", path);
                         startActivity(intentRight1);
                         break;
 
@@ -347,6 +391,7 @@ public class MainChatActivity extends AppCompatActivity {
                         Intent intentRight2 = new Intent(getApplicationContext(), PopChooseDonateActivity.class);
                         intentRight2.putExtra("hit", hit);
                         intentRight2.putExtra("choose", false);
+                        intentRight2.putExtra("choosePath", path);
                         startActivity(intentRight2);
                         break;
 
@@ -354,6 +399,7 @@ public class MainChatActivity extends AppCompatActivity {
                         Intent intentRight3 = new Intent(getApplicationContext(), PopChooseActivity.class);
                         intentRight3.putExtra("hit", hit);
                         intentRight3.putExtra("choose", false);
+                        intentRight3.putExtra("choosePath", path);
                         startActivity(intentRight3);
                 }
             }
@@ -419,15 +465,6 @@ public class MainChatActivity extends AppCompatActivity {
         ProgressBar hpBar = (ProgressBar) findViewById(R.id.hp_bar);
         hpBar.setProgress(health);
 
-    }
-
-
-    public static void sendViewToBack(final View child) {
-        final ViewGroup parent = (ViewGroup) child.getParent();
-        if (null != parent) {
-            parent.removeView(child);
-            parent.addView(child, 0);
-        }
     }
 }
 

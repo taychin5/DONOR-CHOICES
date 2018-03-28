@@ -2,6 +2,7 @@ package com.example.test_chat_app_two.chatMessageMain;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
@@ -13,19 +14,19 @@ import android.widget.TextView;
 import com.example.test_chat_app_two.MessageThisSeason;
 import com.example.test_chat_app_two.R;
 
+import java.text.DateFormat;
+import java.util.Date;
+
 
 public class PopChooseActivity extends Activity {
 
-    private Button btn_close;
-    private Button btn_chose;
-
-    int hit;
-    boolean choose;
-
     public TextView headTxt;
     public TextView description;
-
-
+    int hit;
+    int choosePath;
+    boolean choose;
+    private Button btn_close;
+    private Button btn_chose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +68,9 @@ public class PopChooseActivity extends Activity {
 
                 MainChatActivity.buttonOnLeft.setVisibility(View.GONE);
                 MainChatActivity.buttonOnRight.setVisibility(View.GONE);
-                MainChatActivity.textView.setVisibility(View.GONE);
+
+
+                setChooseToChat();
                 finish();
 
             }
@@ -77,10 +80,25 @@ public class PopChooseActivity extends Activity {
     void loadSendValue (){
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
+            choosePath = extras.getInt("choosePath");
             hit = extras.getInt("hit");
             choose = extras.getBoolean("choose");
             //The key argument here must match that used in the other activity
         }
+    }
+
+    private void setChooseToChat() {
+
+        MessageThisSeason messageStorage = new MessageThisSeason();
+
+        ChatMessage chatMessage = new ChatMessage();
+        chatMessage.setId(MainChatActivity.totalHit);
+        chatMessage.setMessage(messageStorage.getChooseDescription(choosePath, choose, 0));
+        chatMessage.setDate(DateFormat.getDateTimeInstance().format(new Date()));
+        // change to action bubble
+        chatMessage.setMe(messageStorage.isMe(choosePath, 1));
+
+        MainChatActivity.messages.add(chatMessage);
     }
 
     void setPopLayout(){

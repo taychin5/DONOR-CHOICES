@@ -47,6 +47,7 @@ public class ChatAdapterRecylerView extends RecyclerView.Adapter<MessageViewHold
             case MESSAGE_RIGHT:
                 itemView = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.right_chat, parent, false);
+
                 break;
 
             case MESSAGE_LEFT:

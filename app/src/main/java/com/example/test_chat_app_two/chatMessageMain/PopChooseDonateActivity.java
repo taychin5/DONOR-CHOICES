@@ -25,18 +25,12 @@ import com.example.test_chat_app_two.R;
 
 public class PopChooseDonateActivity extends AppCompatActivity {
 
-    private Button btn_close;
-    private Button btn_chose;
-
-    int hit;
-    boolean chose;
-
-
-
-
     public TextView txtHit;
     public TextView des;
-
+    int hit;
+    boolean chose;
+    private Button btn_close;
+    private Button btn_chose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,7 +113,6 @@ public class PopChooseDonateActivity extends AppCompatActivity {
 
                 MainChatActivity.buttonOnLeft.setVisibility(View.GONE);
                 MainChatActivity.buttonOnRight.setVisibility(View.GONE);
-                MainChatActivity.textView.setVisibility(View.GONE);
 
                 finish();
             }

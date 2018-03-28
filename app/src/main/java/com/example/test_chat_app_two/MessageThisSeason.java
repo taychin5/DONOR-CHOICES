@@ -10,25 +10,18 @@ package com.example.test_chat_app_two;
 
 public class MessageThisSeason {
 
-    private int path;
-
-    private int decide = 0;
-    private int decideSms = 1;
-    private int fight = 2;
-
-
     private static final int MESSAGE_RIGHT = 0;
     private static final int MESSAGE_LEFT = 1;
     private static final int MESSAGE_RIGHT_THINK = 2;
     private static final int MESSAGE_RIGHT_HURT = 3;
     private static final int MESSAGE_LEFT_HURT = 4;
-
-
     private static final int DO_CHOICE = 0;
     private static final int DO_CHOICE_DONATE = 1;
     private static final int DO_FIGHT = 2;
-
-
+    private int path;
+    private int decide = 0;
+    private int decideSms = 1;
+    private int fight = 2;
     private int isMe[][] = {
 
             //path 1
@@ -141,14 +134,14 @@ public class MessageThisSeason {
                     // Right
                     {
                             //head
-                            "hello world this is right",
+                            "hello world this is right1",
                             //description
                             "you choose right choice make you hit that hard"
                     },
                     // Left
                     {
                             //head
-                            "hello world this is Left",
+                            "hello world this is Left1",
                             //description
                             "you choose left choice make you hit that hard"
                     }
@@ -162,14 +155,14 @@ public class MessageThisSeason {
                     // Right
                     {
                             //head
-                            "hello world this is right",
+                            "hello world this is right2",
                             //description
                             "you choose right choice make you hit that hard"
                     },
                     // Left
                     {
                             //head
-                            "hello world this is Left",
+                            "hello world this is Left2",
                             //description
                             "you choose left choice make you hit that hard"
                     }
@@ -183,14 +176,14 @@ public class MessageThisSeason {
                     // Right
                     {
                             //head
-                            "hello world this is right",
+                            "hello world this is right3",
                             //description
                             "you choose right choice make you hit that hard"
                     },
                     // Left
                     {
                             //head
-                            "hello world this is Left",
+                            "hello world this is Left3",
                             //description
                             "you choose left choice make you hit that hard"
 

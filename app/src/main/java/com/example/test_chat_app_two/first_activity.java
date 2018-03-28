@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.test_chat_app_two.homePage.Home_activity;
 import com.example.test_chat_app_two.homePage.ListViewChoseActivity;
 
 
@@ -24,7 +25,7 @@ public class first_activity extends AppCompatActivity {
         constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListViewChoseActivity.class);
+                Intent intent = new Intent(getApplicationContext(), Home_activity.class);
                 startActivity(intent);
                 finish();
             }
