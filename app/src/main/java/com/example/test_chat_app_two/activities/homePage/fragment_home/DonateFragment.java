@@ -4,10 +4,18 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
+import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.example.test_chat_app_two.R;
 import com.example.test_chat_app_two.value_class.DonateList;
@@ -35,6 +43,8 @@ public class DonateFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     // TODO: Rename and change types and number of parameters
     private RecyclerView donateContainer;
+    private RecyclerView.LayoutManager layoutManager;
+    private DonateFragmentRecyclerViewAdapter adapter;
 
     public DonateFragment() {
         // Required empty public constructor
@@ -73,6 +83,43 @@ public class DonateFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_donate, container, false);
+        Context context = getActivity();
+
+
+        donateContainer = (RecyclerView) view.findViewById(R.id.recyclerView);
+        donateContainer.setHasFixedSize(true);
+        donateContainer.setSelected(true);
+
+        layoutManager = new LinearLayoutManager(getActivity());
+        donateContainer.setLayoutManager(layoutManager);
+
+        //load dummy history
+        DonateList donateList = new DonateList(1, 1, 1, "testssssssssssss");
+        donateListArrayList.add(donateList);
+        DonateList donateList2 = new DonateList(1, 1, 1, "hello");
+        donateListArrayList.add(donateList2);
+
+        SearchView searchView = (SearchView) view.findViewById(R.id.searchView);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                adapter.getFilter().filter(s);
+                return true;
+            }
+        });
+
+
+        System.out.println("test  " + donateListArrayList.size());
+        adapter = new DonateFragmentRecyclerViewAdapter(getActivity(), donateListArrayList);
+        //adapter.getFilter().filter("hello");
+        donateContainer.setAdapter(adapter);
+
         return view;
     }
 
@@ -115,15 +162,18 @@ public class DonateFragment extends Fragment {
     }
 }
 
-class DonateFragmentRecyclerViewAdapter extends RecyclerView.Adapter<DonateFragmentRecyclerViewAdapter.DonateFragmentRecyclerViewHolder> {
+class DonateFragmentRecyclerViewAdapter extends RecyclerView.Adapter<DonateFragmentRecyclerViewAdapter.DonateFragmentRecyclerViewHolder>
+        implements Filterable {
 
     Context context;
     private LayoutInflater layoutInflater;
     private ArrayList<DonateList> donateListArrayList;
+    private ArrayList<DonateList> mArrayList;
 
     public DonateFragmentRecyclerViewAdapter(Context context, ArrayList<DonateList> donateListArrayList) {
         this.context = context;
         this.donateListArrayList = donateListArrayList;
+        this.mArrayList = donateListArrayList;
     }
 
     @Override
@@ -131,12 +181,13 @@ class DonateFragmentRecyclerViewAdapter extends RecyclerView.Adapter<DonateFragm
         View itemView;
 
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        itemView = inflater.inflate(R.layout.list_chose1, parent, false);
+        itemView = inflater.inflate(R.layout.list_chose2, parent, false);
         return new DonateFragmentRecyclerViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(DonateFragmentRecyclerViewHolder holder, int position) {
+        holder.textview.setText(donateListArrayList.get(position).getChooseDescription());
     }
 
     @Override
@@ -144,11 +195,53 @@ class DonateFragmentRecyclerViewAdapter extends RecyclerView.Adapter<DonateFragm
         return donateListArrayList.size();
     }
 
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+
+                String charString = charSequence.toString();
+
+                if (charString.isEmpty()) {
+
+                    donateListArrayList = mArrayList;
+                } else {
+                    ArrayList<DonateList> filteredList = new ArrayList<>();
+
+                    for (DonateList androidVersion : mArrayList) {
+
+                        if (androidVersion.getChooseDescription().toLowerCase().contains(charString) /*|| androidVersion.getName().toLowerCase().contains(charString) || androidVersion.getVer().toLowerCase().contains(charString)*/) {
+
+                            filteredList.add(androidVersion);
+                        }
+                    }
+
+                    donateListArrayList = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = donateListArrayList;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                donateListArrayList = (ArrayList<DonateList>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
+
 
     class DonateFragmentRecyclerViewHolder extends RecyclerView.ViewHolder {
 
+        TextView textview;
+
         public DonateFragmentRecyclerViewHolder(View itemView) {
             super(itemView);
+            textview = (TextView) itemView.findViewById(R.id.textViewTest);
         }
     }
+
 }

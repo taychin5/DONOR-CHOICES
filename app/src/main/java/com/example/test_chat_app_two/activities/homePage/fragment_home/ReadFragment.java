@@ -4,11 +4,22 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.test_chat_app_two.R;
+import com.example.test_chat_app_two.activities.homePage.Home_activity;
+import com.example.test_chat_app_two.value_class.MainStory;
+
+import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +36,11 @@ public class ReadFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
+
+    private RecyclerView itemContainer;
+    private RecyclerView.LayoutManager layoutManager;
+    private ReadFragmentRecyclerViewAdapter adapter;
+
     private String mParam1;
     private String mParam2;
 
@@ -65,7 +81,19 @@ public class ReadFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_read, container, false);
+        View view = inflater.inflate(R.layout.fragment_read, container, false);
+        Context context = getActivity();
+
+        itemContainer = (RecyclerView) view.findViewById(R.id.recyclerView);
+
+        layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        itemContainer.setLayoutManager(layoutManager);
+
+
+        adapter = new ReadFragmentRecyclerViewAdapter(context, Home_activity.mainStoryList);
+        itemContainer.setAdapter(adapter);
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -105,4 +133,57 @@ public class ReadFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+}
+
+class ReadFragmentRecyclerViewAdapter extends RecyclerView.Adapter<ReadFragmentRecyclerViewAdapter.ReadFragmentRecyclerViewHolder> {
+
+
+    ArrayList<MainStory> mainStory;
+    Context context;
+
+    public ReadFragmentRecyclerViewAdapter(Context context, ArrayList<MainStory> mainStoryArrayList) {
+        this.context = context;
+        this.mainStory = mainStoryArrayList;
+
+    }
+
+    @Override
+    public ReadFragmentRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView;
+
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        itemView = inflater.inflate(R.layout.read_grid_list, parent, false);
+
+
+        return new ReadFragmentRecyclerViewHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(ReadFragmentRecyclerViewHolder holder, int position) {
+        System.out.println("position ===    " + position);
+        System.out.println(mainStory.get(position).getStoryTitle());
+        System.out.println("Sizee ========= " + mainStory.size());
+        holder.textMain.setText(mainStory.get(position).getStoryTitle());
+        holder.imageMain.setImageResource(mainStory.get(position).getMainImage());
+    }
+
+    @Override
+    public int getItemCount() {
+        return mainStory.size();
+    }
+
+    class ReadFragmentRecyclerViewHolder extends RecyclerView.ViewHolder {
+
+        ImageView imageMain;
+        TextView textMain;
+
+        public ReadFragmentRecyclerViewHolder(View itemView) {
+            super(itemView);
+            imageMain = (ImageView) itemView.findViewById(R.id.mainImage);
+            textMain = (TextView) itemView.findViewById(R.id.MainTitle);
+        }
+
+
+    }
+
 }

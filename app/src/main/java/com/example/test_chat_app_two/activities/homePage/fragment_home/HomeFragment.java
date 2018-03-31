@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.test_chat_app_two.R;
+import com.example.test_chat_app_two.activities.ChoosenActivity;
+import com.example.test_chat_app_two.activities.homePage.Home_activity;
 import com.example.test_chat_app_two.helper.RecyclerItemClickListener;
 import com.example.test_chat_app_two.activities.chatMessageMain.MainChatActivity;
 
@@ -90,10 +92,11 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onItemClick(View view, int position) {
-                Toast.makeText(getActivity(), "click", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), MainChatActivity.class);
+                Toast.makeText(getActivity(), "click" + position, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), ChoosenActivity.class);
+                intent.putExtra("chooseTitle", Home_activity.mainStoryList.get(position).getStoryTitle());
+                intent.putExtra("choosePosition", position);
                 startActivity(intent);
-                getActivity().finish();
             }
 
             @Override
@@ -183,7 +186,7 @@ class HomeFragmentRecyclerViewAdapter extends RecyclerView.Adapter<HomeFragmentR
 
     @Override
     public void onBindViewHolder(HomeFragmentRecyclerViewHolder holder, int position) {
-        holder.image_view_screen_item.setImageResource(image_list[position]);
+        holder.image_view_screen_item.setImageResource(Home_activity.mainStoryList.get(position).getMainImage());
     }
 
     @Override
