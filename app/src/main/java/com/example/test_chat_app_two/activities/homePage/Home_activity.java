@@ -5,8 +5,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.test_chat_app_two.R;
 import com.example.test_chat_app_two.activities.chatMessageMain.MainChatActivity;
@@ -21,6 +28,12 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
 
 
     public static ArrayList<MainStory> mainStoryList;
+
+    private DrawerLayout mDrawer;
+    private Toolbar toolbar;
+    private NavigationView nvDrawer;
+
+    private ActionBarDrawerToggle drawerToggle;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -49,9 +62,22 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-
         installAllStory();
+
+        // Set a Toolbar to replace the ActionBar.
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        toolbar.setNavigationIcon(R.drawable.bubble_out_9);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+
+
 
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -62,6 +88,19 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
         transaction.replace(R.id.content, new HomeFragment()).commit();
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu,menu);
+        return true ;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public void onFragmentInteraction(Uri uri) {
@@ -75,6 +114,7 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
         newMainStory.setMainImage(R.drawable.sence1_1);
         newMainStory.setNewActivity("Home_activity");
         newMainStory.setStoryTitle("this");
+        newMainStory.setCharity("serb");
 
         mainStoryList.add(newMainStory);
 
@@ -83,6 +123,7 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
         newMainStory1.setMainImage(R.drawable.sence1_2);
         newMainStory1.setNewActivity("Home_activity1");
         newMainStory1.setStoryTitle("this");
+        newMainStory1.setCharity("serb");
 
         mainStoryList.add(newMainStory1);
 
@@ -90,6 +131,7 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
         newMainStory2.setMainImage(R.drawable.giphy);
         newMainStory2.setNewActivity("Home_activity1");
         newMainStory2.setStoryTitle("abc");
+        newMainStory2.setCharity("ban park");
 
         mainStoryList.add(newMainStory2);
 

@@ -127,6 +127,8 @@ public class MainChatActivity extends AppCompatActivity {
         setSupportActionBar(toolbarTop);
         setTitle(getString(R.string.app_name));
         toolbarTop.setTitleTextColor(getResources().getColor(android.R.color.white));
+        // set back buttom image
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home_black_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 

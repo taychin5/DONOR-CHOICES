@@ -106,7 +106,7 @@ public class PopChooseDonateActivity extends AppCompatActivity {
                 int newPath = messageStorage.generateNextPath(chose, MainChatActivity.path);
 
                 String des = messageStorage.getChooseDescription(MainChatActivity.path, chose, 0);
-                DonateList donateList = new DonateList(19, 1, MainChatActivity.path, des);
+                DonateList donateList = new DonateList(19, 1,MessageThisSeason.getThisCharity(), MainChatActivity.path, des);
                 DonateFragment.donateListArrayList.add(donateList);
 
                 MainChatActivity.path = newPath;

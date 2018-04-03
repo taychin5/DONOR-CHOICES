@@ -94,9 +94,9 @@ public class DonateFragment extends Fragment {
         donateContainer.setLayoutManager(layoutManager);
 
         //load dummy history
-        DonateList donateList = new DonateList(1, 1, 1, "testssssssssssss");
+        DonateList donateList = new DonateList(1, 1,"ban park" ,1, "testssssssssssss");
         donateListArrayList.add(donateList);
-        DonateList donateList2 = new DonateList(1, 1, 1, "hello");
+        DonateList donateList2 = new DonateList(1, 1, "serb",1, "hello");
         donateListArrayList.add(donateList2);
 
         SearchView searchView = (SearchView) view.findViewById(R.id.searchView);

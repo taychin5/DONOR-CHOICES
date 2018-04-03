@@ -96,6 +96,7 @@ public class HomeFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), ChoosenActivity.class);
                 intent.putExtra("chooseTitle", Home_activity.mainStoryList.get(position).getStoryTitle());
                 intent.putExtra("choosePosition", position);
+                intent.putExtra("charityName",Home_activity.mainStoryList.get(position).getCharity());
                 startActivity(intent);
             }
 

@@ -13,14 +13,19 @@ import android.widget.TextView;
 import com.example.test_chat_app_two.R;
 import com.example.test_chat_app_two.activities.chatMessageMain.MainChatActivity;
 import com.example.test_chat_app_two.activities.homePage.Home_activity;
+import com.example.test_chat_app_two.value_class.CharityInfo;
 
 public class ChoosenActivity extends AppCompatActivity {
 
     private int choosePosition;
     private String chooseTitle;
+    private String charityName;
+
+    private CharityInfo charityInfo;
 
     private Button goBtn;
     private TextView header;
+    private TextView charityNameTxt;
     private ImageView mainImg;
 
 
@@ -32,6 +37,7 @@ public class ChoosenActivity extends AppCompatActivity {
 
         loadSendValue();
         initControl();
+        setNewCharityinfo();
 
         header.setText(Home_activity.mainStoryList.get(choosePosition).getStoryTitle());
         mainImg.setImageResource(Home_activity.mainStoryList.get(choosePosition).getMainImage());
@@ -43,6 +49,18 @@ public class ChoosenActivity extends AppCompatActivity {
         goBtn = (Button) findViewById(R.id.goBtn);
         header = (TextView) findViewById(R.id.header);
         mainImg = (ImageView) findViewById(R.id.mainImage);
+        charityNameTxt = (TextView) findViewById(R.id.charity_name);
+
+
+        charityNameTxt.setText(charityName);
+        charityNameTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChoosenActivity.this,CharityActivity.class);
+                intent.putExtra("charityName",charityName);
+                startActivity(intent);
+            }
+        });
 
         goBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,12 +71,18 @@ public class ChoosenActivity extends AppCompatActivity {
         });
     }
 
-    void loadSendValue() {
+    private void loadSendValue() {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             chooseTitle = extras.getString("chooseTitle");
             choosePosition = extras.getInt("choosePosition");
+            charityName = extras.getString("charityName");
             //The key argument here must match that used in the other activity
         }
+    }
+
+    void setNewCharityinfo() {
+        charityInfo = new CharityInfo(charityName);
+
     }
 }

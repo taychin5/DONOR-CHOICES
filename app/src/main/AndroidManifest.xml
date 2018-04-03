@@ -28,7 +28,8 @@
         <activity
             android:name=".activities.homePage.Home_activity"
             android:label="@string/title_activity_home_activity" />
-        <activity android:name=".activities.ChoosenActivity"></activity>
+        <activity android:name=".activities.ChoosenActivity" />
+        <activity android:name=".activities.CharityActivity"></activity>
     </application>
 
 </manifest>

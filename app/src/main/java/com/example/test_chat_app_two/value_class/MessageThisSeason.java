@@ -10,6 +10,12 @@ package com.example.test_chat_app_two.value_class;
 
 public class MessageThisSeason {
 
+    private static final String thisCharity = "serb";
+
+    public static String getThisCharity() {
+        return thisCharity;
+    }
+
     private static final int MESSAGE_RIGHT = 0;
     private static final int MESSAGE_LEFT = 1;
     private static final int MESSAGE_RIGHT_THINK = 2;

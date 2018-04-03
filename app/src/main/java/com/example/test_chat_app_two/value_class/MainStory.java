@@ -19,8 +19,23 @@ public class MainStory {
     private int MainImage;
     private String storyTitle;
     private String newActivity;
+    private String Charity;
 
+    public int getAllstory() {
+        return allstory;
+    }
 
+    public void setAllstory(int allstory) {
+        this.allstory = allstory;
+    }
+
+    public String getCharity() {
+        return Charity;
+    }
+
+    public void setCharity(String charity) {
+        Charity = charity;
+    }
     // mainImage Getter n setter
 
     public int getMainImage() {

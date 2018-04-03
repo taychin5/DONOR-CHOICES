@@ -9,18 +9,22 @@ public class DonateList {
     private int story;
     private int patch;
     private String chooseDescription;
+    private String charity;
 
-    public DonateList(int when, int story, int patch, String chooseDescription) {
+    public DonateList(int when, int story,String charity, int patch, String chooseDescription) {
         this.when = when;
         this.story = story;
         this.patch = patch;
         this.chooseDescription = chooseDescription;
+        this.charity = charity;
     }
+
+    public String getCharity() { return charity; }
+    public void setCharity(String charity) { this.charity = charity; }
 
     public int getWhen() {
         return when;
     }
-
     public void setWhen(int when) {
         this.when = when;
     }
@@ -28,7 +32,6 @@ public class DonateList {
     public int getStory() {
         return story;
     }
-
     public void setStory(int story) {
         this.story = story;
     }
@@ -36,7 +39,6 @@ public class DonateList {
     public int getPatch() {
         return patch;
     }
-
     public void setPatch(int patch) {
         this.patch = patch;
     }
