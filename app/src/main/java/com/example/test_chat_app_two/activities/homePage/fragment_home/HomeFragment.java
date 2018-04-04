@@ -49,7 +49,10 @@ public class HomeFragment extends Fragment {
 
 
     private HomeFragmentRecyclerViewAdapter adapter;
+    private HomeFragmentRecyclerViewAdapter2 adapter2;
     private RecyclerView.LayoutManager layoutManager;
+    private RecyclerView.LayoutManager layoutManager2;
+
 
     public HomeFragment() {
         // Required empty public constructor
@@ -120,6 +123,18 @@ public class HomeFragment extends Fragment {
         adapter = new HomeFragmentRecyclerViewAdapter(getActivity(), image_list);
         itemContainer.setAdapter(adapter);
 
+
+        itemContainer3 = (RecyclerView) view.findViewById(R.id.recylerView3);
+        layoutManager2 = new LinearLayoutManager(getActivity());
+        itemContainer3.setLayoutManager(layoutManager2);
+
+        adapter2 = new HomeFragmentRecyclerViewAdapter2(getActivity());
+        itemContainer3.setAdapter(adapter2);
+
+
+
+
+
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(context);
@@ -128,10 +143,35 @@ public class HomeFragment extends Fragment {
         viewPager.setAdapter(viewPagerAdapter);
         indicator.setViewPager(viewPager);
 
+
         viewPager2 = (ViewPager) view.findViewById(R.id.viewPager2);
         viewPager2.setClipToPadding(false);
-        viewPager2.setPadding(dpToPx(16),0,dpToPx(38),0);
+        viewPager2.setPadding(dpToPx(20),0,dpToPx(38),0);
         viewPager2.setPageMargin(dpToPx(4));
+        viewPager2.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+//                System.out.println(position);
+//                if(position==0){
+//                    viewPager2.setPageMargin(dpToPx(4));
+//                    viewPager2.setPadding(dpToPx(0),0,dpToPx(44),0);
+//                }else{
+//                    viewPager2.setPageMargin(dpToPx(10));
+//                    viewPager2.setPadding(dpToPx(16),0,dpToPx(38),0);
+//                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
         ViewPagerAdapter2 viewPagerAdapter2 = new ViewPagerAdapter2(context);
         viewPager2.setAdapter(viewPagerAdapter2);
 
@@ -224,6 +264,48 @@ class HomeFragmentRecyclerViewAdapter extends RecyclerView.Adapter<HomeFragmentR
         public HomeFragmentRecyclerViewHolder(View itemView) {
             super(itemView);
             image_view_screen_item = (ImageView) itemView.findViewById(R.id.mainImage);
+        }
+    }
+}
+
+class HomeFragmentRecyclerViewAdapter2 extends RecyclerView.Adapter<HomeFragmentRecyclerViewAdapter2.HomeFragmentRecyclerViewHolder2>{
+
+    Context context;
+    int images[] ={R.drawable.a2,R.drawable.a2,R.drawable.a2,R.drawable.a2,R.drawable.a2,};
+
+    public HomeFragmentRecyclerViewAdapter2(Context context) {
+        super();
+        this.context = context;
+    }
+
+
+
+    @Override
+    public HomeFragmentRecyclerViewHolder2 onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView;
+
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        itemView = inflater.inflate(R.layout.list_chose3, parent, false);
+        return new HomeFragmentRecyclerViewAdapter2.HomeFragmentRecyclerViewHolder2(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(HomeFragmentRecyclerViewHolder2 holder, int position) {
+        holder.mainImg.setImageResource(images[position]);
+    }
+
+    @Override
+    public int getItemCount() {
+        return images.length;
+    }
+
+    class HomeFragmentRecyclerViewHolder2 extends RecyclerView.ViewHolder {
+
+        ImageView mainImg;
+
+        public HomeFragmentRecyclerViewHolder2(View itemView) {
+            super(itemView);
+            mainImg = (ImageView) itemView.findViewById(R.id.mainImage);
         }
     }
 }
