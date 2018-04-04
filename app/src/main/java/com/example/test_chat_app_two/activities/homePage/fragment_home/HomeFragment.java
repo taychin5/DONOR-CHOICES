@@ -2,6 +2,7 @@ package com.example.test_chat_app_two.activities.homePage.fragment_home;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,7 +20,6 @@ import com.example.test_chat_app_two.R;
 import com.example.test_chat_app_two.activities.ChoosenActivity;
 import com.example.test_chat_app_two.activities.homePage.Home_activity;
 import com.example.test_chat_app_two.helper.RecyclerItemClickListener;
-import com.example.test_chat_app_two.activities.chatMessageMain.MainChatActivity;
 
 import me.relex.circleindicator.CircleIndicator;
 
@@ -39,10 +39,15 @@ public class HomeFragment extends Fragment {
 
     // TODO: Rename and change types of parameters
     ViewPager viewPager;
+    ViewPager viewPager2;
     private String mParam1;
     private String mParam2;
     private OnFragmentInteractionListener mListener;
     private RecyclerView itemContainer;
+    private RecyclerView itemContainer2;
+    private RecyclerView itemContainer3;
+
+
     private HomeFragmentRecyclerViewAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
@@ -122,6 +127,14 @@ public class HomeFragment extends Fragment {
 
         viewPager.setAdapter(viewPagerAdapter);
         indicator.setViewPager(viewPager);
+
+        viewPager2 = (ViewPager) view.findViewById(R.id.viewPager2);
+        viewPager2.setClipToPadding(false);
+        viewPager2.setPadding(dpToPx(16),0,dpToPx(38),0);
+        viewPager2.setPageMargin(dpToPx(4));
+        ViewPagerAdapter2 viewPagerAdapter2 = new ViewPagerAdapter2(context);
+        viewPager2.setAdapter(viewPagerAdapter2);
+
         return view;
     }
 
@@ -163,6 +176,15 @@ public class HomeFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
+    public static int dpToPx(int dp)
+    {
+        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
+    }
+
+    public static int pxToDp(int px)
+    {
+        return (int) (px / Resources.getSystem().getDisplayMetrics().density);
+    }
 }
 
 class HomeFragmentRecyclerViewAdapter extends RecyclerView.Adapter<HomeFragmentRecyclerViewAdapter.HomeFragmentRecyclerViewHolder> {
@@ -210,7 +232,7 @@ class ViewPagerAdapter extends PagerAdapter {
 
     private Context context;
     private LayoutInflater layoutInflater;
-    private Integer[] images = {R.drawable.ic_dashboard_black_24dp, R.drawable.ic_launcher_background, R.drawable.ic_dashboard_black_24dp};
+    private Integer[] images = {R.drawable.testbanner, R.drawable.untitled4,R.drawable.a88};
 
     public ViewPagerAdapter(Context context) {
         this.context = context;
@@ -247,3 +269,56 @@ class ViewPagerAdapter extends PagerAdapter {
     }
 
 }
+
+class ViewPagerAdapter2 extends PagerAdapter {
+
+    private Context context;
+    private LayoutInflater layoutInflater;
+    private Integer[] images = {R.drawable.a1, R.drawable.a2,R.drawable.a3};
+
+    public ViewPagerAdapter2(Context context) {
+        this.context = context;
+    }
+
+    @Override
+    public int getCount() {
+        return images.length;
+    }
+
+    @Override
+    public boolean isViewFromObject(View view, Object object) {
+        return view == object;
+    }
+
+    @Override
+    public Object instantiateItem(ViewGroup container,final int position) {
+        layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        View view = layoutInflater.inflate(R.layout.view_pager_news, null);
+        ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
+        imageView.setImageResource(images[position]);
+
+        ViewPager vp = (ViewPager) container;
+        vp.addView(view, 0);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ChoosenActivity.class);
+                intent.putExtra("chooseTitle", Home_activity.mainStoryList.get(position).getStoryTitle());
+                intent.putExtra("choosePosition", position);
+                intent.putExtra("charityName",Home_activity.mainStoryList.get(position).getCharity());
+                context.startActivity(intent);
+            }
+        });
+        return view;
+    }
+
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        ViewPager vp = (ViewPager) container;
+        View view = (View) object;
+        vp.removeView(view);
+    }
+}
+

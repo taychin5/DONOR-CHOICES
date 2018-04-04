@@ -1,12 +1,10 @@
 package com.example.test_chat_app_two.activities.homePage;
 
-import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.test_chat_app_two.R;
-import com.example.test_chat_app_two.activities.chatMessageMain.MainChatActivity;
 import com.example.test_chat_app_two.activities.homePage.fragment_home.DonateFragment;
 import com.example.test_chat_app_two.activities.homePage.fragment_home.HomeFragment;
 import com.example.test_chat_app_two.activities.homePage.fragment_home.ReadFragment;
@@ -67,13 +64,6 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
         // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        toolbar.setNavigationIcon(R.drawable.bubble_out_9);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
 
 
