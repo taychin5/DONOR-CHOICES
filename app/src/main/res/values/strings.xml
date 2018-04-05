@@ -8,6 +8,7 @@
     <string name="title_home">หน้าหลัก</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="paragraph">"I'm a paragraph. Click here to add your own text and edit me. It's easy."</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

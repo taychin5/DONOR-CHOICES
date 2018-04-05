@@ -9,7 +9,7 @@
     tools:context=".activities.homePage.Home_activity">
 
 
-    <android.support.design.widget.BottomNavigationView
+    <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
         android:id="@+id/navigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

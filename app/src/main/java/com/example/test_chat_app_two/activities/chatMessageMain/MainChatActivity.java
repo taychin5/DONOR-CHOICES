@@ -18,6 +18,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -139,6 +141,8 @@ public class MainChatActivity extends AppCompatActivity {
         adapter = new ChatAdapterRecylerView(messages);
         messagesContainer.setAdapter(adapter);
 
+       // messagesContainer.addOnScrollListener(new CustomScrollListener());
+
         messagesContainer.setOnScrollListener(new HidingScrollListener() {
             @Override
             public void onHide() {
@@ -203,6 +207,49 @@ public class MainChatActivity extends AppCompatActivity {
 
     }
 
+    public class CustomScrollListener extends RecyclerView.OnScrollListener {
+        public CustomScrollListener() {
+        }
+
+        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            switch (newState) {
+                case RecyclerView.SCROLL_STATE_IDLE:
+                    System.out.println("The RecyclerView is not scrolling");
+                    break;
+                case RecyclerView.SCROLL_STATE_DRAGGING:
+                    System.out.println("Scrolling now");
+
+                    break;
+                case RecyclerView.SCROLL_STATE_SETTLING:
+                    System.out.println("Scroll Settling");
+
+                    break;
+
+            }
+
+        }
+
+        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            if (dx > 0) {
+                System.out.println("Scrolled Right");
+            } else if (dx < 0) {
+                System.out.println("Scrolled Left");
+            } else {
+                System.out.println("No Horizontal Scrolled");
+            }
+
+            if (dy > 0) {
+                System.out.println("Scrolled Downwards");
+                showCharacterIndex();
+            } else if (dy < 0) {
+                System.out.println("Scrolled Upwards");
+                hideCharacterIndex();
+            } else {
+                System.out.println("No Vertical Scrolled");
+            }
+        }
+    }
+
     private void GifImageGenerator() {
         switch (path) {
             case 0:
@@ -225,6 +272,15 @@ public class MainChatActivity extends AppCompatActivity {
 
         sendViewToBack(characterIndex);
         characterIndex.animate().translationY(characterIndex.getHeight() * 20).setInterpolator(new AccelerateInterpolator(2));
+//        Animation anim = new ScaleAnimation(
+//                1f,0f,
+//                1,0,
+//                Animation.RELATIVE_TO_SELF,0f,
+//                Animation.RELATIVE_TO_SELF,1f);
+//        anim.setFillAfter(true);
+//        anim.setDuration(1000);
+//        characterIndex.startAnimation(anim);
+
 //                FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mFabButton.getLayoutParams();
 //                int fabBottomMargin = lp.bottomMargin;
 //                mFabButton.animate().translationY(mFabButton.getHeight()+fabBottomMargin).setInterpolator(new AccelerateInterpolator(2)).start();
@@ -233,6 +289,15 @@ public class MainChatActivity extends AppCompatActivity {
     private void showCharacterIndex() {
         //   toolbarTop.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
 //                mFabButton.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
+
+//        Animation anim = new ScaleAnimation(
+//                0f,1f,
+//                0f,1f,
+//                Animation.RELATIVE_TO_SELF,0f,
+//                Animation.RELATIVE_TO_SELF,1f);
+//        anim.setFillAfter(true);
+//        anim.setDuration(1000);
+//        characterIndex.startAnimation(anim);
         characterIndex.animate().translationY(0).setInterpolator(new AccelerateInterpolator(2)).withEndAction(new Runnable() {
             @Override
             public void run() {
@@ -268,27 +333,25 @@ public class MainChatActivity extends AppCompatActivity {
         buttonOnRight = new Button(MainChatActivity.this);
 
         buttonOnRight.setText(messageA);
-        float paddingDp = 10f;
+        float paddingDp = 1f;
         // Convert to pixels
         int paddingPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, paddingDp,
                 getApplicationContext().getResources().getDisplayMetrics());
 
         buttonOnRight.setPadding(paddingPx, paddingPx, paddingPx, paddingPx);
-
         buttonOnRight.setId(R.id.left_btn);
+        buttonOnRight.setTextSize(14);
         buttonOnRight.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
         buttonOnRight.setX(-500);
         buttonOnRight.animate().translationX(0).setInterpolator(new AccelerateInterpolator(2));
 
 
         RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT);
+                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 45,
+                        getApplicationContext().getResources().getDisplayMetrics()));
 
-        lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-        lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-        lp.addRule(RelativeLayout.ALIGN_TOP);
-        lp.addRule(RelativeLayout.ALIGN_END);
-        lp.setMargins(10, 2, 0, 2);
+        //lp.addRule(RelativeLayout.ALIGN_TOP);
+        lp.setMargins(100, 0, 0, 0);
 
         relativeLayout.addView(buttonOnRight, lp);
 
@@ -297,6 +360,7 @@ public class MainChatActivity extends AppCompatActivity {
 
 
         buttonOnLeft.setText(messageB);
+        buttonOnLeft.setTextSize(14);
         buttonOnLeft.setPadding(paddingPx, paddingPx, paddingPx, paddingPx);
         buttonOnLeft.setId(R.id.right_btn);
         buttonOnLeft.setX(500);
@@ -304,12 +368,12 @@ public class MainChatActivity extends AppCompatActivity {
         buttonOnLeft.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
 
         RelativeLayout.LayoutParams lp2 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT);
+                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 45,
+                        getApplicationContext().getResources().getDisplayMetrics())   );
 
-        lp2.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-        lp2.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-        lp2.addRule(RelativeLayout.BELOW, R.id.left_btn);
-        lp.setMargins(0, 2, 10, 2);
+        lp2.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+
+        lp2.setMargins(0, 0, 100, 0);
 
 
         relativeLayout.addView(buttonOnLeft, lp2);

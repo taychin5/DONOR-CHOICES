@@ -12,12 +12,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.test_chat_app_two.R;
 import com.example.test_chat_app_two.activities.homePage.fragment_home.DonateFragment;
 import com.example.test_chat_app_two.activities.homePage.fragment_home.HomeFragment;
 import com.example.test_chat_app_two.activities.homePage.fragment_home.ReadFragment;
 import com.example.test_chat_app_two.value_class.MainStory;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import java.util.ArrayList;
 
@@ -29,7 +31,7 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
-
+    private TextView toolbarTxt;
     private ActionBarDrawerToggle drawerToggle;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -42,12 +44,15 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
 
             switch (item.getItemId()) {
                 case R.id.navigation_home:
+                    toolbarTxt.setText("Home Page");
                     transaction.replace(R.id.content, new HomeFragment()).commit();
                     return true;
                 case R.id.navigation_dashboard:
+                    toolbarTxt.setText("All donor");
                     transaction.replace(R.id.content, new ReadFragment()).commit();
                     return true;
                 case R.id.navigation_notifications:
+                    toolbarTxt.setText("History");
                     transaction.replace(R.id.content, new DonateFragment()).commit();
                     return true;
             }
@@ -64,6 +69,11 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
         // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        BottomNavigationViewEx bnve = (BottomNavigationViewEx) findViewById(R.id.navigation);
+        bnve.setIconSize(20, 20);
+        bnve.enableItemShiftingMode(true);
+        bnve.setSmallTextSize(20);
+        toolbarTxt = findViewById(R.id.toolbar_title);
 
 
 
@@ -100,6 +110,7 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
 
     private void installAllStory() {
         mainStoryList = new ArrayList<MainStory>();
+
         MainStory newMainStory = new MainStory();
         newMainStory.setMainImage(R.drawable.sence1_1);
         newMainStory.setNewActivity("Home_activity");
@@ -124,6 +135,36 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
         newMainStory2.setCharity("ban park");
 
         mainStoryList.add(newMainStory2);
+
+        MainStory newMainStory3 = new MainStory();
+        newMainStory3.setMainImage(R.drawable.sence1_1);
+        newMainStory3.setNewActivity("Home_activity");
+        newMainStory3.setStoryTitle("this");
+        newMainStory3.setCharity("serb");
+
+        mainStoryList.add(newMainStory3);
+
+
+        MainStory newMainStory4 = new MainStory();
+        newMainStory4.setMainImage(R.drawable.sence1_2);
+        newMainStory4.setNewActivity("Home_activity1");
+        newMainStory4.setStoryTitle("this");
+        newMainStory4.setCharity("serb");
+
+        mainStoryList.add(newMainStory4);
+
+        MainStory newMainStory5 = new MainStory();
+        newMainStory5.setMainImage(R.drawable.giphy);
+        newMainStory5.setNewActivity("Home_activity1");
+        newMainStory5.setStoryTitle("abc");
+        newMainStory5.setCharity("ban park");
+
+        mainStoryList.add(newMainStory5);
+
+
+
+
+
 
         for (int i = 0; i < mainStoryList.size(); i++) {
             System.out.println("Text = " + i + mainStoryList.get(i).getStoryTitle() + mainStoryList.get(i).getMainImage());

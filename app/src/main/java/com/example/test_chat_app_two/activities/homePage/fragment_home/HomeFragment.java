@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,6 +21,9 @@ import com.example.test_chat_app_two.R;
 import com.example.test_chat_app_two.activities.ChoosenActivity;
 import com.example.test_chat_app_two.activities.homePage.Home_activity;
 import com.example.test_chat_app_two.helper.RecyclerItemClickListener;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import me.relex.circleindicator.CircleIndicator;
 
@@ -92,7 +96,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         Context context = getActivity();
 
-        int image_list[] = {R.drawable.template, R.drawable.template, R.drawable.template};
+        int image_list[] = {R.drawable.template, R.drawable.template, R.drawable.template,R.drawable.template, R.drawable.template, R.drawable.template};
 
         itemContainer = (RecyclerView) view.findViewById(R.id.recyclerView);
         itemContainer.addOnItemTouchListener(new RecyclerItemClickListener(
@@ -117,7 +121,7 @@ public class HomeFragment extends Fragment {
         itemContainer.setSelected(true);
 
 
-        layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager = new GridLayoutManager(context,2);
         itemContainer.setLayoutManager(layoutManager);
 
         adapter = new HomeFragmentRecyclerViewAdapter(getActivity(), image_list);
@@ -142,6 +146,9 @@ public class HomeFragment extends Fragment {
 
         viewPager.setAdapter(viewPagerAdapter);
         indicator.setViewPager(viewPager);
+
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new MyTimerTask(),2000,4000);
 
 
         viewPager2 = (ViewPager) view.findViewById(R.id.viewPager2);
@@ -225,7 +232,31 @@ public class HomeFragment extends Fragment {
     {
         return (int) (px / Resources.getSystem().getDisplayMetrics().density);
     }
+
+    public class MyTimerTask extends TimerTask {
+
+
+        @Override
+        public void run() {
+            if(getActivity()==null)return;
+
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if(viewPager.getCurrentItem()==0){
+                        viewPager.setCurrentItem(1);
+                    }else if(viewPager.getCurrentItem()==1){
+                        viewPager.setCurrentItem(2);
+                    }else{
+                        viewPager.setCurrentItem(0);
+                    }
+                }
+            });
+        }
+    }
 }
+
+
 
 class HomeFragmentRecyclerViewAdapter extends RecyclerView.Adapter<HomeFragmentRecyclerViewAdapter.HomeFragmentRecyclerViewHolder> {
 
@@ -254,7 +285,7 @@ class HomeFragmentRecyclerViewAdapter extends RecyclerView.Adapter<HomeFragmentR
 
     @Override
     public int getItemCount() {
-        return image_list.length;
+        return 6;
     }
 
     class HomeFragmentRecyclerViewHolder extends RecyclerView.ViewHolder {
@@ -314,7 +345,7 @@ class ViewPagerAdapter extends PagerAdapter {
 
     private Context context;
     private LayoutInflater layoutInflater;
-    private Integer[] images = {R.drawable.testbanner, R.drawable.untitled4,R.drawable.a88};
+    private Integer[] images = {R.drawable.banner, R.drawable.banner,R.drawable.banner};
 
     public ViewPagerAdapter(Context context) {
         this.context = context;
