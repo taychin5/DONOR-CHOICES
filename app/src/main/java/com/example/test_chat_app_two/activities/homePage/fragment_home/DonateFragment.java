@@ -6,12 +6,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.SearchView;
@@ -21,7 +18,6 @@ import com.example.test_chat_app_two.R;
 import com.example.test_chat_app_two.value_class.DonateList;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -188,6 +184,7 @@ class DonateFragmentRecyclerViewAdapter extends RecyclerView.Adapter<DonateFragm
     @Override
     public void onBindViewHolder(DonateFragmentRecyclerViewHolder holder, int position) {
         holder.textview.setText(donateListArrayList.get(position).getChooseDescription());
+
     }
 
     @Override
@@ -240,7 +237,7 @@ class DonateFragmentRecyclerViewAdapter extends RecyclerView.Adapter<DonateFragm
 
         public DonateFragmentRecyclerViewHolder(View itemView) {
             super(itemView);
-            textview = (TextView) itemView.findViewById(R.id.textViewTest);
+            textview = (TextView) itemView.findViewById(R.id.Name);
         }
     }
 

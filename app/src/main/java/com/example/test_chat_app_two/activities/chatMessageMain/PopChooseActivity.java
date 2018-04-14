@@ -95,7 +95,7 @@ public class PopChooseActivity extends Activity {
         chatMessage.setMessage(messageStorage.getChooseDescription(choosePath, choose, 0));
         chatMessage.setDate(DateFormat.getDateTimeInstance().format(new Date()));
         // change to action bubble
-        chatMessage.setMe(messageStorage.isMe(choosePath, 1));
+        chatMessage.setMe(5);
 
         MainChatActivity.messages.add(chatMessage);
     }

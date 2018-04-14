@@ -28,6 +28,7 @@ public class ChatAdapterRecylerView extends RecyclerView.Adapter<MessageViewHold
     private static final int MESSAGE_RIGHT_THINK = 2;
     private static final int MESSAGE_RIGHT_HURT = 3;
     private static final int MESSAGE_LEFT_HURT = 4;
+    private static final int MESSAGE_Choose = 5;
 
 
     private final List<ChatMessage> chatMessages;
@@ -56,11 +57,15 @@ public class ChatAdapterRecylerView extends RecyclerView.Adapter<MessageViewHold
 
             case MESSAGE_RIGHT_THINK:
                 itemView = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.right_chat, parent, false);
+                        .inflate(R.layout.mid_chat, parent, false);
                 break;
             case MESSAGE_RIGHT_HURT:
                 itemView = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.right_chat, parent, false);
+                break;
+            case MESSAGE_Choose:
+                itemView = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.mid_chat, parent, false);
                 break;
 
             default:itemView = LayoutInflater.from(parent.getContext())
@@ -110,8 +115,8 @@ class MessageViewHolder extends RecyclerView.ViewHolder {
         txtInfo = (TextView) itemView.findViewById(R.id.txtInfo);
         characterImage = (GifImageView) itemView.findViewById(R.id.imgCharacter);
 
-        Typeface type = Typeface.createFromAsset(itemView.getContext().getAssets(),"fonts/2005_iannnnnAMD.ttf");
-        this.txtMessage.setTypeface(type);
+        //Typeface type = Typeface.createFromAsset(itemView.getContext().getAssets(),"fonts/2005_iannnnnAMD.ttf");
+        //this.txtMessage.setTypeface(type);
 
     }
 

@@ -6,138 +6,242 @@
     android:layout_height="match_parent"
     tools:context="com.example.test_chat_app_two.activities.ChoosenActivity">
 
-    <Button
-        android:id="@+id/goBtn"
-        android:layout_width="0dp"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/choose_toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="Button"
+        android:background="@drawable/toolbar_trans"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/mainImage"
-        android:layout_width="0dp"
-        android:layout_height="160dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/charity_name"
-        app:srcCompat="@drawable/a3" />
+        app:layout_constraintTop_toTopOf="@+id/choose_toolbar"
+        app:layout_constraintVertical_bias="0.0">
 
-    <TextView
-        android:id="@+id/header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        android:textSize="24dp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tag3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="#FF1978E0"
+            android:padding="4dp"
+            android:text="200"
+            android:textColor="#ffff"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/tag2"
+            app:layout_constraintTop_toTopOf="@+id/tag1" />
 
-    <TextView
-        android:id="@+id/charity_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header" />
+        <Button
+            android:id="@+id/goBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="เริ่มการผจญภัยครั้งใหม่"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/paragraph"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="เรื่องย่อ"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainImage" />
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/mainImage"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/total_donor"
-        android:layout_width="wrap_content"
-        android:layout_height="15dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="24dp"
-        android:text="Total Donor"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/mainImage"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/charity_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/headerMain" />
 
-    <TextView
-        android:id="@+id/total_donor_num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="100,000 D"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toEndOf="@+id/total_donor"
-        app:layout_constraintTop_toTopOf="@+id/total_donor" />
+        <TextView
+            android:id="@+id/des"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#451978e0"
+            android:maxLines="3"
+            android:padding="8dp"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:text="@string/paragraphtestlong"
+            android:textSize="10sp"
+            app:autoSizeMaxTextSize="20dp"
+            app:autoSizeMinTextSize="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tag1" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/jobTxt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/giphy" />
 
-    <TextView
-        android:id="@+id/jobTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="สตาฟของมูลนิธิ"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/goBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageView
+            android:id="@+id/mainImage"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="48dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/a3" />
 
-    <TextView
-        android:id="@+id/txt_job_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="อาชีพของคุณคือ"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:background="#7a000000"
+            app:layout_constraintBottom_toBottomOf="@+id/mainImage"
+            app:layout_constraintStart_toStartOf="@+id/mainImage">
+
+            <TextView
+                android:id="@+id/total_donor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:padding="0dp"
+                android:text="Total Donor"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/total_donor_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:padding="0dp"
+                android:text="100,000 D"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="@+id/total_donor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/total_donor"
+                app:layout_constraintTop_toTopOf="@+id/total_donor" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/jobpic"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/jobTxt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/giphy" />
+
+        <TextView
+            android:id="@+id/jobTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="สตาฟของมูลนิธิ"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/goBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_job_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="อาชีพของคุณคือ"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/jobpic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/charity_project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="โครงการเพื่อน้องใหม่"
+            android:textSize="10sp"
+            app:autoSizeMaxTextSize="10sp"
+            app:autoSizeMinTextSize="6sp"
+            app:layout_constraintBottom_toBottomOf="@+id/charity_name"
+            app:layout_constraintStart_toEndOf="@+id/charity_name"
+            app:layout_constraintTop_toTopOf="@+id/charity_name" />
+
+        <TextView
+            android:id="@+id/headerMain"
+            android:layout_width="wrap_content"
+            android:layout_height="24sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="สดุดรัก ที่พักใจนายเลี้ยงลูก"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainImage" />
+
+        <TextView
+            android:id="@+id/tag2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="#FF1978E0"
+            android:padding="4dp"
+            android:text="200"
+            android:textColor="#ffff"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/tag1"
+            app:layout_constraintTop_toTopOf="@+id/tag1" />
+
+        <TextView
+            android:id="@+id/tag1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="#FF1978E0"
+            android:padding="4dp"
+            android:text="200"
+            android:textColor="#ffff"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/charity_name" />
+
+    </android.support.constraint.ConstraintLayout>
+
 </android.support.constraint.ConstraintLayout>

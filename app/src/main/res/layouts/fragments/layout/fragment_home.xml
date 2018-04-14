@@ -8,14 +8,41 @@
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
+        android:id="@+id/scView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="165dp"
+                    android:layout_marginTop="0dp">
+
+                </android.support.v4.view.ViewPager>
+
+                <me.relex.circleindicator.CircleIndicator
+                    android:id="@+id/indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="8dp"
+                    android:paddingBottom="8dp" />
+
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/textView11"
@@ -41,59 +68,30 @@
                 tools:layout_conversion_absoluteHeight="165dp"
                 tools:layout_conversion_absoluteWidth="432dp">
 
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/viewPager"
-                    android:layout_width="wrap_content"
-                    android:layout_height="180dp"
-                    android:layout_marginTop="8dp"
-
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:layout_conversion_absoluteHeight="165dp"
-                    tools:layout_conversion_absoluteWidth="432dp">
-
-                </android.support.v4.view.ViewPager>
-
-                <me.relex.circleindicator.CircleIndicator
-                    android:id="@+id/indicator"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/viewPager"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_conversion_absoluteHeight="20dp"
-                    tools:layout_conversion_absoluteWidth="432dp" />
-
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/layoutHead1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
                 android:background="@drawable/my_custom_background"
-                android:padding="6dp"
+                android:padding="0dp"
 
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layoutViewpager">
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recyclerView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="16dp"
                     android:clipChildren="false"
+                    android:padding="0dp"
+                    android:paddingEnd="4dp"
+                    android:paddingStart="4dp"
                     android:scrollbars="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -107,8 +105,8 @@
                     android:id="@+id/head1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="16dp"
                     android:text="เรื่องใหม่น่าเล่น"
                     android:textColor="@color/cardview_dark_background"
                     android:textSize="22sp"
@@ -134,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/my_custom_background"
-                android:padding="6dp"
+                android:padding="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -142,9 +140,9 @@
 
                 <android.support.v4.view.ViewPager
                     android:id="@+id/viewPager2"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:layout_marginBottom="24dp"
+                    android:layout_width="0dp"
+                    android:layout_height="280dp"
+                    android:layout_marginBottom="8dp"
                     android:layout_marginTop="24dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -155,8 +153,8 @@
                     android:id="@+id/head2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="16dp"
                     android:text="ข่าวการบริจาค"
                     android:textColor="@color/cardview_dark_background"
                     android:textSize="22sp"
@@ -184,7 +182,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/my_custom_background"
-                android:padding="6dp"
+                android:padding="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -194,8 +192,8 @@
                     android:id="@+id/head3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="16dp"
                     android:text="เรื่องติดอันดับ"
                     android:textColor="@color/cardview_dark_background"
                     android:textSize="22sp"
@@ -220,10 +218,8 @@
                     android:id="@+id/recylerView3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

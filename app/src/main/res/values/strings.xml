@@ -6,9 +6,10 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_home_activity">Home_activity</string>
     <string name="title_home">หน้าหลัก</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_dashboard">รวมเรื่องราว</string>
+    <string name="title_notifications">ประวัติ</string>
     <string name="paragraph">"I'm a paragraph. Click here to add your own text and edit me. It's easy."</string>
+    <string name="paragraphtestlong">"I'm a paragraph. Click here to add your own text and edit me. It's easy. I'm a paragraph. Click here to add your own text and edit me. It's easy. I'm a paragraph. Click here to add your own text and edit me. It's easy. I'm a paragraph. Click here to add your own text and edit me. It's easy. I'm a paragraph. Click here to add your own text and edit me. It's easy."</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

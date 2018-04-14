@@ -19,12 +19,18 @@
             android:id="@+id/mainImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/sence1_2" />
+            app:srcCompat="@drawable/sence1_2"
+            />
 
         <TextView
             android:id="@+id/MainTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainImage"
             tools:text="This is mainTitle" />
 
 

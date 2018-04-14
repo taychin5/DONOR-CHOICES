@@ -15,6 +15,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.test_chat_app_two.R;
@@ -44,6 +46,7 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     ViewPager viewPager;
     ViewPager viewPager2;
+    ScrollView sv;
     private String mParam1;
     private String mParam2;
     private OnFragmentInteractionListener mListener;
@@ -97,7 +100,6 @@ public class HomeFragment extends Fragment {
         Context context = getActivity();
 
         int image_list[] = {R.drawable.template, R.drawable.template, R.drawable.template,R.drawable.template, R.drawable.template, R.drawable.template};
-
         itemContainer = (RecyclerView) view.findViewById(R.id.recyclerView);
         itemContainer.addOnItemTouchListener(new RecyclerItemClickListener(
                 context, itemContainer, new RecyclerItemClickListener.OnItemClickListener() {
@@ -117,8 +119,6 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getActivity(), "LongClick", Toast.LENGTH_SHORT).show();
             }
         }));
-        itemContainer.setHasFixedSize(true);
-        itemContainer.setSelected(true);
 
 
         layoutManager = new GridLayoutManager(context,2);
@@ -323,6 +323,8 @@ class HomeFragmentRecyclerViewAdapter2 extends RecyclerView.Adapter<HomeFragment
     @Override
     public void onBindViewHolder(HomeFragmentRecyclerViewHolder2 holder, int position) {
         holder.mainImg.setImageResource(images[position]);
+        int positiontxt = position+1;
+        holder.posNum.setText(""+positiontxt);
     }
 
     @Override
@@ -333,10 +335,12 @@ class HomeFragmentRecyclerViewAdapter2 extends RecyclerView.Adapter<HomeFragment
     class HomeFragmentRecyclerViewHolder2 extends RecyclerView.ViewHolder {
 
         ImageView mainImg;
+        TextView posNum;
 
         public HomeFragmentRecyclerViewHolder2(View itemView) {
             super(itemView);
             mainImg = (ImageView) itemView.findViewById(R.id.mainImage);
+            posNum = (TextView) itemView.findViewById(R.id.positiontxt);
         }
     }
 }
@@ -350,6 +354,8 @@ class ViewPagerAdapter extends PagerAdapter {
     public ViewPagerAdapter(Context context) {
         this.context = context;
     }
+
+
 
     @Override
     public int getCount() {
@@ -380,6 +386,8 @@ class ViewPagerAdapter extends PagerAdapter {
         View view = (View) object;
         vp.removeView(view);
     }
+
+
 
 }
 

@@ -12,14 +12,16 @@
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/bubble_in_9"
+        android:background="@drawable/new_btn_l"
         android:maxWidth="256dp"
-        android:padding="6dp"
+        android:padding="8dp"
+        android:paddingStart="16dp"
         android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgCharacter"
-        app:layout_constraintTop_toTopOf="@+id/imgCharacter" />
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/relativeLayout2"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayout2"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout2"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/txtInfo"
@@ -31,13 +33,25 @@
         app:layout_constraintBottom_toBottomOf="@+id/txtMessage"
         app:layout_constraintStart_toEndOf="@+id/txtMessage" />
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/imgCharacter"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/giphy"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/gifbor"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/imgCharacter"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/testpro"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

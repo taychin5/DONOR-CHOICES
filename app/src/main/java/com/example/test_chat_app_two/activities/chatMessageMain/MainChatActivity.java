@@ -26,6 +26,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
+import com.example.test_chat_app_two.activities.homePage.Home_activity;
 import com.example.test_chat_app_two.helper.HidingScrollListener;
 import com.example.test_chat_app_two.value_class.MessageThisSeason;
 import com.example.test_chat_app_two.R;
@@ -38,7 +39,7 @@ import java.util.List;
 import pl.droidsonroids.gif.GifImageView;
 
 
-public class MainChatActivity extends AppCompatActivity {
+public class  MainChatActivity extends AppCompatActivity {
 
 
     private static final int MESSAGE_RIGHT = 0;
@@ -124,6 +125,8 @@ public class MainChatActivity extends AppCompatActivity {
         messagesContainer = (RecyclerView) findViewById(R.id.messagesContainer);
         sendBtn = (Button) findViewById(R.id.chatSendButton);
         gifImageView = findViewById(R.id.gifImageMain);
+        int displayWidth = getWindowManager().getDefaultDisplay().getHeight();
+        gifImageView.getLayoutParams().height = displayWidth/(3);
 
         toolbarTop = (Toolbar) findViewById(R.id.toolbartop);
         setSupportActionBar(toolbarTop);
@@ -131,6 +134,7 @@ public class MainChatActivity extends AppCompatActivity {
         toolbarTop.setTitleTextColor(getResources().getColor(android.R.color.white));
         // set back buttom image
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home_black_24dp);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
@@ -175,8 +179,16 @@ public class MainChatActivity extends AppCompatActivity {
                 boolean isDone = messageStorage.isdone(path, hit);
 
                 if (isDone == true) {
+                    int newpath = messageStorage.generateNextPath(true,path);
+                    if(newpath>0) {
+                        chooseWhatToDO(v);
+                    }else {
+                        messages.clear();
+                        Intent intent = new Intent(getApplicationContext(), Home_activity.class);
+                        intent.putExtra("hit", hit);
+                        startActivity(intent);
 
-                    chooseWhatToDO(v);
+                    }
 
                 } else {
 
@@ -338,7 +350,7 @@ public class MainChatActivity extends AppCompatActivity {
         int paddingPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, paddingDp,
                 getApplicationContext().getResources().getDisplayMetrics());
 
-        buttonOnRight.setPadding(paddingPx, paddingPx, paddingPx, paddingPx);
+        buttonOnRight.setPadding(paddingPx*8*4, paddingPx*1, paddingPx*8, paddingPx*1);
         buttonOnRight.setId(R.id.left_btn);
         buttonOnRight.setTextSize(14);
         buttonOnRight.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
@@ -361,7 +373,7 @@ public class MainChatActivity extends AppCompatActivity {
 
         buttonOnLeft.setText(messageB);
         buttonOnLeft.setTextSize(14);
-        buttonOnLeft.setPadding(paddingPx, paddingPx, paddingPx, paddingPx);
+        buttonOnLeft.setPadding(paddingPx*8, paddingPx*1, paddingPx*20*4, paddingPx*1);
         buttonOnLeft.setId(R.id.right_btn);
         buttonOnLeft.setX(500);
         buttonOnLeft.animate().translationX(0).setInterpolator(new AccelerateInterpolator(2));
