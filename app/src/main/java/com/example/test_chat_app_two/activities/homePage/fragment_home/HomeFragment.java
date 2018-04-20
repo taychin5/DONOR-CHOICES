@@ -134,6 +134,24 @@ public class HomeFragment extends Fragment {
 
         adapter2 = new HomeFragmentRecyclerViewAdapter2(getActivity());
         itemContainer3.setAdapter(adapter2);
+        itemContainer3.addOnItemTouchListener(new RecyclerItemClickListener(
+                context, itemContainer, new RecyclerItemClickListener.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(getActivity(), "click" + position, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), ChoosenActivity.class);
+                intent.putExtra("chooseTitle", Home_activity.mainStoryList.get(position).getStoryTitle());
+                intent.putExtra("choosePosition", position);
+                intent.putExtra("charityName", Home_activity.mainStoryList.get(position).getCharity());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+                Toast.makeText(getActivity(), "LongClick", Toast.LENGTH_SHORT).show();
+            }
+        }));
 
 
 
@@ -256,8 +274,11 @@ public class HomeFragment extends Fragment {
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class HomeFragmentRecyclerViewAdapter extends RecyclerView.Adapter<HomeFragmentRecyclerViewAdapter.HomeFragmentRecyclerViewHolder> {
 
     int image_list[];
@@ -281,6 +302,9 @@ class HomeFragmentRecyclerViewAdapter extends RecyclerView.Adapter<HomeFragmentR
     @Override
     public void onBindViewHolder(HomeFragmentRecyclerViewHolder holder, int position) {
         holder.image_view_screen_item.setImageResource(Home_activity.mainStoryList.get(position).getMainImage());
+        holder.headTxt.setText(Home_activity.mainStoryList.get(position).getStoryTitle());
+        holder.charTxt.setText(Home_activity.mainStoryList.get(position).getCharity());
+        holder.viewTxt.setText("100k views");
     }
 
     @Override
@@ -291,10 +315,16 @@ class HomeFragmentRecyclerViewAdapter extends RecyclerView.Adapter<HomeFragmentR
     class HomeFragmentRecyclerViewHolder extends RecyclerView.ViewHolder {
 
         ImageView image_view_screen_item;
+        TextView headTxt;
+        TextView charTxt;
+        TextView viewTxt;
 
         public HomeFragmentRecyclerViewHolder(View itemView) {
             super(itemView);
             image_view_screen_item = (ImageView) itemView.findViewById(R.id.mainImage);
+            headTxt = itemView.findViewById(R.id.head_txt);
+            charTxt = itemView.findViewById(R.id.charity_txt);
+            viewTxt = itemView.findViewById(R.id.view_txt);
         }
     }
 }
@@ -322,9 +352,11 @@ class HomeFragmentRecyclerViewAdapter2 extends RecyclerView.Adapter<HomeFragment
 
     @Override
     public void onBindViewHolder(HomeFragmentRecyclerViewHolder2 holder, int position) {
-        holder.mainImg.setImageResource(images[position]);
+        holder.mainImg.setImageResource(Home_activity.mainStoryList.get(position).getMainImage());
         int positiontxt = position+1;
         holder.posNum.setText(""+positiontxt);
+        holder.headTxt.setText(Home_activity.mainStoryList.get(position).getStoryTitle());
+        holder.charityTxt.setText(Home_activity.mainStoryList.get(position).getCharity());
     }
 
     @Override
@@ -336,11 +368,20 @@ class HomeFragmentRecyclerViewAdapter2 extends RecyclerView.Adapter<HomeFragment
 
         ImageView mainImg;
         TextView posNum;
+        TextView headTxt;
+        TextView charityTxt;
+        TextView viewTxt;
+        TextView donateTxt;
 
         public HomeFragmentRecyclerViewHolder2(View itemView) {
             super(itemView);
             mainImg = (ImageView) itemView.findViewById(R.id.mainImage);
             posNum = (TextView) itemView.findViewById(R.id.positiontxt);
+            headTxt = itemView.findViewById(R.id.header);
+            charityTxt = itemView.findViewById(R.id.desTxt);
+            viewTxt = itemView.findViewById(R.id.viewtxt);
+            donateTxt = itemView.findViewById(R.id.donateTxt);
+
         }
     }
 }
@@ -396,6 +437,14 @@ class ViewPagerAdapter2 extends PagerAdapter {
     private Context context;
     private LayoutInflater layoutInflater;
     private Integer[] images = {R.drawable.a1, R.drawable.a2,R.drawable.a3};
+    private String[] headContent = {"ปลูกป่า เพาะพันธุ์ปัญญา เรียนรู้วิถีคนชนบท บ้านนาต้นจั่น สุโขทัย","ทางด่วนรับบริจาค ผ้าห่มช่วยภัยหนาว","พี่ตูนวิ่งเพื่อคนไทย"};
+    private String[] desContent = {"ปลูกป่า บนยอดเขาไฮโซ เป็นการขยายพื้นที่ป่าให้อุดมสมบูรณ์ และเป็นการช่วยลดการเกิดน้ำป่าจากภูเขา และ ยังเป็นที่อยู่อาศัยของสัตว์ต่างๆ และยังเป็นการอนุรักษ์ธรรมชาติให้กับชุมชนอีกด้วย"
+            ,"การทางพิเศษแห่งประเทศไทย (กทพ.) แจ้งว่า เนื่องจากขณะนี้ประเทศไทยอยู่ในช่วงเข้าสู่ฤดูหนาว โดยเฉพาะภาคเหนือและภาคตะวันออกเฉียงเหนือได้รับผลกระทบจากภัยหน\n" +
+            "\n" +
+            "อ่านข่าวต่อได้ที่: https://www.thairath.co.th/content/1114445",
+            "สื่อต่างประเทศรายงานข่าวความสำเร็จในการวิ่งการกุศลจากใต้สู่เหนือสุดของไทย ของ ตูน บอดี้สแลม นักร้องเพลงร็อก ที่ตอนนี้กลายเป็นวีรบุรุษของชาติ และได้รับ\n" +
+                    "\n" +
+                    "อ่านข่าวต่อได้ที่: https://www.thairath.co.th/content/1163783"};
 
     public ViewPagerAdapter2(Context context) {
         this.context = context;
@@ -415,13 +464,20 @@ class ViewPagerAdapter2 extends PagerAdapter {
     public Object instantiateItem(ViewGroup container,final int position) {
         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.view_pager_news, null);
-        ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
-        imageView.setImageResource(images[position]);
+        ImageView mainImg = (ImageView) view.findViewById(R.id.imageView);
+        TextView headerTxt = view.findViewById(R.id.header);
+        TextView desTxt = view.findViewById(R.id.des);
+
+        mainImg.setImageResource(images[position]);
+        headerTxt.setText(headContent[position]);
+        desTxt.setText("\t"+desContent[position]);
+
 
         ViewPager vp = (ViewPager) container;
         vp.addView(view, 0);
 
-        imageView.setOnClickListener(new View.OnClickListener() {
+
+        mainImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ChoosenActivity.class);

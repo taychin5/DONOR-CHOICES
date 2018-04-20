@@ -165,6 +165,7 @@ class ReadFragmentRecyclerViewAdapter extends RecyclerView.Adapter<ReadFragmentR
         System.out.println("Sizee ========= " + mainStory.size());
         holder.textMain.setText(mainStory.get(position).getStoryTitle());
         holder.imageMain.setImageResource(mainStory.get(position).getMainImage());
+        holder.charityTxt.setText(mainStory.get(position).getCharity());
     }
 
     @Override
@@ -176,11 +177,13 @@ class ReadFragmentRecyclerViewAdapter extends RecyclerView.Adapter<ReadFragmentR
 
         ImageView imageMain;
         TextView textMain;
+        TextView charityTxt;
 
         public ReadFragmentRecyclerViewHolder(View itemView) {
             super(itemView);
             imageMain = (ImageView) itemView.findViewById(R.id.mainImage);
             textMain = (TextView) itemView.findViewById(R.id.MainTitle);
+            charityTxt = itemView.findViewById(R.id.charityTxt);
         }
 
 

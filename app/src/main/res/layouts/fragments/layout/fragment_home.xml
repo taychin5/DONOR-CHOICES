@@ -44,19 +44,6 @@
 
             </RelativeLayout>
 
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="Dono Choices"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/logopic" />
-
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/layoutViewpager"
                 android:layout_width="0dp"
@@ -107,6 +94,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="16dp"
+                    android:fontFamily="@font/athiti_bold"
                     android:text="เรื่องใหม่น่าเล่น"
                     android:textColor="@color/cardview_dark_background"
                     android:textSize="22sp"
@@ -119,7 +107,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
-                    android:text="More"
+                    android:fontFamily="@font/athiti_light"
+                    android:text="เพิ่มเติม"
                     android:textColor="@color/colorPrimary"
                     app:layout_constraintBottom_toTopOf="@+id/recyclerView"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -143,7 +132,7 @@
                     android:layout_width="0dp"
                     android:layout_height="280dp"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -155,6 +144,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="16dp"
+                    android:fontFamily="@font/athiti_bold"
                     android:text="ข่าวการบริจาค"
                     android:textColor="@color/cardview_dark_background"
                     android:textSize="22sp"
@@ -169,7 +159,8 @@
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginTop="8dp"
-                    android:text="more"
+                    android:fontFamily="@font/athiti_light"
+                    android:text="เพิ่มเติม"
                     android:textColor="@color/colorPrimary"
                     app:layout_constraintBottom_toTopOf="@+id/viewPager2"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -194,6 +185,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="16dp"
+                    android:fontFamily="@font/athiti_bold"
                     android:text="เรื่องติดอันดับ"
                     android:textColor="@color/cardview_dark_background"
                     android:textSize="22sp"
@@ -208,7 +200,8 @@
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginTop="8dp"
-                    android:text="more"
+                    android:fontFamily="@font/athiti_light"
+                    android:text="เพิ่มเติม"
                     android:textColor="@color/colorPrimary"
                     app:layout_constraintBottom_toTopOf="@+id/recylerView3"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -228,12 +221,13 @@
 
             <ImageView
                 android:id="@+id/logopic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
-                android:src="@mipmap/ic_launcher"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_newlogo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layoutHead2" />
@@ -245,11 +239,12 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
+                android:fontFamily="@font/athiti_medium"
                 android:text="โปรเจคนี้จัดทำขึ้นเพื่อการศึกษา ของนิสิตคณะสถาปัตยกรรมศาสตร์ ภาควิชาการออกแบบอุตสาหกรรม \n ไม่ได้จัดทำขึ้นเพื่อหวังผลประโยชน์ทางการค้าใดๆ "
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                app:layout_constraintTop_toBottomOf="@+id/logopic" />
 
             <ImageView
                 android:id="@+id/logo1"
@@ -264,10 +259,12 @@
                 android:id="@+id/logo2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:src="@mipmap/ic_launcher"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />

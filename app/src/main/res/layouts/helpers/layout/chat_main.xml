@@ -33,11 +33,10 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gifImageMain"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="180dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/sence1_1"
-        app:layout_constraintDimensionRatio="w,1:1">
+        android:src="@drawable/sence1_1">
 
     </pl.droidsonroids.gif.GifImageView>
 

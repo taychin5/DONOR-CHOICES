@@ -11,6 +11,10 @@ import android.widget.TextView;
 
 import com.example.test_chat_app_two.R;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import pl.droidsonroids.gif.GifImageView;
@@ -81,6 +85,14 @@ public class ChatAdapterRecylerView extends RecyclerView.Adapter<MessageViewHold
     public void onBindViewHolder(MessageViewHolder holder, int position) {
         String message = chatMessages.get(position).getMessage();
         holder.getMessageTextView().setText(message);
+        int pos =getItemViewType(position);
+        if(pos==MESSAGE_RIGHT || pos==MESSAGE_LEFT){
+            SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
+            String format = sdf.format(Calendar.getInstance().getTime());
+        holder.txtInfo.setText(format);
+        }
+
+
     }
 
     @Override
@@ -103,7 +115,7 @@ public class ChatAdapterRecylerView extends RecyclerView.Adapter<MessageViewHold
 class MessageViewHolder extends RecyclerView.ViewHolder {
 
     private TextView txtMessage;
-    private TextView txtInfo;
+    TextView txtInfo;
     private LinearLayout content;
     private LinearLayout contentWithBG;
     private GifImageView characterImage;

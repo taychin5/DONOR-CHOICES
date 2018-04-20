@@ -19,7 +19,8 @@
         android:paddingEnd="16dp"
         android:text="TextView"
         android:textColor="@android:color/background_light"
-        android:textSize="12sp"
+        android:textSize="14sp"
+        android:fontFamily="@font/athiti_medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -31,7 +31,10 @@ public class ChoosenActivity extends AppCompatActivity {
     private Button goBtn;
     private TextView header;
     private TextView charityNameTxt;
+    private TextView headerMain;
+    private TextView desTxt;
     private ImageView mainImg;
+
 
     private ShareActionProvider mShareActionProvider;
 
@@ -49,7 +52,7 @@ public class ChoosenActivity extends AppCompatActivity {
 
         toolbar = (Toolbar)findViewById(R.id.choose_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home_black_24dp);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_chevron_left_black_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -59,6 +62,10 @@ public class ChoosenActivity extends AppCompatActivity {
         mainImg.setImageResource(Home_activity.mainStoryList.get(choosePosition).getMainImage());
         int displayWidth = getWindowManager().getDefaultDisplay().getHeight();
         mainImg.getLayoutParams().height = displayWidth/3;
+
+        headerMain.setText(Home_activity.mainStoryList.get(choosePosition).getStoryTitle());
+        charityNameTxt.setText(charityName);
+        desTxt.setText(Home_activity.mainStoryList.get(choosePosition).getDes());
 
 
     }
@@ -88,11 +95,13 @@ public class ChoosenActivity extends AppCompatActivity {
     void initControl() {
         goBtn = (Button) findViewById(R.id.goBtn);
         header = (TextView) findViewById(R.id.header);
+        headerMain = findViewById(R.id.headerMain);
         mainImg = (ImageView) findViewById(R.id.mainImage);
         charityNameTxt = (TextView) findViewById(R.id.charity_name);
+        desTxt = findViewById(R.id.desTxt);
 
 
-        charityNameTxt.setText(charityName);
+
         charityNameTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

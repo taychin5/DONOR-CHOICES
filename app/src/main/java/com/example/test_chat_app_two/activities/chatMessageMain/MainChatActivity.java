@@ -1,10 +1,15 @@
 package com.example.test_chat_app_two.activities.chatMessageMain;
 
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.provider.FontRequest;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.provider.FontsContractCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,6 +26,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.Button;
+import android.widget.MediaController;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -36,6 +42,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
 
 
@@ -125,15 +132,16 @@ public class  MainChatActivity extends AppCompatActivity {
         messagesContainer = (RecyclerView) findViewById(R.id.messagesContainer);
         sendBtn = (Button) findViewById(R.id.chatSendButton);
         gifImageView = findViewById(R.id.gifImageMain);
-        int displayWidth = getWindowManager().getDefaultDisplay().getHeight();
-        gifImageView.getLayoutParams().height = displayWidth/(3);
-
+        int displayWidth = getWindowManager().getDefaultDisplay().getWidth();
+        gifImageView.getLayoutParams().height = (displayWidth*9)/16;
+        final Boolean anim = false;
+        
         toolbarTop = (Toolbar) findViewById(R.id.toolbartop);
         setSupportActionBar(toolbarTop);
         setTitle(getString(R.string.app_name));
         toolbarTop.setTitleTextColor(getResources().getColor(android.R.color.white));
         // set back buttom image
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home_black_24dp);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_chevron_left_black_24dp);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -265,13 +273,212 @@ public class  MainChatActivity extends AppCompatActivity {
     private void GifImageGenerator() {
         switch (path) {
             case 0:
-                if (hit >= 3) {
-                    gifImageView.setImageResource(R.drawable.sence1_2);
+                if (0 <= hit && hit < 1) {
+                    gifImageView.setImageResource(R.drawable.sence_mountain);
+                } else if (1 <= hit && hit < 5) {
+                    gifImageView.setImageResource(R.drawable.sence_twotravel);
+                } else if (5 <= hit && hit < 6) {
+                    gifImageView.setImageResource(R.drawable.sence_hero);
+                } else if (6 <= hit && hit < 7) {
+                    gifImageView.setImageResource(R.drawable.sence_two_allies);
+                } else if (7 <= hit && hit < 8) {
+                    gifImageView.setImageResource(R.drawable.sence_allies);
+                } else if (8 <= hit && hit < 11) {
+                    gifImageView.setImageResource(R.drawable.sence_twotravel);
                 }
                 break;
-        }
 
+            case 1:
+                gifImageView.setImageResource(R.drawable.sence_camp);
+                break;
+
+            case 2:
+                gifImageView.setImageResource(R.drawable.sence_camp);
+                break;
+
+            case 3:
+                if (0 <= hit && hit < 1) {
+                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                } else if (1 <= hit && hit < 5) {
+                    gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                } else if (5 <= hit && hit < 7) {
+                    gifImageView.setImageResource(R.drawable.sence_think);
+                } else if (7 <= hit && hit < 10) {
+                    gifImageView.setImageResource(R.drawable.sence_evidence);
+                } else if (10 <= hit && hit < 12) {
+                    gifImageView.setImageResource(R.drawable.sence_back_moutain2);
+                } else if (12 <= hit && hit < 13) {
+                    gifImageView.setImageResource(R.drawable.sence_hide);
+                }
+                break;
+
+            case 4:
+                if (0 <= hit && hit < 1) {
+                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                } else if (1 <= hit && hit < 5) {
+                    gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                } else if (5 <= hit && hit < 7) {
+                    gifImageView.setImageResource(R.drawable.sence_think);
+                } else if (7 <= hit && hit < 10) {
+                    gifImageView.setImageResource(R.drawable.sence_evidence);
+                } else if (10 <= hit && hit < 11) {
+                    gifImageView.setImageResource(R.drawable.sence_back_moutain2);
+                } else if (11 <= hit && hit < 13) {
+                    gifImageView.setImageResource(R.drawable.sence_bag);
+                }
+                break;
+
+            case 5:
+                if (0 <= hit && hit < 3) {
+                    gifImageView.setImageResource(R.drawable.sence_hide);
+                } else if (3 <= hit && hit < 9) {
+                    gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                }
+                break;
+
+            case 6:
+                gifImageView.setImageResource(R.drawable.sence_back_moutain);
+                break;
+
+            case 7:
+                gifImageView.setImageResource(R.drawable.sence_wtf);
+                break;
+
+            case 8:
+                if (0 <= hit && hit < 3) {
+                    gifImageView.setImageResource(R.drawable.sence_run);
+                } else if (3 <= hit && hit < 5) {
+                    gifImageView.setImageResource(R.drawable.sence_back_moutain);
+                }
+            case 9:
+                if (0 <= hit && hit < 3) {
+                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                } else if (3 <= hit && hit < 11) {
+                    gifImageView.setImageResource(R.drawable.sence_hero);
+                }
+                break;
+
+            case 10:
+                if (0 <= hit && hit < 2) {
+                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                } else if (2 <= hit && hit < 5) {
+                    gifImageView.setImageResource(R.drawable.sence_hero);
+                }
+                break;
+
+            case 11:
+                if (0 <= hit && hit < 1) {
+                    gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                } else if (1 <= hit && hit < 4) {
+                    gifImageView.setImageResource(R.drawable.sence_back_moutain);
+                }
+                break;
+
+            case 12:
+                if (0 <= hit && hit < 4) {
+                    gifImageView.setImageResource(R.drawable.sence_helping);
+                } else if (4 <= hit && hit < 8) {
+                    gifImageView.setImageResource(R.drawable.sence_back_moutain);
+                }
+                break;
+
+            case 13:
+                if (0 <= hit && hit < 3) {
+                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                } else if (3 <= hit && hit < 8) {
+                    gifImageView.setImageResource(R.drawable.sence_mountain_morning_out);
+                }
+                break;
+
+            case 14:
+                gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                break;
+
+            case 15:
+                gifImageView.setImageResource(R.drawable.sence_run);
+                break;
+
+            case 16:
+                gifImageView.setImageResource(R.drawable.sence_hide);
+                break;
+
+            case 17:
+                if (0 <= hit && hit < 1) {
+                    //theif
+                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                } else if (1 <= hit && hit < 3) {
+                    gifImageView.setImageResource(R.drawable.sence_shot_me);
+                } else if (3 <= hit && hit < 4) {
+                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                } else if (4 <= hit && hit < 5) {
+                    gifImageView.setImageResource(R.drawable.sence_shot_they);
+                } else if (5 <= hit && hit < 7) {
+                    //die
+                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                }
+                break;
+
+            case 18:
+                if (0 <= hit && hit < 2) {
+                    //theif
+                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                } else if (2 <= hit && hit < 3) {
+                    gifImageView.setImageResource(R.drawable.sence_shot_me);
+                } else if (3 <= hit && hit < 4) {
+                    gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                } else if (4 <= hit && hit < 5) {
+                    gifImageView.setImageResource(R.drawable.sence_shot_they);
+                } else if (5 <= hit && hit < 7) {
+                    gifImageView.setImageResource(R.drawable.sence_evidence);
+                } else if (7 <= hit && hit < 12) {
+                    gifImageView.setImageResource(R.drawable.sence_mountain_morning_out);
+                }
+                break;
+
+            case 19:
+                if (0 <= hit && hit < 3) {
+                    gifImageView.setImageResource(R.drawable.sence_hide);
+                } else if (3 <= hit && hit < 6) {
+                    gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                } else if (6 <= hit && hit < 10) {
+                    gifImageView.setImageResource(R.drawable.sence_helping);
+                } else if (10 <= hit && hit < 17) {
+                    gifImageView.setImageResource(R.drawable.sence_shot_they);
+                }
+                break;
+
+            case 20:
+                gifImageView.setImageResource(R.drawable.sence_hide);
+                break;
+
+            case 21:
+                if (0 <= hit && hit < 1) {
+                    gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                } else if (1 <= hit && hit < 5) {
+                    gifImageView.setImageResource(R.drawable.sence_shot);
+                }
+                break;
+
+            case 22:
+                if (0 <= hit && hit < 3) {
+                    gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                } else if (3 <= hit && hit < 8) {
+                    gifImageView.setImageResource(R.drawable.sence_back_moutain);
+                }
+                break;
+            case 23:
+                gifImageView.setImageResource(R.drawable.sence_forest_night);
+                break;
+            case 24:
+                if (0 <= hit && hit < 8) {
+                    gifImageView.setImageResource(R.drawable.sence_shot_they);
+                }
+                break;
+
+        }
     }
+
+
 
     public void displayChat() {
         System.out.println(messages.size());
@@ -324,6 +531,7 @@ public class  MainChatActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("ResourceAsColor")
     private void createChoiceButton(View v) {
         sendBtn.setVisibility(v.INVISIBLE);
 
@@ -338,6 +546,8 @@ public class  MainChatActivity extends AppCompatActivity {
 
         String messageA = messageStorage.getChooseDescription(path, false, 0);
         String messageB = messageStorage.getChooseDescription(path, true, 0);
+        int whatA = messageStorage.getWhatToDO(path,false);
+        int whatB = messageStorage.getWhatToDO(path,true);
 
 
         relativeLayout = findViewById(R.id.relativeLayoutBtn);
@@ -345,25 +555,33 @@ public class  MainChatActivity extends AppCompatActivity {
         buttonOnRight = new Button(MainChatActivity.this);
 
         buttonOnRight.setText(messageA);
+        if(whatA==0){
+
+            buttonOnRight.setBackground(getResources().getDrawable(R.drawable.background_choose_n));
+        }else {
+            buttonOnRight.setBackground(getResources().getDrawable(R.drawable.background_choose_d));
+        }
         float paddingDp = 1f;
         // Convert to pixels
         int paddingPx = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, paddingDp,
                 getApplicationContext().getResources().getDisplayMetrics());
 
+
         buttonOnRight.setPadding(paddingPx*8*4, paddingPx*1, paddingPx*8, paddingPx*1);
         buttonOnRight.setId(R.id.left_btn);
         buttonOnRight.setTextSize(14);
+        buttonOnRight.setTextColor(Color.parseColor("#FFFFFF"));
         buttonOnRight.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
         buttonOnRight.setX(-500);
         buttonOnRight.animate().translationX(0).setInterpolator(new AccelerateInterpolator(2));
 
 
         RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
-                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 45,
+                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 35,
                         getApplicationContext().getResources().getDisplayMetrics()));
 
         //lp.addRule(RelativeLayout.ALIGN_TOP);
-        lp.setMargins(100, 0, 0, 0);
+        lp.setMargins(150, 5, 30, 5);
 
         relativeLayout.addView(buttonOnRight, lp);
 
@@ -372,7 +590,14 @@ public class  MainChatActivity extends AppCompatActivity {
 
 
         buttonOnLeft.setText(messageB);
+        if(whatB==0){
+            buttonOnLeft.setBackground(getResources().getDrawable(R.drawable.background_choose_n));
+        }else {
+            buttonOnLeft.setBackground(getResources().getDrawable(R.drawable.background_choose_d));
+        }
         buttonOnLeft.setTextSize(14);
+
+        buttonOnLeft.setTextColor(Color.parseColor("#FFFFFF"));
         buttonOnLeft.setPadding(paddingPx*8, paddingPx*1, paddingPx*20*4, paddingPx*1);
         buttonOnLeft.setId(R.id.right_btn);
         buttonOnLeft.setX(500);
@@ -380,12 +605,12 @@ public class  MainChatActivity extends AppCompatActivity {
         buttonOnLeft.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
 
         RelativeLayout.LayoutParams lp2 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
-                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 45,
+                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 35,
                         getApplicationContext().getResources().getDisplayMetrics())   );
 
         lp2.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 
-        lp2.setMargins(0, 0, 100, 0);
+        lp2.setMargins(30, 5, 150, 5);
 
 
         relativeLayout.addView(buttonOnLeft, lp2);

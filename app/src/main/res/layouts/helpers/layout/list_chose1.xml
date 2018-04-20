@@ -30,6 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
                 android:cropToPadding="true"
+                android:padding="4dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -37,11 +38,14 @@
                 app:srcCompat="@drawable/template" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/head_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:background="#4b000000"
+                android:fontFamily="@font/athiti_bold"
+                android:padding="2dp"
                 android:text="HEADER "
                 android:textColor="@color/cardview_light_background"
                 android:textStyle="bold"
@@ -50,29 +54,33 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/view_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginStart="8dp"
+                android:background="#4b000000"
+                android:fontFamily="@font/athiti_light"
                 android:padding="4dp"
                 android:text="55.11k"
                 android:textColor="@color/cardview_light_background"
                 android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="@+id/mainImage"
-                app:layout_constraintStart_toStartOf="@+id/mainImage"
-                tools:background="#4b000000" />
+                app:layout_constraintStart_toStartOf="@+id/mainImage" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/charity_txt"
                 android:layout_width="wrap_content"
-                android:layout_height="10dp"
-                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:background="#4b000000"
+                android:fontFamily="@font/athiti_light"
+                android:padding="2dp"
                 android:text="of ........... charity"
                 android:textColor="@color/cardview_light_background"
                 android:textSize="10sp"
-                app:layout_constraintStart_toStartOf="@+id/textView"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintStart_toStartOf="@+id/head_txt"
+                app:layout_constraintTop_toBottomOf="@+id/head_txt" />
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>

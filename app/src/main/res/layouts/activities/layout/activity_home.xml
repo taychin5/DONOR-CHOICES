@@ -12,8 +12,9 @@
     <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
         android:id="@+id/navigation"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:background="?android:attr/windowBackground"
+        android:padding="8dp"
         android:theme="@style/Widget.AppCompat.Toolbar.Button.Navigation"
         app:itemIconTint="@color/bottom_nav_color"
         app:itemTextColor="@color/bottom_nav_color"

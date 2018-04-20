@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1978e0</color>
-    <color name="colorPrimaryDark">#e5000108</color>
-    <color name="colorAccent">#FBB03B</color>
-
-
-    <color name="colorBottomNavigation">#1978e0</color>
-    <color name="black_overlay">#66000000</color>
 
 </resources>

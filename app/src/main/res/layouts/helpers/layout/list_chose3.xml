@@ -16,7 +16,6 @@
     <ImageView
         android:id="@+id/mainImage"
         android:layout_width="0dp"
-
         android:layout_height="0dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,36 +35,57 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="2dp"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/athiti_semibold"
+            android:padding="0dp"
+            android:paddingEnd="2dp"
+            android:paddingStart="2dp"
             android:text="Name this season"
+            android:textColor="#1c1c1d"
+            android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/des"
+            android:id="@+id/desTxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/athiti_medium"
             android:padding="2dp"
             android:text="เพื่อ มูลนิธิเด็กพิการ"
-            android:textSize="8sp"
-            app:layout_constraintStart_toStartOf="@+id/name"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/header"
+            app:layout_constraintTop_toBottomOf="@+id/header" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/donateTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/athiti_bold"
             android:padding="2dp"
             android:text="180,000 donate"
             android:textColor="@color/colorAccent"
             android:textSize="8sp"
-            app:layout_constraintStart_toStartOf="@+id/des"
-            app:layout_constraintTop_toBottomOf="@+id/des" />
+            app:layout_constraintStart_toStartOf="@+id/desTxt"
+            app:layout_constraintTop_toBottomOf="@+id/desTxt" />
+
+        <TextView
+            android:id="@+id/viewtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/athiti_bold"
+            android:padding="2dp"
+            android:text="317,865 view"
+            android:textColor="@color/colorAccent"
+            android:textSize="8sp"
+            app:layout_constraintBottom_toBottomOf="@+id/donateTxt"
+            app:layout_constraintStart_toEndOf="@+id/donateTxt"
+            app:layout_constraintTop_toBottomOf="@+id/desTxt" />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -76,9 +96,10 @@
         android:layout_marginBottom="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/athiti_bold"
         android:text="1"
         android:textColor="@color/colorAccent"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

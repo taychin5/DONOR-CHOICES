@@ -5,7 +5,7 @@
     android:id="@+id/layout_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1978E0"
+    android:background="@drawable/gradient"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
     <ImageView
@@ -21,13 +21,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/newlogo" />
+        app:srcCompat="@drawable/logo_no_back" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:fontFamily="@font/athiti_bold"
         android:text="loading..."
         android:textColor="@color/cardview_light_background"
         app:layout_constraintBottom_toBottomOf="parent"

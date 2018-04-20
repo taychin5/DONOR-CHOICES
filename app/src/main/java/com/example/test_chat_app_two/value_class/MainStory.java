@@ -20,6 +20,15 @@ public class MainStory {
     private String storyTitle;
     private String newActivity;
     private String Charity;
+    private String des;
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
+    }
 
     public int getAllstory() {
         return allstory;
