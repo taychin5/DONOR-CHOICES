@@ -1,6 +1,7 @@
 package com.example.test_chat_app_two.activities.chatMessageMain;
 
 import android.app.Activity;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.test_chat_app_two.value_class.MessageThisSeason;
@@ -24,7 +26,8 @@ public class PopChooseActivity extends Activity {
     int hit;
     int choosePath;
     boolean choose;
-    private Button btn_close;
+
+    private ImageView btn_close;
     private Button btn_chose;
 
     @Override
@@ -41,7 +44,7 @@ public class PopChooseActivity extends Activity {
         // set text pop event
         setText();
 
-        btn_close = (Button) findViewById(R.id.close_btn);
+        btn_close = findViewById(R.id.close);
         btn_close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,6 +72,8 @@ public class PopChooseActivity extends Activity {
                 MainChatActivity.buttonOnRight.setVisibility(View.GONE);
 
 
+                MainChatActivity.hideCharacterIndex();
+                MainChatActivity.onChoose = false;
                 setChooseToChat();
                 finish();
 
@@ -107,21 +112,28 @@ public class PopChooseActivity extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*.8),(int)(height*.7));
+        getWindow().setLayout((int)(width),(int)(height*0.5));
         WindowManager.LayoutParams params = getWindow().getAttributes();
-        params.gravity = Gravity.CENTER;
+        params.gravity = Gravity.BOTTOM;
         params.x = 0;
-        params.y= -20;
+        params.y = dpToPx(36);
         getWindow().setAttributes(params);
     }
+
 
     void setText(){
         MessageThisSeason messageStorage = new MessageThisSeason();
 
-        headTxt = (TextView) findViewById(R.id.pop_head);
+        headTxt = (TextView) findViewById(R.id.head);
         description = (TextView) findViewById(R.id.text_des);
 
-        headTxt.setText(messageStorage.getChooseDescription(MainChatActivity.path,choose,0));
+        headTxt.setText("\"  " +messageStorage.getChooseDescription(MainChatActivity.path,choose,0) +"  \"");
+
         description.setText(messageStorage.getChooseDescription(MainChatActivity.path,choose,1));
+    }
+
+    public static int dpToPx(int dp)
+    {
+        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
     }
 }

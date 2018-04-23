@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="test88color">#d4d4d4</color>
+    <color name="colorPrimary">#1978e0</color>
+    <color name="colorPrimaryDark">#e5000108</color>
+    <color name="colorAccent">#fbb03b</color>
 
+
+    <color name="colorBottomNavigation">#1978e0</color>
+    <color name="black_overlay">#66000000</color>
 </resources>

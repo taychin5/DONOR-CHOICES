@@ -14,12 +14,13 @@ import com.example.test_chat_app_two.activities.homePage.Home_activity;
 public class first_activity extends AppCompatActivity {
 
     private ConstraintLayout constraintLayout;
+    public static boolean firstTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_activity);
-
+        firstTime=true;
 
         new Handler().postDelayed(new Runnable() {
             @Override

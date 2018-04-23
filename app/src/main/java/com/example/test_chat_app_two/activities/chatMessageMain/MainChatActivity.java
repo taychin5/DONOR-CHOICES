@@ -6,10 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
-import android.provider.FontRequest;
 import android.support.constraint.ConstraintLayout;
-import android.support.v4.provider.FontsContractCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,17 +20,16 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
-import android.view.animation.Animation;
-import android.view.animation.ScaleAnimation;
 import android.widget.Button;
-import android.widget.MediaController;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
-import com.example.test_chat_app_two.activities.homePage.Home_activity;
+import com.example.test_chat_app_two.activities.End_Activity;
+import com.example.test_chat_app_two.activities.homePage.fragment_home.DonateFragment;
 import com.example.test_chat_app_two.helper.HidingScrollListener;
+import com.example.test_chat_app_two.value_class.DonateList;
 import com.example.test_chat_app_two.value_class.MessageThisSeason;
 import com.example.test_chat_app_two.R;
 
@@ -42,7 +38,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
 
 
@@ -69,7 +64,10 @@ public class  MainChatActivity extends AppCompatActivity {
     private RelativeLayout relativeLayout;
     private List<ChatMessage> chatHistory;
     private Toolbar toolbarTop;
-    private ConstraintLayout characterIndex;
+    private static ConstraintLayout characterIndex;
+    public static boolean onChoose = false;
+    private TextView textWhatToDO;
+
 
     public static void sendViewToBack(final View child) {
         final ViewGroup parent = (ViewGroup) child.getParent();
@@ -81,17 +79,15 @@ public class  MainChatActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.chat_main);
 
-        ProgressBar hpBar = (ProgressBar) findViewById(R.id.hp_bar);
-        hpBar.setProgress(health);
+        onChoose = false;
         initControls();
+
 
 
         // loadHistory(messages);
@@ -146,7 +142,29 @@ public class  MainChatActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+
         characterIndex = (ConstraintLayout) findViewById(R.id.index_character_conLay);
+        characterIndex.setTranslationY(characterIndex.getHeight() * 20);
+        textWhatToDO = findViewById(R.id.TextWhatToDO);
+        textWhatToDO.setText("");
+
+
+        messagesContainer.setOnScrollListener(new HidingScrollListener() {
+            @Override
+            public void onHide() {
+                if(onChoose) { showCharacterIndex(); }
+            }
+
+            @Override
+            public void onShow() {
+                if(onChoose) { hideCharacterIndex(); }
+            }
+        });
+        messagesContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { if(onChoose) { showCharacterIndex(); }
+            }
+        });
 
 
         messagesContainer.setLayoutManager(new WrapContentLinearLayoutManager(MainChatActivity.this));
@@ -154,24 +172,6 @@ public class  MainChatActivity extends AppCompatActivity {
         messagesContainer.setAdapter(adapter);
 
        // messagesContainer.addOnScrollListener(new CustomScrollListener());
-
-        messagesContainer.setOnScrollListener(new HidingScrollListener() {
-            @Override
-            public void onHide() {
-                hideCharacterIndex();
-            }
-
-            @Override
-            public void onShow() {
-                showCharacterIndex();
-            }
-        });
-        messagesContainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showCharacterIndex();
-            }
-        });
 
 
         sendBtn.setOnClickListener(new View.OnClickListener() {
@@ -189,19 +189,31 @@ public class  MainChatActivity extends AppCompatActivity {
                 if (isDone == true) {
                     int newpath = messageStorage.generateNextPath(true,path);
                     if(newpath>0) {
+                        onChoose=true;
+                        showCharacterIndex();
+                        textWhatToDO.setText("hello test");
                         chooseWhatToDO(v);
                     }else {
-                        messages.clear();
-                        Intent intent = new Intent(getApplicationContext(), Home_activity.class);
+                        DonateList donateList = new DonateList(hit,path,"serb",path,"testSend");
+                        DonateFragment.donateListArrayList.add(donateList);
+
+                        Intent intent = new Intent(getApplicationContext(), End_Activity.class);
+                        intent.putExtra("path",path);
                         intent.putExtra("hit", hit);
                         startActivity(intent);
+                        messages.clear();
+                        path = 0;
+                        hit = 0;
+                        totalHit =0;
 
+                        finish();
                     }
 
                 } else {
 
                     //  CREATE MESSAGE
 
+                    hideCharacterIndex();
                     ChatMessage chatMessage = new ChatMessage();
                     chatMessage.setId(totalHit);
                     chatMessage.setMessage(messageStorage.getMessage(path, hit));
@@ -219,7 +231,7 @@ public class  MainChatActivity extends AppCompatActivity {
                     }
 
 
-                } //set new btn
+                }
                 totalHit++;
                 hit++;
             }
@@ -478,53 +490,26 @@ public class  MainChatActivity extends AppCompatActivity {
         }
     }
 
-
-
     public void displayChat() {
         System.out.println(messages.size());
         adapter.notifyItemInserted(messages.size());
         messagesContainer.smoothScrollToPosition(messages.size());
     }
 
-    private void hideCharacterIndex() {
+    public static void hideCharacterIndex() {
         // toolbarTop.animate().translationY(-toolbarTop.getHeight()).setInterpolator(new AccelerateInterpolator(2));
 
         sendViewToBack(characterIndex);
         characterIndex.animate().translationY(characterIndex.getHeight() * 20).setInterpolator(new AccelerateInterpolator(2));
-//        Animation anim = new ScaleAnimation(
-//                1f,0f,
-//                1,0,
-//                Animation.RELATIVE_TO_SELF,0f,
-//                Animation.RELATIVE_TO_SELF,1f);
-//        anim.setFillAfter(true);
-//        anim.setDuration(1000);
-//        characterIndex.startAnimation(anim);
 
-//                FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mFabButton.getLayoutParams();
-//                int fabBottomMargin = lp.bottomMargin;
-//                mFabButton.animate().translationY(mFabButton.getHeight()+fabBottomMargin).setInterpolator(new AccelerateInterpolator(2)).start();
     }
 
     private void showCharacterIndex() {
-        //   toolbarTop.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
-//                mFabButton.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
 
-//        Animation anim = new ScaleAnimation(
-//                0f,1f,
-//                0f,1f,
-//                Animation.RELATIVE_TO_SELF,0f,
-//                Animation.RELATIVE_TO_SELF,1f);
-//        anim.setFillAfter(true);
-//        anim.setDuration(1000);
-//        characterIndex.startAnimation(anim);
         characterIndex.animate().translationY(0).setInterpolator(new AccelerateInterpolator(2)).withEndAction(new Runnable() {
             @Override
             public void run() {
                 characterIndex.bringToFront();
-
-                //LinearLayoutManager llm = (LinearLayoutManager) messagesContainer.getLayoutManager();
-                //llm.scrollToPositionWithOffset(llm.findLastVisibleItemPosition(),50);
-
             }
         });
 
@@ -567,11 +552,11 @@ public class  MainChatActivity extends AppCompatActivity {
                 getApplicationContext().getResources().getDisplayMetrics());
 
 
-        buttonOnRight.setPadding(paddingPx*8*4, paddingPx*1, paddingPx*8, paddingPx*1);
+        buttonOnRight.setPadding(paddingPx, paddingPx, paddingPx, paddingPx);
         buttonOnRight.setId(R.id.left_btn);
         buttonOnRight.setTextSize(14);
         buttonOnRight.setTextColor(Color.parseColor("#FFFFFF"));
-        buttonOnRight.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
+        buttonOnRight.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER);
         buttonOnRight.setX(-500);
         buttonOnRight.animate().translationX(0).setInterpolator(new AccelerateInterpolator(2));
 
@@ -581,7 +566,7 @@ public class  MainChatActivity extends AppCompatActivity {
                         getApplicationContext().getResources().getDisplayMetrics()));
 
         //lp.addRule(RelativeLayout.ALIGN_TOP);
-        lp.setMargins(150, 5, 30, 5);
+        lp.setMargins(60, 5, 60, 5);
 
         relativeLayout.addView(buttonOnRight, lp);
 
@@ -598,11 +583,11 @@ public class  MainChatActivity extends AppCompatActivity {
         buttonOnLeft.setTextSize(14);
 
         buttonOnLeft.setTextColor(Color.parseColor("#FFFFFF"));
-        buttonOnLeft.setPadding(paddingPx*8, paddingPx*1, paddingPx*20*4, paddingPx*1);
+        buttonOnLeft.setPadding(paddingPx, paddingPx, paddingPx, paddingPx);
         buttonOnLeft.setId(R.id.right_btn);
         buttonOnLeft.setX(500);
         buttonOnLeft.animate().translationX(0).setInterpolator(new AccelerateInterpolator(2));
-        buttonOnLeft.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
+        buttonOnLeft.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER);
 
         RelativeLayout.LayoutParams lp2 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
                 (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 35,
@@ -610,7 +595,7 @@ public class  MainChatActivity extends AppCompatActivity {
 
         lp2.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 
-        lp2.setMargins(30, 5, 150, 5);
+        lp2.setMargins(60, 5, 60, 15);
 
 
         relativeLayout.addView(buttonOnLeft, lp2);

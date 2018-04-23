@@ -7,15 +7,17 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_new"
-        android:supportsRtl="true"
         android:largeHeap="true"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.chatMessageMain.MainChatActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activities.chatMessageMain.MainChatActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.chatMessageMain.PopChooseActivity"
             android:theme="@style/AppTheme.PopMe" />
-        <activity android:name=".activities.first_activity"
+        <activity
+            android:name=".activities.first_activity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,15 +31,20 @@
         <activity
             android:name=".activities.homePage.Home_activity"
             android:label="@string/title_activity_home_activity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.ChoosenActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.CharityActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ChoosenActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.CharityActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".activities.End_Activity" />
+        <activity android:name=".activities.OnBoardingActivity"></activity>
     </application>
 
 </manifest>

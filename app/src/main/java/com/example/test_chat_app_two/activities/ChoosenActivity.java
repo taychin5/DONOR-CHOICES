@@ -114,8 +114,13 @@ public class ChoosenActivity extends AppCompatActivity {
         goBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ChoosenActivity.this, MainChatActivity.class);
-                startActivity(intent);
+                if(first_activity.firstTime==true) {
+                    Intent intent = new Intent(ChoosenActivity.this, OnBoardingActivity.class);
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(ChoosenActivity.this, MainChatActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }

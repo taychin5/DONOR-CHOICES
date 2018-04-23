@@ -2,13 +2,16 @@ package com.example.test_chat_app_two.activities.chatMessageMain;
 
 import android.app.AlertDialog;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -18,8 +21,10 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.test_chat_app_two.activities.homePage.Home_activity;
 import com.example.test_chat_app_two.activities.homePage.fragment_home.DonateFragment;
 import com.example.test_chat_app_two.value_class.DonateList;
 import com.example.test_chat_app_two.value_class.MessageThisSeason;
@@ -27,24 +32,29 @@ import com.example.test_chat_app_two.R;
 
 public class PopChooseDonateActivity extends AppCompatActivity {
 
-    public TextView txtHit;
-    public TextView des;
+    public TextView headTxt;
+    public TextView description;
     int hit;
-    boolean chose;
-    private Button btn_close;
+    int choosePath;
+
+    private ImageView btn_close;
     private Button btn_chose;
+    boolean choose;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            hit = extras.getInt("hit");
-            chose = extras.getBoolean("choose");
-            //The key argument here must match that used in the other activity
-        }
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pop_choose_donate);
+
+        // load value from mainChatActivity
+        loadSendValue();
+
+        // set pop layout
+        setPopLayout();
+
+        // set text pop event
+        setText();
 
         final AlertDialog.Builder AlertDialogBuilder;
 
@@ -54,30 +64,9 @@ public class PopChooseDonateActivity extends AppCompatActivity {
             AlertDialogBuilder = new AlertDialog.Builder(PopChooseDonateActivity.this);
         }
 
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-
-        int width = dm.widthPixels;
-        int height = dm.heightPixels;
-
-        getWindow().setLayout((int)(width*.8),(int)(height*.7));
-        WindowManager.LayoutParams params = getWindow().getAttributes();
-        params.gravity = Gravity.CENTER;
-        params.x = 0;
-        params.y= -20;
-        getWindow().setAttributes(params);
-
-        MessageThisSeason messageStorage = new MessageThisSeason();
-
-        txtHit = (TextView)findViewById(R.id.pop_head);
-        txtHit.setText(""+hit);
-
-        des = (TextView)findViewById(R.id.text_des);
-        des.setText(messageStorage.getChooseDescription(MainChatActivity.path,chose,1));
 
 
-
-        btn_close = (Button) findViewById(R.id.close_btn);
+        btn_close = findViewById(R.id.close);
         btn_close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,8 +79,8 @@ public class PopChooseDonateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-        AlertDialogBuilder.setTitle("Delete entry")
-        .setMessage("Are you sure")
+        AlertDialogBuilder.setTitle("คุณแน่ใจที่จะส่ง SMS")
+        .setMessage("เรากำลังจะส่ง SMS เพื่อทำการบริจาคให้กับมูลนิธิสืบนาคะเสถียริ")
         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -103,9 +92,9 @@ public class PopChooseDonateActivity extends AppCompatActivity {
                 sendNotification();
 
                 MessageThisSeason messageStorage = new MessageThisSeason();
-                int newPath = messageStorage.generateNextPath(chose, MainChatActivity.path);
+                int newPath = messageStorage.generateNextPath(choose, MainChatActivity.path);
 
-                String des = messageStorage.getChooseDescription(MainChatActivity.path, chose, 0);
+                String des = messageStorage.getChooseDescription(MainChatActivity.path, choose, 0);
                 DonateList donateList = new DonateList(19, 1,MessageThisSeason.getThisCharity(), MainChatActivity.path, des);
                 DonateFragment.donateListArrayList.add(donateList);
 
@@ -140,37 +129,81 @@ public class PopChooseDonateActivity extends AppCompatActivity {
 
     }
 
+    public static int dpToPx(int dp)
+    {
+        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
+    }
+
     public void sendSms(String phoneNumber , String Message){
         SmsManager sms = SmsManager.getDefault();
         sms.sendTextMessage(phoneNumber,null,"Test send for donate",null,null);
 
     }
 
-    void sendNotification(){
+    void setText(){
+        MessageThisSeason messageStorage = new MessageThisSeason();
 
-        Intent intent = new Intent(this, MainChatActivity.class);
+        headTxt = (TextView) findViewById(R.id.head);
+        description = (TextView) findViewById(R.id.text_des);
+
+        headTxt.setText("\"  " +messageStorage.getChooseDescription(MainChatActivity.path,choose,0) +"  \"");
+
+        description.setText(messageStorage.getChooseDescription(MainChatActivity.path,choose,1));
+    }
+
+    void setPopLayout(){
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+
+        int width = dm.widthPixels;
+        int height = dm.heightPixels;
+
+        getWindow().setLayout((int)(width),(int)(height*0.7)+70);
+        System.out.println("height = " + height*0.4);
+        WindowManager.LayoutParams params = getWindow().getAttributes();
+        params.gravity = Gravity.BOTTOM;
+        params.x = 0;
+        params.y = dpToPx(36);
+        getWindow().setAttributes(params);
+    }
+
+    void loadSendValue (){
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            choosePath = extras.getInt("choosePath");
+            hit = extras.getInt("hit");
+            choose = extras.getBoolean("choose");
+            //The key argument here must match that used in the other activity
+        }
+    }
+
+    void sendNotification(){
+        String CHANNEL_ID = "my_channel_01";
+        int importance = NotificationManager.IMPORTANCE_HIGH;
+        Intent intent = new Intent(this, Home_activity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.bubble_in_9)
-                        .setContentTitle("Thank for donating")
-                        .setContentText("You sending to donating")
+                        .setSmallIcon(R.mipmap.ic_launcher_new)
+                        .setContentTitle("ทำการบริจาคเรียบร้อย")
+                        .setContentText("ขอบคุณสำหรับการบริจาคให้กับ มูลนิธิสืบนาคะเสถียร")
                         .setDefaults(Notification.DEFAULT_ALL)
-                        .setPriority(NotificationCompat.PRIORITY_HIGH)
+                        .setPriority(NotificationCompat.PRIORITY_MAX)
                         .setContentIntent(pendingIntent)
-                        .setAutoCancel(true);
+                .setAutoCancel(true)
+                .setChannelId(CHANNEL_ID);
 
 
 
         // Gets an instance of the NotificationManager service//
-
         NotificationManager mNotificationManager =
-
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        mNotificationManager.notify(MainChatActivity.path,mBuilder.build());
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID, "Channel human readable title", importance);
+            mNotificationManager.createNotificationChannel(mChannel);
+        }
+        mNotificationManager.notify(001 , mBuilder.build());
     }
 }
