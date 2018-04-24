@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+ <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
@@ -33,6 +33,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/athiti_bold"
+            android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,15 +41,14 @@
             tools:text="This is mainTitle" />
 
         <TextView
-            android:id="@+id/donateTxt"
+            android:id="@+id/vTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/athiti_medium"
-            android:text="100,000 donate"
-            android:textColor="@color/colorAccent"
-            android:textSize="10sp"
+            android:text="1000k views"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/charityTxt" />
 
@@ -56,24 +56,24 @@
             android:id="@+id/charityTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/athiti_light"
+            android:fontFamily="@font/athiti_medium"
             android:text="TextView"
             android:textColor="@color/colorBottomNavigation"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/MainTitle"
             app:layout_constraintTop_toBottomOf="@+id/MainTitle" />
 
         <TextView
-            android:id="@+id/viewTxt"
+            android:id="@+id/dTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:fontFamily="@font/athiti_medium"
-            android:text="100,00 view"
+            android:text="320k donate"
             android:textColor="@color/colorAccent"
-            android:textSize="10sp"
-            app:layout_constraintStart_toEndOf="@+id/donateTxt"
-            app:layout_constraintTop_toTopOf="@+id/donateTxt" />
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/vTxt"
+            app:layout_constraintTop_toTopOf="@+id/vTxt" />
 
 
     </android.support.constraint.ConstraintLayout>

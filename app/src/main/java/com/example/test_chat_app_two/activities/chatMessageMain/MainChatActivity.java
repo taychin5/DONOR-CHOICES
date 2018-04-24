@@ -87,6 +87,8 @@ public class  MainChatActivity extends AppCompatActivity {
 
         onChoose = false;
         initControls();
+        loadFirstChat();
+
 
 
 
@@ -123,13 +125,32 @@ public class  MainChatActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
+    void loadFirstChat(){
+        MessageThisSeason messageStorage = new MessageThisSeason();
+        ChatMessage chatMessage = new ChatMessage();
+        chatMessage.setId(totalHit);
+        chatMessage.setMessage(messageStorage.getMessage(path, hit));
+        chatMessage.setDate(DateFormat.getDateTimeInstance().format(new Date()));
+        chatMessage.setMe(messageStorage.isMe(path, hit));
+        if(messageStorage.isMe(path, hit) == 1 || messageStorage.isMe(path, hit) == 6){
+            chatMessage.setCharacterimg(messageStorage.isCharacterimg(path,hit));
+        }
+
+        hit++;
+        totalHit++;
+        messages.add(chatMessage);
+        displayChat();
+
+    }
     private void initControls() {
 
         messagesContainer = (RecyclerView) findViewById(R.id.messagesContainer);
         sendBtn = (Button) findViewById(R.id.chatSendButton);
-        gifImageView = findViewById(R.id.gifImageMain);
-        int displayWidth = getWindowManager().getDefaultDisplay().getWidth();
-        gifImageView.getLayoutParams().height = (displayWidth*9)/16;
+//        gifImageView = findViewById(R.id.gifImageMain);
+//        int displayWidth = getWindowManager().getDefaultDisplay().getWidth();
+//        gifImageView.getLayoutParams().height = (displayWidth*9)/16;
         final Boolean anim = false;
         
         toolbarTop = (Toolbar) findViewById(R.id.toolbartop);
@@ -143,28 +164,28 @@ public class  MainChatActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
-        characterIndex = (ConstraintLayout) findViewById(R.id.index_character_conLay);
-        characterIndex.setTranslationY(characterIndex.getHeight() * 20);
-        textWhatToDO = findViewById(R.id.TextWhatToDO);
-        textWhatToDO.setText("");
+//        characterIndex = (ConstraintLayout) findViewById(R.id.index_character_conLay);
+//        characterIndex.setTranslationY(characterIndex.getHeight() * 20);
+//        textWhatToDO = findViewById(R.id.TextWhatToDO);
+//        textWhatToDO.setText("");
 
 
-        messagesContainer.setOnScrollListener(new HidingScrollListener() {
-            @Override
-            public void onHide() {
-                if(onChoose) { showCharacterIndex(); }
-            }
-
-            @Override
-            public void onShow() {
-                if(onChoose) { hideCharacterIndex(); }
-            }
-        });
-        messagesContainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { if(onChoose) { showCharacterIndex(); }
-            }
-        });
+//        messagesContainer.setOnScrollListener(new HidingScrollListener() {
+//            @Override
+//            public void onHide() {
+//                if(onChoose) { showCharacterIndex(); }
+//            }
+//
+//            @Override
+//            public void onShow() {
+//                if(onChoose) { hideCharacterIndex(); }
+//            }
+//        });
+//        messagesContainer.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) { if(onChoose) { showCharacterIndex(); }
+//            }
+//        });
 
 
         messagesContainer.setLayoutManager(new WrapContentLinearLayoutManager(MainChatActivity.this));
@@ -180,7 +201,7 @@ public class  MainChatActivity extends AppCompatActivity {
 
                 System.out.println("path  " + path + "  hit   " + hit);
 
-                hideCharacterIndex();
+//                hideCharacterIndex();
 
                 MessageThisSeason messageStorage = new MessageThisSeason();
 
@@ -190,8 +211,8 @@ public class  MainChatActivity extends AppCompatActivity {
                     int newpath = messageStorage.generateNextPath(true,path);
                     if(newpath>0) {
                         onChoose=true;
-                        showCharacterIndex();
-                        textWhatToDO.setText("hello test");
+//                        showCharacterIndex();
+//                        textWhatToDO.setText("hello test");
                         chooseWhatToDO(v);
                     }else {
                         DonateList donateList = new DonateList(hit,path,"serb",path,"testSend");
@@ -213,12 +234,16 @@ public class  MainChatActivity extends AppCompatActivity {
 
                     //  CREATE MESSAGE
 
-                    hideCharacterIndex();
+                    //hideCharacterIndex();
                     ChatMessage chatMessage = new ChatMessage();
                     chatMessage.setId(totalHit);
                     chatMessage.setMessage(messageStorage.getMessage(path, hit));
                     chatMessage.setDate(DateFormat.getDateTimeInstance().format(new Date()));
                     chatMessage.setMe(messageStorage.isMe(path, hit));
+                    if(messageStorage.isMe(path, hit) == 1 || messageStorage.isMe(path, hit) == 6){
+                        chatMessage.setCharacterimg(messageStorage.isCharacterimg(path,hit));
+                    }
+
 
                     sendBtn.setVisibility(v.VISIBLE);
                     messages.add(chatMessage);
@@ -272,222 +297,223 @@ public class  MainChatActivity extends AppCompatActivity {
 
             if (dy > 0) {
                 System.out.println("Scrolled Downwards");
-                showCharacterIndex();
+                //showCharacterIndex();
             } else if (dy < 0) {
                 System.out.println("Scrolled Upwards");
-                hideCharacterIndex();
+                //hideCharacterIndex();
             } else {
                 System.out.println("No Vertical Scrolled");
             }
         }
     }
 
-    private void GifImageGenerator() {
+    private int GifImageGenerator() {
+        int mainImg = -1 ;
         switch (path) {
             case 0:
                 if (0 <= hit && hit < 1) {
-                    gifImageView.setImageResource(R.drawable.sence_mountain);
+                    mainImg = (R.drawable.sence_mountain);
                 } else if (1 <= hit && hit < 5) {
-                    gifImageView.setImageResource(R.drawable.sence_twotravel);
+                    mainImg = (R.drawable.sence_twotravel);
                 } else if (5 <= hit && hit < 6) {
-                    gifImageView.setImageResource(R.drawable.sence_hero);
+                    mainImg = (R.drawable.sence_hero);
                 } else if (6 <= hit && hit < 7) {
-                    gifImageView.setImageResource(R.drawable.sence_two_allies);
+                    mainImg = (R.drawable.sence_two_allies);
                 } else if (7 <= hit && hit < 8) {
-                    gifImageView.setImageResource(R.drawable.sence_allies);
+                    mainImg = (R.drawable.sence_allies);
                 } else if (8 <= hit && hit < 11) {
-                    gifImageView.setImageResource(R.drawable.sence_twotravel);
+                    mainImg = (R.drawable.sence_twotravel);
                 }
                 break;
 
             case 1:
-                gifImageView.setImageResource(R.drawable.sence_camp);
+                mainImg = (R.drawable.sence_camp);
                 break;
 
             case 2:
-                gifImageView.setImageResource(R.drawable.sence_camp);
+                mainImg = (R.drawable.sence_camp);
                 break;
 
             case 3:
                 if (0 <= hit && hit < 1) {
-                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                    mainImg = (R.drawable.sence_forest_night);
                 } else if (1 <= hit && hit < 5) {
-                    gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                    mainImg = (R.drawable.sence_forest_night_shoot);
                 } else if (5 <= hit && hit < 7) {
-                    gifImageView.setImageResource(R.drawable.sence_think);
+                    mainImg = (R.drawable.sence_think);
                 } else if (7 <= hit && hit < 10) {
-                    gifImageView.setImageResource(R.drawable.sence_evidence);
+                    mainImg = (R.drawable.sence_evidence);
                 } else if (10 <= hit && hit < 12) {
-                    gifImageView.setImageResource(R.drawable.sence_back_moutain2);
+                    mainImg = (R.drawable.sence_back_moutain2);
                 } else if (12 <= hit && hit < 13) {
-                    gifImageView.setImageResource(R.drawable.sence_hide);
+                    mainImg = (R.drawable.sence_hide);
                 }
                 break;
 
             case 4:
                 if (0 <= hit && hit < 1) {
-                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                    mainImg = (R.drawable.sence_forest_night);
                 } else if (1 <= hit && hit < 5) {
-                    gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                    mainImg = (R.drawable.sence_forest_night_shoot);
                 } else if (5 <= hit && hit < 7) {
-                    gifImageView.setImageResource(R.drawable.sence_think);
+                    mainImg = (R.drawable.sence_think);
                 } else if (7 <= hit && hit < 10) {
-                    gifImageView.setImageResource(R.drawable.sence_evidence);
+                    mainImg = (R.drawable.sence_evidence);
                 } else if (10 <= hit && hit < 11) {
-                    gifImageView.setImageResource(R.drawable.sence_back_moutain2);
+                    mainImg = (R.drawable.sence_back_moutain2);
                 } else if (11 <= hit && hit < 13) {
-                    gifImageView.setImageResource(R.drawable.sence_bag);
+                    mainImg = (R.drawable.sence_bag);
                 }
                 break;
 
             case 5:
                 if (0 <= hit && hit < 3) {
-                    gifImageView.setImageResource(R.drawable.sence_hide);
+                    mainImg = (R.drawable.sence_hide);
                 } else if (3 <= hit && hit < 9) {
-                    gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                    mainImg = (R.drawable.sence_forest_night_shoot);
                 }
                 break;
 
             case 6:
-                gifImageView.setImageResource(R.drawable.sence_back_moutain);
+                mainImg = (R.drawable.sence_back_moutain);
                 break;
 
             case 7:
-                gifImageView.setImageResource(R.drawable.sence_wtf);
+                mainImg = (R.drawable.sence_wtf);
                 break;
 
             case 8:
                 if (0 <= hit && hit < 3) {
-                    gifImageView.setImageResource(R.drawable.sence_run);
+                    mainImg = (R.drawable.sence_run);
                 } else if (3 <= hit && hit < 5) {
-                    gifImageView.setImageResource(R.drawable.sence_back_moutain);
+                    mainImg = (R.drawable.sence_back_moutain);
                 }
             case 9:
                 if (0 <= hit && hit < 3) {
-                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                    mainImg = (R.drawable.sence_forest_night);
                 } else if (3 <= hit && hit < 11) {
-                    gifImageView.setImageResource(R.drawable.sence_hero);
+                    mainImg = (R.drawable.sence_hero);
                 }
                 break;
 
             case 10:
                 if (0 <= hit && hit < 2) {
-                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                    mainImg = (R.drawable.sence_forest_night);
                 } else if (2 <= hit && hit < 5) {
-                    gifImageView.setImageResource(R.drawable.sence_hero);
+                    mainImg = (R.drawable.sence_hero);
                 }
                 break;
 
             case 11:
                 if (0 <= hit && hit < 1) {
-                    gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                    mainImg = (R.drawable.sence_forest_night_shoot);
                 } else if (1 <= hit && hit < 4) {
-                    gifImageView.setImageResource(R.drawable.sence_back_moutain);
+                    mainImg = (R.drawable.sence_back_moutain);
                 }
                 break;
 
             case 12:
                 if (0 <= hit && hit < 4) {
-                    gifImageView.setImageResource(R.drawable.sence_helping);
+                    mainImg = (R.drawable.sence_helping);
                 } else if (4 <= hit && hit < 8) {
-                    gifImageView.setImageResource(R.drawable.sence_back_moutain);
+                    mainImg = (R.drawable.sence_back_moutain);
                 }
                 break;
 
             case 13:
                 if (0 <= hit && hit < 3) {
-                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                    mainImg = (R.drawable.sence_forest_night);
                 } else if (3 <= hit && hit < 8) {
-                    gifImageView.setImageResource(R.drawable.sence_mountain_morning_out);
+                    mainImg = (R.drawable.sence_mountain_morning_out);
                 }
                 break;
 
             case 14:
-                gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                mainImg = (R.drawable.sence_forest_night_shoot);
                 break;
 
             case 15:
-                gifImageView.setImageResource(R.drawable.sence_run);
+                mainImg = (R.drawable.sence_run);
                 break;
 
             case 16:
-                gifImageView.setImageResource(R.drawable.sence_hide);
+                mainImg = (R.drawable.sence_hide);
                 break;
 
             case 17:
                 if (0 <= hit && hit < 1) {
                     //theif
-                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                    mainImg = (R.drawable.sence_forest_night);
                 } else if (1 <= hit && hit < 3) {
-                    gifImageView.setImageResource(R.drawable.sence_shot_me);
+                    mainImg = (R.drawable.sence_shot_me);
                 } else if (3 <= hit && hit < 4) {
-                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                    mainImg = (R.drawable.sence_forest_night);
                 } else if (4 <= hit && hit < 5) {
-                    gifImageView.setImageResource(R.drawable.sence_shot_they);
+                    mainImg = (R.drawable.sence_shot_they);
                 } else if (5 <= hit && hit < 7) {
                     //die
-                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                    mainImg = (R.drawable.sence_forest_night);
                 }
                 break;
 
             case 18:
                 if (0 <= hit && hit < 2) {
                     //theif
-                    gifImageView.setImageResource(R.drawable.sence_forest_night);
+                    mainImg = (R.drawable.sence_forest_night);
                 } else if (2 <= hit && hit < 3) {
-                    gifImageView.setImageResource(R.drawable.sence_shot_me);
+                    mainImg = (R.drawable.sence_shot_me);
                 } else if (3 <= hit && hit < 4) {
-                    gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                    mainImg = (R.drawable.sence_forest_night_shoot);
                 } else if (4 <= hit && hit < 5) {
-                    gifImageView.setImageResource(R.drawable.sence_shot_they);
+                    mainImg = (R.drawable.sence_shot_they);
                 } else if (5 <= hit && hit < 7) {
-                    gifImageView.setImageResource(R.drawable.sence_evidence);
+                    mainImg = (R.drawable.sence_evidence);
                 } else if (7 <= hit && hit < 12) {
-                    gifImageView.setImageResource(R.drawable.sence_mountain_morning_out);
+                    mainImg = (R.drawable.sence_mountain_morning_out);
                 }
                 break;
 
             case 19:
                 if (0 <= hit && hit < 3) {
-                    gifImageView.setImageResource(R.drawable.sence_hide);
+                    mainImg = (R.drawable.sence_hide);
                 } else if (3 <= hit && hit < 6) {
-                    gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                    mainImg = (R.drawable.sence_forest_night_shoot);
                 } else if (6 <= hit && hit < 10) {
-                    gifImageView.setImageResource(R.drawable.sence_helping);
+                    mainImg = (R.drawable.sence_helping);
                 } else if (10 <= hit && hit < 17) {
-                    gifImageView.setImageResource(R.drawable.sence_shot_they);
+                    mainImg = (R.drawable.sence_shot_they);
                 }
                 break;
 
             case 20:
-                gifImageView.setImageResource(R.drawable.sence_hide);
+                mainImg = (R.drawable.sence_hide);
                 break;
 
             case 21:
                 if (0 <= hit && hit < 1) {
-                    gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                    mainImg = (R.drawable.sence_forest_night_shoot);
                 } else if (1 <= hit && hit < 5) {
-                    gifImageView.setImageResource(R.drawable.sence_shot);
+                    mainImg = (R.drawable.sence_shot);
                 }
                 break;
 
             case 22:
                 if (0 <= hit && hit < 3) {
-                    gifImageView.setImageResource(R.drawable.sence_forest_night_shoot);
+                    mainImg = (R.drawable.sence_forest_night_shoot);
                 } else if (3 <= hit && hit < 8) {
-                    gifImageView.setImageResource(R.drawable.sence_back_moutain);
+                    mainImg = (R.drawable.sence_back_moutain);
                 }
                 break;
             case 23:
-                gifImageView.setImageResource(R.drawable.sence_forest_night);
+                mainImg = (R.drawable.sence_forest_night);
                 break;
             case 24:
                 if (0 <= hit && hit < 8) {
-                    gifImageView.setImageResource(R.drawable.sence_shot_they);
+                    mainImg = (R.drawable.sence_shot_they);
                 }
                 break;
-
         }
+        return mainImg;
     }
 
     public void displayChat() {
@@ -496,25 +522,25 @@ public class  MainChatActivity extends AppCompatActivity {
         messagesContainer.smoothScrollToPosition(messages.size());
     }
 
-    public static void hideCharacterIndex() {
-        // toolbarTop.animate().translationY(-toolbarTop.getHeight()).setInterpolator(new AccelerateInterpolator(2));
-
-        sendViewToBack(characterIndex);
-        characterIndex.animate().translationY(characterIndex.getHeight() * 20).setInterpolator(new AccelerateInterpolator(2));
-
-    }
-
-    private void showCharacterIndex() {
-
-        characterIndex.animate().translationY(0).setInterpolator(new AccelerateInterpolator(2)).withEndAction(new Runnable() {
-            @Override
-            public void run() {
-                characterIndex.bringToFront();
-            }
-        });
-
-
-    }
+//    public static void hideCharacterIndex() {
+//        // toolbarTop.animate().translationY(-toolbarTop.getHeight()).setInterpolator(new AccelerateInterpolator(2));
+//
+//        sendViewToBack(characterIndex);
+//        characterIndex.animate().translationY(characterIndex.getHeight() * 20).setInterpolator(new AccelerateInterpolator(2));
+//
+//    }
+//
+//    private void showCharacterIndex() {
+//
+//        characterIndex.animate().translationY(0).setInterpolator(new AccelerateInterpolator(2)).withEndAction(new Runnable() {
+//            @Override
+//            public void run() {
+//                characterIndex.bringToFront();
+//            }
+//        });
+//
+//
+//    }
 
     @SuppressLint("ResourceAsColor")
     private void createChoiceButton(View v) {

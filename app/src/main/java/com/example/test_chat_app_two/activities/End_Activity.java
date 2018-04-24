@@ -24,6 +24,7 @@ public class End_Activity extends AppCompatActivity {
     private TextView des;
     private ImageView mainImg ;
     private Button gobtn;
+    private TextView charity;
 
 
 
@@ -36,6 +37,16 @@ public class End_Activity extends AppCompatActivity {
         initToolbar();
         initButton();
         setTextAndImage();
+
+        charity = findViewById(R.id.name_char);
+        charity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(End_Activity.this,CharityActivity.class);
+                intent.putExtra("charityName","serb");
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -109,8 +120,7 @@ public class End_Activity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_chevron_left_black_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setTitle("คุณทำได้ดีมากในทางที่คุณเลือก");
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
     }
     private void initButton(){

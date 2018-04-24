@@ -72,7 +72,7 @@ public class PopChooseActivity extends Activity {
                 MainChatActivity.buttonOnRight.setVisibility(View.GONE);
 
 
-                MainChatActivity.hideCharacterIndex();
+               // MainChatActivity.hideCharacterIndex();
                 MainChatActivity.onChoose = false;
                 setChooseToChat();
                 finish();
@@ -100,7 +100,7 @@ public class PopChooseActivity extends Activity {
         chatMessage.setMessage(messageStorage.getChooseDescription(choosePath, choose, 0));
         chatMessage.setDate(DateFormat.getDateTimeInstance().format(new Date()));
         // change to action bubble
-        chatMessage.setMe(5);
+        chatMessage.setMe(7);
 
         MainChatActivity.messages.add(chatMessage);
     }
@@ -116,7 +116,7 @@ public class PopChooseActivity extends Activity {
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.gravity = Gravity.BOTTOM;
         params.x = 0;
-        params.y = dpToPx(36);
+        params.y = 0;
         getWindow().setAttributes(params);
     }
 

@@ -48,7 +48,7 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
 
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    toolbarTxt.setText("Dornor choices");
+                    toolbarTxt.setText("Donor choices");
                     transaction.replace(R.id.content, new HomeFragment()).commit();
                     return true;
                 case R.id.navigation_dashboard:
@@ -80,7 +80,7 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
         bnve.setTextVisibility(false);
         bnve.setItemHeight(dpToPx(65));
         toolbarTxt = findViewById(R.id.toolbar_title);
-        toolbarTxt.setText("Dornor choices");
+        toolbarTxt.setText("Donor choices");
 
 
 

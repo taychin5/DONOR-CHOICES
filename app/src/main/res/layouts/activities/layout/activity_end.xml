@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".activities.End_Activity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/choose_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_trans"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
     <TextView
         android:id="@+id/path"
         android:layout_width="wrap_content"
@@ -33,27 +41,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choose_toolbar" />
+        app:layout_constraintTop_toTopOf="@+id/choose_toolbar" />
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/choose_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/toolbar_trans"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+
 
     <ImageView
         android:id="@+id/main_img"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="24dp"
+        android:layout_height="150dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:scaleType="centerCrop"
         android:src="@drawable/sence_camp"
-        app:layout_constraintBottom_toTopOf="@+id/des"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,18 +63,18 @@
         android:id="@+id/des"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:fontFamily="@font/athiti_light"
         android:maxLines="4"
         android:text="@string/paragraphtestlong"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_img" />
 
     <Button
         android:id="@+id/buttongo"
@@ -99,9 +99,54 @@
         android:fontFamily="@font/athiti_light"
         android:text="ค้นหาตอนจบอีก 5 รูปแบบต่อได้"
         android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/buttongo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/athiti_bold"
+        android:text="คุณบริจาคไปทั้งหมด"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/des" />
+
+    <TextView
+        android:id="@+id/donate_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/athiti_bold"
+        android:text="50 บาท"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView15"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/name_char"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/athiti_medium"
+        android:text="ให้กับมูลนิธิสืบนาคะเสถียร"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/donate_num"
+        app:layout_constraintStart_toStartOf="@+id/donate_num"
+        app:layout_constraintTop_toBottomOf="@+id/donate_num" />
 
 
 </android.support.constraint.ConstraintLayout>

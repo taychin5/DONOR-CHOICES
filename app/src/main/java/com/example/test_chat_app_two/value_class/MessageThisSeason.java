@@ -1,5 +1,7 @@
 package com.example.test_chat_app_two.value_class;
 
+import com.example.test_chat_app_two.R;
+
 /**
  * Created by Toddy on 25/02/2018.
  */
@@ -22,6 +24,7 @@ public class MessageThisSeason {
     private static final int MESSAGE_RIGHT_HURT = 3;
     private static final int MESSAGE_LEFT_HURT = 4;
     private static final int MESSAGE_Choose = 5;
+    private static final int IMAGE =6;
     private static final int DO_CHOICE = 0;
     private static final int DO_CHOICE_DONATE = 1;
     private static final int DO_FIGHT = 2;
@@ -29,273 +32,279 @@ public class MessageThisSeason {
     private int decide = 0;
     private int decideSms = 1;
     private int fight = 2;
-    private int isMe[][] = {
+    private int isMe[][][] = {
 
             //path 0
             {
-                    MESSAGE_RIGHT_THINK,//0
-                    MESSAGE_RIGHT,//1
-                    MESSAGE_LEFT,//2
-                    MESSAGE_LEFT,//3
-                    MESSAGE_LEFT,//4
-                    MESSAGE_RIGHT_THINK,//5
-                    MESSAGE_RIGHT_THINK,//6
-                    MESSAGE_RIGHT_THINK,//7
-                    MESSAGE_LEFT,//8
-                    MESSAGE_LEFT,//9
-                    MESSAGE_RIGHT,//10
+                    {IMAGE, R.drawable.sence_mountain},
+                    {MESSAGE_RIGHT_THINK},//0
+                    {IMAGE,R.drawable.sence_twotravel},
+                    {MESSAGE_RIGHT},//1
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//2
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
+                    {IMAGE,R.drawable.sence_hero},
+                    {MESSAGE_RIGHT_THINK},//5
+                    {IMAGE,R.drawable.sence_two_allies},
+                    {MESSAGE_RIGHT_THINK},//6
+                    {IMAGE,R.drawable.sence_allies},
+                    {MESSAGE_RIGHT_THINK},//7
+                    {IMAGE,R.drawable.sence_twotravel},
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//8
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//9
+                    {MESSAGE_RIGHT},//10
 
             },
             //path 1
             {
-                    MESSAGE_RIGHT,//0
-                    MESSAGE_RIGHT,//1
-                    MESSAGE_RIGHT,//2
-                    MESSAGE_RIGHT,//3
-                    MESSAGE_RIGHT,//4
-                    MESSAGE_RIGHT,//5
-                    MESSAGE_RIGHT,//6
+                    {MESSAGE_RIGHT},//0
+                    {MESSAGE_RIGHT},//1
+                    {MESSAGE_RIGHT},//2
+                    {MESSAGE_RIGHT},//3
+                    {MESSAGE_RIGHT},//4
+                    {MESSAGE_RIGHT},//5
+                    {MESSAGE_RIGHT},//6
             },
             //path 2
             {
-                    MESSAGE_RIGHT,//0
-                    MESSAGE_RIGHT,//1
-                    MESSAGE_RIGHT,//2
-                    MESSAGE_RIGHT,//3
-                    MESSAGE_RIGHT,//4
-                    MESSAGE_RIGHT,//5
-                    MESSAGE_RIGHT,//6
+                    {MESSAGE_RIGHT},//0
+                    {MESSAGE_RIGHT},//1
+                    {MESSAGE_RIGHT},//2
+                    {MESSAGE_RIGHT},//3
+                    {MESSAGE_RIGHT},//4
+                    {MESSAGE_RIGHT},//5
+                    {MESSAGE_RIGHT},//6
             },
             //path 3
             {
-                    MESSAGE_RIGHT_THINK,//0
-                    MESSAGE_LEFT,//1
-                    MESSAGE_LEFT,//2
-                    MESSAGE_LEFT,//3
-                    MESSAGE_LEFT,//4
-                    MESSAGE_RIGHT_THINK,//5
-                    MESSAGE_RIGHT,//6
-                    MESSAGE_RIGHT,//7
-                    MESSAGE_RIGHT,//8
-                    MESSAGE_RIGHT,//9
-                    MESSAGE_RIGHT,//1
-                    MESSAGE_LEFT,//11
-                    MESSAGE_RIGHT_THINK,//12
-                    MESSAGE_LEFT,//13
-                    MESSAGE_RIGHT//14
+                    {MESSAGE_RIGHT_THINK},//0
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//1
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//2
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
+                    {MESSAGE_RIGHT_THINK},//5
+                    {MESSAGE_RIGHT},//6
+                    {MESSAGE_RIGHT},//7
+                    {MESSAGE_RIGHT},//8
+                    {MESSAGE_RIGHT},//9
+                    {MESSAGE_RIGHT},//1
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//11
+                    {MESSAGE_RIGHT_THINK},//12
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//13
+                    {MESSAGE_RIGHT}//14
 
             },
             //path 4
             {
-                    MESSAGE_RIGHT_THINK,//0
-                    MESSAGE_LEFT,//1
-                    MESSAGE_LEFT,//2
-                    MESSAGE_LEFT,//3
-                    MESSAGE_LEFT,//4
-                    MESSAGE_RIGHT_THINK,//5
-                    MESSAGE_RIGHT,//6
-                    MESSAGE_RIGHT,//7
-                    MESSAGE_RIGHT,//8
-                    MESSAGE_RIGHT,//9
-                    MESSAGE_RIGHT,//1
-                    MESSAGE_LEFT,//11
-                    MESSAGE_RIGHT_THINK,//12
-                    MESSAGE_RIGHT,//13
+                    {MESSAGE_RIGHT_THINK},//0
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//1
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//2
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
+                    {MESSAGE_RIGHT_THINK},//5
+                    {MESSAGE_RIGHT},//6
+                    {MESSAGE_RIGHT},//7
+                    {MESSAGE_RIGHT},//8
+                    {MESSAGE_RIGHT},//9
+                    {MESSAGE_RIGHT},//1
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//11
+                    {MESSAGE_RIGHT_THINK},//12
+                    {MESSAGE_RIGHT},//13
 
             },
             //path 5
             {
-                    MESSAGE_RIGHT_THINK,//0
-                    MESSAGE_RIGHT,//1
-                    MESSAGE_RIGHT,//2
-                    MESSAGE_LEFT,//3
-                    MESSAGE_LEFT,//4
-                    MESSAGE_RIGHT,//5
-                    MESSAGE_LEFT,//6
-                    MESSAGE_LEFT,//7
-                    MESSAGE_RIGHT_THINK,//8
+                    {MESSAGE_RIGHT_THINK},//0
+                    {MESSAGE_RIGHT},//1
+                    {MESSAGE_RIGHT},//2
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
+                    {MESSAGE_RIGHT},//5
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//6
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//7
+                    {MESSAGE_RIGHT_THINK},//8
             },
             //path 6
             {
-                    MESSAGE_LEFT,//0
-                    MESSAGE_LEFT,//1
-                    MESSAGE_RIGHT,//2
-                    MESSAGE_RIGHT_THINK,//3
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//0
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//1
+                    {MESSAGE_RIGHT},//2
+                    {MESSAGE_RIGHT_THINK},//3
             },
             //path 7
             {
-                    MESSAGE_RIGHT_THINK,//0
-                    MESSAGE_LEFT,//1
-                    MESSAGE_RIGHT,//2
-                    MESSAGE_LEFT,//3
-                    MESSAGE_LEFT,//4
-                    MESSAGE_RIGHT_THINK,//5
-                    MESSAGE_RIGHT_THINK,//6
+                    {MESSAGE_RIGHT_THINK},//0
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//1
+                    {MESSAGE_RIGHT},//2
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
+                    {MESSAGE_RIGHT_THINK},//5
+                    {MESSAGE_RIGHT_THINK},//6
             },
             //path 8
             {
-                    MESSAGE_RIGHT_THINK,//0
-                    MESSAGE_RIGHT_THINK,//1
-                    MESSAGE_LEFT,//2
-                    MESSAGE_RIGHT,//3
-                    MESSAGE_RIGHT,//4
+                    {MESSAGE_RIGHT_THINK},//0
+                    {MESSAGE_RIGHT_THINK},//1
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//2
+                    {MESSAGE_RIGHT},//3
+                    {MESSAGE_RIGHT},//4
             },
             //path 9
             {
-                    MESSAGE_RIGHT_THINK,//0
-                    MESSAGE_LEFT,//1
-                    MESSAGE_RIGHT,//2
-                    MESSAGE_LEFT,//3
-                    MESSAGE_LEFT,//4
-                    MESSAGE_LEFT,//5
-                    MESSAGE_RIGHT,//6
-                    MESSAGE_RIGHT,//7
-                    MESSAGE_RIGHT,//8
-                    MESSAGE_RIGHT,//9
-                    MESSAGE_RIGHT,//1
-                    MESSAGE_RIGHT,//11
+                    {MESSAGE_RIGHT_THINK},//0
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//1
+                    {MESSAGE_RIGHT},//2
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//5
+                    {MESSAGE_RIGHT},//6
+                    {MESSAGE_RIGHT},//7
+                    {MESSAGE_RIGHT},//8
+                    {MESSAGE_RIGHT},//9
+                    {MESSAGE_RIGHT},//1
+                    {MESSAGE_RIGHT},//11
             },
             //path 10
             {
-                    MESSAGE_LEFT,//0
-                    MESSAGE_RIGHT_THINK,//1
-                    MESSAGE_RIGHT_THINK,//2
-                    MESSAGE_RIGHT,//3
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//0
+                    {MESSAGE_RIGHT_THINK},//1
+                    {MESSAGE_RIGHT_THINK},//2
+                    {MESSAGE_RIGHT},//3
             },
             //path 11
             {
-                    MESSAGE_RIGHT_THINK,//0
-                    MESSAGE_RIGHT_THINK,//1
-                    MESSAGE_RIGHT,//2
-                    MESSAGE_RIGHT,//3
+                    {MESSAGE_RIGHT_THINK},//0
+                    {MESSAGE_RIGHT_THINK},//1
+                    {MESSAGE_RIGHT},//2
+                    {MESSAGE_RIGHT},//3
             },
             //path 12
             {
-                    MESSAGE_RIGHT_THINK,//0
-                    MESSAGE_RIGHT,//1
-                    MESSAGE_LEFT,//2
-                    MESSAGE_LEFT,//3
-                    MESSAGE_RIGHT_THINK,//4
-                    MESSAGE_RIGHT,//5
+                    {MESSAGE_RIGHT_THINK},//0
+                    {MESSAGE_RIGHT},//1
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//2
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                    {MESSAGE_RIGHT_THINK},//4
+                    {MESSAGE_RIGHT},//5
             },
             //path 13
             {
-                    MESSAGE_LEFT,//0
-                    MESSAGE_RIGHT_THINK,//1
-                    MESSAGE_RIGHT,//2
-                    MESSAGE_LEFT,//3
-                    MESSAGE_LEFT,//4
-                    MESSAGE_RIGHT,//5
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//0
+                    {MESSAGE_RIGHT_THINK},//1
+                    {MESSAGE_RIGHT},//2
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
+                    {MESSAGE_RIGHT},//5
             },
             //path 14
             {
-                    MESSAGE_LEFT,//0
-                    MESSAGE_RIGHT,//1
-                    MESSAGE_RIGHT,//2
-                    MESSAGE_RIGHT,//3
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//0
+                    {MESSAGE_RIGHT},//1
+                    {MESSAGE_RIGHT},//2
+                    {MESSAGE_RIGHT},//3
 
             },
             //path 15
             {
-                    MESSAGE_RIGHT_THINK,//0
-                    MESSAGE_RIGHT,//1
-                    MESSAGE_RIGHT,//2
+                    {MESSAGE_RIGHT_THINK},//0
+                    {MESSAGE_RIGHT},//1
+                    {MESSAGE_RIGHT},//2
             },
             //path 16
             {
-                    MESSAGE_RIGHT_THINK,//0
-                    MESSAGE_RIGHT,//1
-                    MESSAGE_RIGHT,//2
+                    {MESSAGE_RIGHT_THINK},//0
+                    {MESSAGE_RIGHT},//1
+                    {MESSAGE_RIGHT},//2
             },
             //path 17
             {
-                    MESSAGE_RIGHT,//0
-                    MESSAGE_RIGHT,//1
-                    MESSAGE_RIGHT,//2
-                    MESSAGE_LEFT,//3
-                    MESSAGE_RIGHT,//4
-                    MESSAGE_LEFT,//5
-                    MESSAGE_RIGHT_THINK,//6
-                    MESSAGE_RIGHT_THINK,//7
+                    {MESSAGE_RIGHT},//0
+                    {MESSAGE_RIGHT},//1
+                    {MESSAGE_RIGHT},//2
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                    {MESSAGE_RIGHT},//4
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//5
+                    {MESSAGE_RIGHT_THINK},//6
+                    {MESSAGE_RIGHT_THINK},//7
             },
             //path 18
             {
-                    MESSAGE_RIGHT_THINK,//0
-                    MESSAGE_LEFT,//1
-                    MESSAGE_LEFT,//2
-                    MESSAGE_RIGHT,//3
-                    MESSAGE_RIGHT_THINK,//4
-                    MESSAGE_RIGHT_THINK,//5
-                    MESSAGE_RIGHT_THINK,//6
-                    MESSAGE_RIGHT_THINK,//7
-                    MESSAGE_RIGHT,//8
-                    MESSAGE_LEFT,//9
-                    MESSAGE_RIGHT,//10
-                    MESSAGE_RIGHT,//11
-                    MESSAGE_RIGHT,//12
+                    {MESSAGE_RIGHT_THINK},//0
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//1
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//2
+                    {MESSAGE_RIGHT},//3
+                    {MESSAGE_RIGHT_THINK},//4
+                    {MESSAGE_RIGHT_THINK},//5
+                    {MESSAGE_RIGHT_THINK},//6
+                    {MESSAGE_RIGHT_THINK},//7
+                    {MESSAGE_RIGHT},//8
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//9
+                    {MESSAGE_RIGHT},//10
+                    {MESSAGE_RIGHT},//11
+                    {MESSAGE_RIGHT},//12
             },
 
             //path 19
             {
-                    MESSAGE_RIGHT,//0
-                    MESSAGE_RIGHT,//1
-                    MESSAGE_RIGHT,//2
-                    MESSAGE_LEFT,//3
-                    MESSAGE_LEFT,//4
-                    MESSAGE_RIGHT,//5
-                    MESSAGE_LEFT,//6
-                    MESSAGE_RIGHT_THINK,//7
-                    MESSAGE_RIGHT_THINK,//8
-                    MESSAGE_LEFT,//9
-                    MESSAGE_RIGHT,//10
-                    MESSAGE_RIGHT_THINK,//11
-                    MESSAGE_LEFT,//12
-                    MESSAGE_RIGHT,//13
-                    MESSAGE_LEFT,//14
-                    MESSAGE_LEFT,//15
-                    MESSAGE_RIGHT_THINK,//15
-                    MESSAGE_RIGHT_THINK//16
+                    {MESSAGE_RIGHT},//0
+                    {MESSAGE_RIGHT},//1
+                    {MESSAGE_RIGHT},//2
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
+                    {MESSAGE_RIGHT},//5
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//6
+                    {MESSAGE_RIGHT_THINK},//7
+                    {MESSAGE_RIGHT_THINK},//8
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//9
+                    {MESSAGE_RIGHT},//10
+                    {MESSAGE_RIGHT_THINK},//11
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//12
+                    {MESSAGE_RIGHT},//13
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//14
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//15
+                    {MESSAGE_RIGHT_THINK},//15
+                    {MESSAGE_RIGHT_THINK},//16
             },
             //path 20
             {
-                    MESSAGE_RIGHT,//0
-                    MESSAGE_RIGHT,//1
-                    MESSAGE_RIGHT,//2
+                    {MESSAGE_RIGHT},//0
+                    {MESSAGE_RIGHT},//1
+                    {MESSAGE_RIGHT},//2
             },
             //path 21
             {
-                    MESSAGE_LEFT,//0
-                    MESSAGE_LEFT,//1
-                    MESSAGE_RIGHT_THINK,//2
-                    MESSAGE_RIGHT,//3
-                    MESSAGE_RIGHT//4
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//0
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//1
+                    {MESSAGE_RIGHT_THINK},//2
+                    {MESSAGE_RIGHT},//3
+                    {MESSAGE_RIGHT}//4
 
             },
             //path 22
             {
-                    MESSAGE_LEFT,//0
-                    MESSAGE_RIGHT,//1
-                    MESSAGE_RIGHT,//2
-                    MESSAGE_RIGHT,//3
-                    MESSAGE_RIGHT//4
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//0
+                    {MESSAGE_RIGHT},//1
+                    {MESSAGE_RIGHT},//2
+                    {MESSAGE_RIGHT},//3
+                    {MESSAGE_RIGHT}//4
 
             },
             //path 23
             {
-                    MESSAGE_LEFT,//0
-                    MESSAGE_LEFT,//1
-                    MESSAGE_RIGHT_THINK,//2
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//0
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//1
+                    {MESSAGE_RIGHT_THINK},//2
             },
             //path 24
             {
-                    MESSAGE_RIGHT,//0
-                    MESSAGE_RIGHT_THINK,//1
-                    MESSAGE_LEFT,//2
-                    MESSAGE_RIGHT,//3
-                    MESSAGE_LEFT,//4
-                    MESSAGE_LEFT,//5
-                    MESSAGE_RIGHT,//6
-                    MESSAGE_RIGHT,//7
+                    {MESSAGE_RIGHT},//0
+                    {MESSAGE_RIGHT_THINK},//1
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//2
+                    {MESSAGE_RIGHT},//3
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
+                    {MESSAGE_LEFT,R.drawable.char_b_talk},//5
+                    {MESSAGE_RIGHT},//6
+                    {MESSAGE_RIGHT},//7
             }
 
 
@@ -306,21 +315,27 @@ public class MessageThisSeason {
     private String message[][] = {
             // path0
             {
+                    "IMAGE",
                     "ณ ป่าตะวันตกของประเทศไทย",//0
+                    "IMAGE",
                     "วันนี้โครตร้อนเลย",//1
-
                     "ใช่ ร้อนจริงๆ",//2
                     "งั้นคืนนี้เราพักที่ริมธารตรงนู้นแหละกัน",//3
                     "งั้นขึ้งเปลเเลยนะครับ",//4
-
+                    "IMAGE",
                     "พวกเราเป็นผู้พิทักษ์ป่าไทย\nคนที่ผมคุยด้วยก็เป็นเพื่อนที่ทำงาน",//5
+                    "IMAGE",
                     "เขาชื่อ แดง อายุเท่ากัน\n" +
                             "ทำงานด้วยกันมา แปดปีแหละ",//6
+                    "IMAGE",
                     "ที่จริงพวกเราก็มีอีกกันหลายคน\n" +
                             "แต่ตอนนี้แยกกันสำรวจพื้นที่อยู่",//7
+                    "IMAGE",
                     "เออเอาเลย ขึงเลย",//8
                     "ขึ้งดีๆด้วยหละ ครั้งที่แล้วนอนๆหลุดเฉย",//9
                     "ค้าบๆๆ"//10
+
+
             },
             //path 1&2
             {
@@ -1507,8 +1522,13 @@ public class MessageThisSeason {
     }
 
     public int isMe(int newPath, int hit) {
-        return isMe[newPath][hit];
+        return isMe[newPath][hit][0];
     }
+
+    public int isCharacterimg(int newPath, int hit) {
+        return isMe[newPath][hit][1];
+    }
+
 
     public String getMessage(int newPath, int hit) {
         if (hit < message[newPath].length) {

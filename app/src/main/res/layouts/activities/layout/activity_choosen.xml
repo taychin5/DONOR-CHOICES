@@ -36,14 +36,14 @@
             android:padding="4dp"
             android:text="#ประเทศไทย"
             android:textColor="#ffff"
-            android:textSize="10sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@+id/tag2"
             app:layout_constraintTop_toTopOf="@+id/tag1" />
 
         <Button
             android:id="@+id/goBtn"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="54dp"
             android:background="@drawable/gradient"
             android:fontFamily="@font/athiti_bold"
             android:text="เริ่มการผจญภัยครั้งใหม่"
@@ -75,10 +75,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
             android:fontFamily="@font/athiti_semibold"
             android:text="TextView"
             android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/headerMain" />
 
@@ -87,6 +87,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
+            android:autoSizeMaxTextSize="20dp"
+            android:autoSizeMinTextSize="10dp"
             android:background="#451978e0"
             android:fontFamily="@font/athiti_light"
             android:maxLines="3"
@@ -94,16 +96,14 @@
             android:paddingEnd="16dp"
             android:paddingStart="16dp"
             android:text="@string/paragraphtestlong"
-            android:textSize="12sp"
-            android:autoSizeMaxTextSize="20dp"
-            android:autoSizeMinTextSize="10dp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tag1" />
 
 
-        <ImageView
+        <pl.droidsonroids.gif.GifImageView
             android:id="@+id/mainImage"
             android:layout_width="0dp"
             android:layout_height="160dp"
@@ -114,48 +114,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/a3" />
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="8dp"
-            android:background="#7a000000"
-            app:layout_constraintBottom_toBottomOf="@+id/mainImage"
-            app:layout_constraintStart_toStartOf="@+id/mainImage">
-
-            <TextView
-                android:id="@+id/total_donor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/athiti_medium"
-                android:padding="0dp"
-                android:text="Total Donor"
-                android:textColor="#FFFFFF"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/total_donor_num"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:fontFamily="@font/athiti_medium"
-                android:padding="0dp"
-                android:text="100,000 D"
-                android:textColor="#FFFFFF"
-                app:layout_constraintBottom_toBottomOf="@+id/total_donor"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/total_donor"
-                app:layout_constraintTop_toTopOf="@+id/total_donor" />
-
-        </android.support.constraint.ConstraintLayout>
-
-        <ImageView
+        <pl.droidsonroids.gif.GifImageView
             android:id="@+id/jobpic"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -166,7 +125,7 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_job_info"
-            app:srcCompat="@drawable/giphy" />
+            app:srcCompat="@drawable/panic_a" />
 
         <TextView
             android:id="@+id/jobTxt"
@@ -189,9 +148,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/athiti_medium"
-            android:text="อาชีพของคุณคือ"
+            android:text="บทบาทของคุณคือ"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -202,11 +161,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/athiti_light"
+            android:fontFamily="@font/athiti_medium"
             android:text="โครงการเพื่อน้องใหม่"
-            android:textSize="10sp"
-            app:autoSizeMaxTextSize="10sp"
-            app:autoSizeMinTextSize="6sp"
+            android:textSize="14sp"
+            android:autoSizeMaxTextSize="10sp"
+            android:autoSizeMinTextSize="6sp"
             app:layout_constraintBottom_toBottomOf="@+id/charity_name"
             app:layout_constraintStart_toEndOf="@+id/charity_name"
             app:layout_constraintTop_toTopOf="@+id/charity_name" />
@@ -237,7 +196,7 @@
             android:padding="4dp"
             android:text="#สวมบทบาท"
             android:textColor="#ffff"
-            android:textSize="10sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@+id/tag1"
             app:layout_constraintTop_toTopOf="@+id/tag1" />
 
@@ -252,9 +211,32 @@
             android:padding="4dp"
             android:text="#เรื่องใหม่"
             android:textColor="#ffff"
-            android:textSize="10sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/athiti_medium"
+            android:text="43k views"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/charity_name"
             app:layout_constraintTop_toBottomOf="@+id/charity_name" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/athiti_medium"
+            android:text="150k บาท"
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/textView16"
+            app:layout_constraintTop_toTopOf="@+id/textView16" />
 
     </android.support.constraint.ConstraintLayout>
 

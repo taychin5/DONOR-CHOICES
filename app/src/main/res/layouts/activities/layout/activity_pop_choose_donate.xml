@@ -27,11 +27,11 @@
     <Button
         android:id="@+id/chose_btn"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="54dp"
         android:background="#FFFFFF"
         android:fontFamily="@font/athiti_bold"
         android:padding="8dp"
-        android:text="ตัดสินใจเลือกทางเลือกนี้ และบริจาค"
+        android:text="ตัดสินใจเลือกทางนี้ และบริจาค 5 บาท"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
         android:textStyle="bold"

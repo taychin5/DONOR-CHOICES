@@ -19,6 +19,8 @@ import com.example.test_chat_app_two.activities.chatMessageMain.MainChatActivity
 import com.example.test_chat_app_two.activities.homePage.Home_activity;
 import com.example.test_chat_app_two.value_class.CharityInfo;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class ChoosenActivity extends AppCompatActivity {
 
     private int choosePosition;
@@ -33,8 +35,8 @@ public class ChoosenActivity extends AppCompatActivity {
     private TextView charityNameTxt;
     private TextView headerMain;
     private TextView desTxt;
-    private ImageView mainImg;
-
+    private GifImageView mainImg;
+    private GifImageView charImg;
 
     private ShareActionProvider mShareActionProvider;
 
@@ -58,15 +60,28 @@ public class ChoosenActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
-        header.setText(Home_activity.mainStoryList.get(choosePosition).getStoryTitle());
-        mainImg.setImageResource(Home_activity.mainStoryList.get(choosePosition).getMainImage());
+        //getdata
+
+        //header.setText(Home_activity.mainStoryList.get(choosePosition).getStoryTitle());
+        //mainImg.setImageResource(Home_activity.mainStoryList.get(choosePosition).getMainImage());
+        //headerMain.setText(Home_activity.mainStoryList.get(choosePosition).getStoryTitle());
+        //charityNameTxt.setText(charityName);
+        //desTxt.setText(Home_activity.mainStoryList.get(choosePosition).getDes());
+
+
+        header.setText("ป่าตะวันตก ในคืนนั้น");
+
+        mainImg.setImageResource(R.drawable.sence_mountain);
         int displayWidth = getWindowManager().getDefaultDisplay().getHeight();
-        mainImg.getLayoutParams().height = displayWidth/3;
+        mainImg.getLayoutParams().height = displayWidth/4;
 
-        headerMain.setText(Home_activity.mainStoryList.get(choosePosition).getStoryTitle());
-        charityNameTxt.setText(charityName);
-        desTxt.setText(Home_activity.mainStoryList.get(choosePosition).getDes());
+        headerMain.setText("ป่าตะวันตก ในคืนนั้น");
 
+        charityNameTxt.setText("มูลนิธิสืบนาคะเสถียร");
+
+        desTxt.setText("การเดินทางออกลาดตระเวนของผู้พิทักษ์ป่าไทยที่กิดขึ้นเป็นประจำ แต่ครั้งนี้เราและเพื่อนแยกกลุ่มกันจนเหลือกันอยู่สองคน ในคืนนี้นเเสียงปืนที่ดังขึ้น การบุกรุกป่าเข้ามาอีกครั้ง ทุกการตัดสินใจมีผลต่อความเป็นและความตายของพวกเราทั้งสิ้น");
+
+        charImg.setImageResource(R.drawable.panic_a);
 
     }
 
@@ -96,10 +111,10 @@ public class ChoosenActivity extends AppCompatActivity {
         goBtn = (Button) findViewById(R.id.goBtn);
         header = (TextView) findViewById(R.id.header);
         headerMain = findViewById(R.id.headerMain);
-        mainImg = (ImageView) findViewById(R.id.mainImage);
+        mainImg =  findViewById(R.id.mainImage);
         charityNameTxt = (TextView) findViewById(R.id.charity_name);
         desTxt = findViewById(R.id.desTxt);
-
+        charImg = findViewById(R.id.jobpic);
 
 
         charityNameTxt.setOnClickListener(new View.OnClickListener() {

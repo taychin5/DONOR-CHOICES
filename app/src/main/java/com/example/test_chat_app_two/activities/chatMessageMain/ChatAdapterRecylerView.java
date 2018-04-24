@@ -33,13 +33,18 @@ public class ChatAdapterRecylerView extends RecyclerView.Adapter<MessageViewHold
     private static final int MESSAGE_RIGHT_HURT = 3;
     private static final int MESSAGE_LEFT_HURT = 4;
     private static final int MESSAGE_Choose = 5;
+    private static final int IMAGE =6;
+    private static final int CHOOSE = 7;
+    private static final int CHOOSE_DONATE = 8;
 
 
     private final List<ChatMessage> chatMessages;
+    private final int mainImg =-1 ;
 
     public ChatAdapterRecylerView( List<ChatMessage> chatMessages) {
         this.chatMessages = chatMessages;
     }
+
 
     @Override
     public MessageViewHolder onCreateViewHolder(final ViewGroup parent,final int viewType) {
@@ -71,25 +76,40 @@ public class ChatAdapterRecylerView extends RecyclerView.Adapter<MessageViewHold
                 itemView = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.mid_chat, parent, false);
                 break;
-
+            case IMAGE :
+                itemView = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.image_chat, parent, false);
+                break;
+            case CHOOSE :
+                itemView = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.chat_choose, parent, false);
+                break;
+            case CHOOSE_DONATE :
+                itemView = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.chat_choose, parent, false);
+                break;
             default:itemView = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.left_chat, parent, false);
 
         }
-
 
         return new MessageViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(MessageViewHolder holder, int position) {
-        String message = chatMessages.get(position).getMessage();
-        holder.getMessageTextView().setText(message);
         int pos =getItemViewType(position);
+        if(pos != IMAGE) {
+            String message = chatMessages.get(position).getMessage();
+            holder.getMessageTextView().setText(message);
+        }
         if(pos==MESSAGE_RIGHT || pos==MESSAGE_LEFT){
             SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
             String format = sdf.format(Calendar.getInstance().getTime());
         holder.txtInfo.setText(format);
+        }
+        if(pos==IMAGE || pos == MESSAGE_LEFT){
+            holder.getCharacterImage().setImageResource(chatMessages.get(position).getCharacterimg());
         }
 
 
@@ -109,6 +129,7 @@ public class ChatAdapterRecylerView extends RecyclerView.Adapter<MessageViewHold
     public void add(ChatMessage message){
         chatMessages.add(message);
     }
+    public int addImg(int mainImg){return mainImg;}
 }
 
 

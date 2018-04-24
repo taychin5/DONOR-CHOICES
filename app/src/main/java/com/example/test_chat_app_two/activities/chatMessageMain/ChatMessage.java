@@ -11,6 +11,7 @@ class ChatMessage {
     private Long userId;
     private String dateTime;
     private char character;
+    private int characterimg;
 
     public char getCharacter() {
         return character;
@@ -31,6 +32,14 @@ class ChatMessage {
     }
     public void setMe(int isMe) {
         this.isMe = isMe;
+    }
+
+    public int getCharacterimg() {
+        return characterimg;
+    }
+
+    public void setCharacterimg(int characterimg) {
+        this.characterimg = characterimg;
     }
 
     public String getMessage() {

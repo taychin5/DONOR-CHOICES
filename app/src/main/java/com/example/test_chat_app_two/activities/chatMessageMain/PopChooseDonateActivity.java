@@ -30,6 +30,9 @@ import com.example.test_chat_app_two.value_class.DonateList;
 import com.example.test_chat_app_two.value_class.MessageThisSeason;
 import com.example.test_chat_app_two.R;
 
+import java.text.DateFormat;
+import java.util.Date;
+
 public class PopChooseDonateActivity extends AppCompatActivity {
 
     public TextView headTxt;
@@ -108,7 +111,7 @@ public class PopChooseDonateActivity extends AppCompatActivity {
 
                 MainChatActivity.buttonOnLeft.setVisibility(View.GONE);
                 MainChatActivity.buttonOnRight.setVisibility(View.GONE);
-
+                setChooseToChat();
 
                 finish();
             }
@@ -163,7 +166,7 @@ public class PopChooseDonateActivity extends AppCompatActivity {
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.gravity = Gravity.BOTTOM;
         params.x = 0;
-        params.y = dpToPx(36);
+        params.y =0;
         getWindow().setAttributes(params);
     }
 
@@ -205,5 +208,18 @@ public class PopChooseDonateActivity extends AppCompatActivity {
             mNotificationManager.createNotificationChannel(mChannel);
         }
         mNotificationManager.notify(001 , mBuilder.build());
+    }
+    private void setChooseToChat() {
+
+        MessageThisSeason messageStorage = new MessageThisSeason();
+
+        ChatMessage chatMessage = new ChatMessage();
+        chatMessage.setId(MainChatActivity.totalHit);
+        chatMessage.setMessage(messageStorage.getChooseDescription(choosePath, choose, 0));
+        chatMessage.setDate(DateFormat.getDateTimeInstance().format(new Date()));
+        // change to action bubble
+        chatMessage.setMe(8);
+
+        MainChatActivity.messages.add(chatMessage);
     }
 }

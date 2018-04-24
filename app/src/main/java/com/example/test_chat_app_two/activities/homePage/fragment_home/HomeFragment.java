@@ -324,7 +324,7 @@ class HomeFragmentRecyclerViewAdapter extends RecyclerView.Adapter<HomeFragmentR
             image_view_screen_item = (ImageView) itemView.findViewById(R.id.mainImage);
             headTxt = itemView.findViewById(R.id.head_txt);
             charTxt = itemView.findViewById(R.id.charity_txt);
-            viewTxt = itemView.findViewById(R.id.view_txt);
+            viewTxt = itemView.findViewById(R.id.vTxt);
         }
     }
 }
@@ -390,7 +390,7 @@ class ViewPagerAdapter extends PagerAdapter {
 
     private Context context;
     private LayoutInflater layoutInflater;
-    private Integer[] images = {R.drawable.banner, R.drawable.banner,R.drawable.banner};
+    private Integer[] images = {R.drawable.banner_1, R.drawable.banner_2,R.drawable.banner_3};
 
     public ViewPagerAdapter(Context context) {
         this.context = context;

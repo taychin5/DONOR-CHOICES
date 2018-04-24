@@ -28,24 +28,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/positiontxt"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/header"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="29dp"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/athiti_semibold"
+            android:fontFamily="@font/athiti_bold"
             android:padding="0dp"
             android:paddingEnd="2dp"
             android:paddingStart="2dp"
             android:text="Name this season"
             android:textColor="#1c1c1d"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -54,38 +54,41 @@
             android:id="@+id/desTxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/athiti_medium"
             android:padding="2dp"
             android:text="เพื่อ มูลนิธิเด็กพิการ"
-            android:textSize="10sp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/header"
-            app:layout_constraintTop_toBottomOf="@+id/header" />
+            app:layout_constraintTop_toTopOf="@+id/header" />
 
         <TextView
             android:id="@+id/donateTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/athiti_bold"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/athiti_medium"
             android:padding="2dp"
             android:text="180,000 donate"
             android:textColor="@color/colorAccent"
-            android:textSize="8sp"
-            app:layout_constraintStart_toStartOf="@+id/desTxt"
-            app:layout_constraintTop_toBottomOf="@+id/desTxt" />
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/viewtxt"
+            app:layout_constraintTop_toBottomOf="@+id/header" />
 
         <TextView
             android:id="@+id/viewtxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/athiti_bold"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/athiti_medium"
             android:padding="2dp"
-            android:text="317,865 view"
-            android:textColor="@color/colorAccent"
-            android:textSize="8sp"
+            android:text="317,865 views"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/donateTxt"
-            app:layout_constraintStart_toEndOf="@+id/donateTxt"
-            app:layout_constraintTop_toBottomOf="@+id/desTxt" />
+            app:layout_constraintStart_toStartOf="@+id/desTxt"
+            app:layout_constraintTop_toBottomOf="@+id/header" />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -94,7 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/athiti_bold"
         android:text="1"

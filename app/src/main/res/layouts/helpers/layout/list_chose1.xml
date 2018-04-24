@@ -29,6 +29,7 @@
                 android:id="@+id/mainImage"
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
+                android:layout_marginTop="8dp"
                 android:cropToPadding="true"
                 android:padding="4dp"
                 android:scaleType="centerCrop"
@@ -42,45 +43,52 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:background="#4b000000"
                 android:fontFamily="@font/athiti_bold"
                 android:padding="2dp"
                 android:text="HEADER "
-                android:textColor="@color/cardview_light_background"
+                android:textColor="#000000"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/view_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginStart="8dp"
-                android:background="#4b000000"
-                android:fontFamily="@font/athiti_light"
-                android:padding="4dp"
-                android:text="55.11k"
-                android:textColor="@color/cardview_light_background"
-                android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="@+id/mainImage"
-                app:layout_constraintStart_toStartOf="@+id/mainImage" />
+                app:layout_constraintTop_toBottomOf="@+id/mainImage" />
 
             <TextView
                 android:id="@+id/charity_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:background="#4b000000"
-                android:fontFamily="@font/athiti_light"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/athiti_medium"
                 android:padding="2dp"
                 android:text="of ........... charity"
-                android:textColor="@color/cardview_light_background"
-                android:textSize="10sp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/head_txt"
-                app:layout_constraintTop_toBottomOf="@+id/head_txt" />
+                app:layout_constraintTop_toTopOf="@+id/head_txt" />
+
+            <TextView
+                android:id="@+id/vTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/athiti_medium"
+                android:text="100k views"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/charity_txt"
+                app:layout_constraintTop_toBottomOf="@+id/charity_txt" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/athiti_medium"
+                android:text="320k donate"
+                android:textColor="@color/colorAccent"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/vTxt"
+                app:layout_constraintTop_toTopOf="@+id/vTxt" />
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>
