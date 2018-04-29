@@ -37,274 +37,290 @@ public class MessageThisSeason {
             //path 0
             {
                     {IMAGE, R.drawable.sence_mountain},
-                    {MESSAGE_RIGHT_THINK},//0
+                        {MESSAGE_RIGHT_THINK},//0
                     {IMAGE,R.drawable.sence_twotravel},
-                    {MESSAGE_RIGHT},//1
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//2
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
-                    {IMAGE,R.drawable.sence_hero},
-                    {MESSAGE_RIGHT_THINK},//5
-                    {IMAGE,R.drawable.sence_two_allies},
-                    {MESSAGE_RIGHT_THINK},//6
+                        {MESSAGE_RIGHT},//1
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//2
+                        {MESSAGE_RIGHT},//3
+                        {MESSAGE_RIGHT},//4
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//5
+                        {MESSAGE_RIGHT},//6
+                        {MESSAGE_RIGHT_THINK},//7
+                        {MESSAGE_RIGHT_THINK},//8
+                        {MESSAGE_RIGHT_THINK},//9
+                        {MESSAGE_RIGHT_THINK},//10
+                        {MESSAGE_RIGHT_THINK},//11
                     {IMAGE,R.drawable.sence_allies},
-                    {MESSAGE_RIGHT_THINK},//7
+                        {MESSAGE_RIGHT_THINK},//12
                     {IMAGE,R.drawable.sence_twotravel},
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//8
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//9
-                    {MESSAGE_RIGHT},//10
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//13
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//14
+                        {MESSAGE_RIGHT},//15
+                    {IMAGE,R.drawable.sence_twotravel},
+                        {MESSAGE_RIGHT},//10
 
             },
             //path 1
             {
-                    {MESSAGE_RIGHT},//0
-                    {MESSAGE_RIGHT},//1
-                    {MESSAGE_RIGHT},//2
-                    {MESSAGE_RIGHT},//3
-                    {MESSAGE_RIGHT},//4
-                    {MESSAGE_RIGHT},//5
-                    {MESSAGE_RIGHT},//6
+                        {MESSAGE_RIGHT},//0
+                    {IMAGE,R.drawable.sence_camp},
+                        {MESSAGE_RIGHT},//1
+                        {MESSAGE_RIGHT},//2
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                        {MESSAGE_RIGHT},//4
+                        {MESSAGE_RIGHT},//5
+                        {MESSAGE_RIGHT},//6
             },
             //path 2
             {
-                    {MESSAGE_RIGHT},//0
-                    {MESSAGE_RIGHT},//1
-                    {MESSAGE_RIGHT},//2
-                    {MESSAGE_RIGHT},//3
-                    {MESSAGE_RIGHT},//4
-                    {MESSAGE_RIGHT},//5
-                    {MESSAGE_RIGHT},//6
+                        {MESSAGE_RIGHT},//0
+                    {IMAGE,R.drawable.sence_camp},
+                        {MESSAGE_RIGHT},//1
+                        {MESSAGE_RIGHT},//2
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//13
+                        {MESSAGE_RIGHT},//4
+                        {MESSAGE_RIGHT},//5
+                        {MESSAGE_RIGHT},//6
             },
             //path 3
             {
-                    {MESSAGE_RIGHT_THINK},//0
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//1
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//2
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
-                    {MESSAGE_RIGHT_THINK},//5
-                    {MESSAGE_RIGHT},//6
-                    {MESSAGE_RIGHT},//7
-                    {MESSAGE_RIGHT},//8
-                    {MESSAGE_RIGHT},//9
-                    {MESSAGE_RIGHT},//1
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//11
-                    {MESSAGE_RIGHT_THINK},//12
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//13
-                    {MESSAGE_RIGHT}//14
+                    {IMAGE,R.drawable.sence_forest_night},
+                    {IMAGE,R.drawable.sence_forest_night_shoot},
+                        {MESSAGE_RIGHT_THINK},//0
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//1
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//2
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                        {MESSAGE_RIGHT_THINK},//4
+                        {MESSAGE_RIGHT},//5
+                    {IMAGE,R.drawable.sence_evidence},
+                        {MESSAGE_RIGHT},//6
+                        {MESSAGE_RIGHT},//7
+                        {MESSAGE_RIGHT},//8
+                        {MESSAGE_RIGHT},//9
+                        {MESSAGE_RIGHT_THINK},//10
+                    {IMAGE,R.drawable.sence_mountain_night_shoot},
+                        {MESSAGE_RIGHT_THINK},//11
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//12
+                    {IMAGE,R.drawable.sence_hide},
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//13
 
             },
             //path 4
             {
-                    {MESSAGE_RIGHT_THINK},//0
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//1
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//2
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
-                    {MESSAGE_RIGHT_THINK},//5
-                    {MESSAGE_RIGHT},//6
-                    {MESSAGE_RIGHT},//7
-                    {MESSAGE_RIGHT},//8
-                    {MESSAGE_RIGHT},//9
-                    {MESSAGE_RIGHT},//1
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//11
-                    {MESSAGE_RIGHT_THINK},//12
-                    {MESSAGE_RIGHT},//13
+                    {IMAGE,R.drawable.sence_forest_night},
+                    {IMAGE,R.drawable.sence_forest_night_shoot},
+                        {MESSAGE_RIGHT_THINK},//0
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//1
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//2
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                        {MESSAGE_RIGHT_THINK},//4
+                        {MESSAGE_RIGHT},//5
+                    {IMAGE,R.drawable.sence_evidence},
+                        {MESSAGE_RIGHT},//6
+                        {MESSAGE_RIGHT},//7
+                        {MESSAGE_RIGHT},//8
+                        {MESSAGE_RIGHT},//9
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//10
+                    {IMAGE,R.drawable.sence_bag},
+                        {MESSAGE_RIGHT},//11
+                        {MESSAGE_RIGHT},//12
+                        {MESSAGE_RIGHT},//13
+                        {MESSAGE_RIGHT}//14
 
             },
             //path 5
             {
-                    {MESSAGE_RIGHT_THINK},//0
-                    {MESSAGE_RIGHT},//1
-                    {MESSAGE_RIGHT},//2
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
-                    {MESSAGE_RIGHT},//5
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//6
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//7
-                    {MESSAGE_RIGHT_THINK},//8
+                        {MESSAGE_RIGHT},//0
+                        {MESSAGE_RIGHT},//1
+                    {IMAGE,R.drawable.sence_mountain_night_shoot},
+                        {MESSAGE_RIGHT_THINK},//2
+                        {MESSAGE_LEFT,R.drawable.char_shout_1},//3
+                        {MESSAGE_RIGHT},//4
+                        {MESSAGE_LEFT,R.drawable.char_shout_1},//5
+                        {MESSAGE_RIGHT_THINK},//6
+                        {MESSAGE_RIGHT},//7
             },
             //path 6
             {
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//0
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//1
-                    {MESSAGE_RIGHT},//2
-                    {MESSAGE_RIGHT_THINK},//3
+                        {MESSAGE_RIGHT},//0
+                    {IMAGE,R.drawable.sence_mountain_night_shoot},
+                        {MESSAGE_RIGHT_THINK},//1
+                        {MESSAGE_RIGHT},//2
+                        {MESSAGE_RIGHT},//3
             },
             //path 7
             {
-                    {MESSAGE_RIGHT_THINK},//0
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//1
-                    {MESSAGE_RIGHT},//2
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
-                    {MESSAGE_RIGHT_THINK},//5
-                    {MESSAGE_RIGHT_THINK},//6
+                        {MESSAGE_RIGHT_THINK},//0
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//1
+                        {MESSAGE_RIGHT},//2
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                        {MESSAGE_RIGHT},//4
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//5
+                    {IMAGE,R.drawable.sence_grab_gun},
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//6
+                        {MESSAGE_RIGHT},//7
             },
             //path 8
             {
-                    {MESSAGE_RIGHT_THINK},//0
-                    {MESSAGE_RIGHT_THINK},//1
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//2
-                    {MESSAGE_RIGHT},//3
-                    {MESSAGE_RIGHT},//4
+                        {MESSAGE_RIGHT_THINK},//0
+                    {IMAGE,R.drawable.sence_run_shoot},
+                        {MESSAGE_RIGHT_THINK},//1
+                        {MESSAGE_RIGHT},//2
             },
             //path 9
             {
-                    {MESSAGE_RIGHT_THINK},//0
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//1
-                    {MESSAGE_RIGHT},//2
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//5
-                    {MESSAGE_RIGHT},//6
-                    {MESSAGE_RIGHT},//7
-                    {MESSAGE_RIGHT},//8
-                    {MESSAGE_RIGHT},//9
-                    {MESSAGE_RIGHT},//1
-                    {MESSAGE_RIGHT},//11
+                    {IMAGE,R.drawable.sence_forest_night},
+                        {MESSAGE_RIGHT_THINK},//0
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//1
+                        {MESSAGE_RIGHT},//2
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//4
+                    {IMAGE,R.drawable.sence_evidence},
+                        {MESSAGE_RIGHT},//5
+                        {MESSAGE_RIGHT},//6
             },
             //path 10
             {
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//0
-                    {MESSAGE_RIGHT_THINK},//1
-                    {MESSAGE_RIGHT_THINK},//2
-                    {MESSAGE_RIGHT},//3
+                    {IMAGE,R.drawable.sence_shot},
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//0
+                        {MESSAGE_RIGHT_THINK},//1
+                        {MESSAGE_RIGHT},//2
             },
             //path 11
             {
-                    {MESSAGE_RIGHT_THINK},//0
-                    {MESSAGE_RIGHT_THINK},//1
-                    {MESSAGE_RIGHT},//2
-                    {MESSAGE_RIGHT},//3
+                    {IMAGE,R.drawable.sence_search_shot},
+                        {MESSAGE_RIGHT_THINK},//0
+                        {MESSAGE_RIGHT},//1
+                        {MESSAGE_RIGHT},//2
             },
             //path 12
             {
-                    {MESSAGE_RIGHT_THINK},//0
-                    {MESSAGE_RIGHT},//1
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//2
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
-                    {MESSAGE_RIGHT_THINK},//4
-                    {MESSAGE_RIGHT},//5
+                        {MESSAGE_RIGHT_THINK},//0
+                    {IMAGE,R.drawable.sence_helping},
+                        {MESSAGE_RIGHT},//1
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//2
+                    {IMAGE,R.drawable.sence_mountain_night_shoot},
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                        {MESSAGE_RIGHT_THINK},//4
+                        {MESSAGE_RIGHT},//5
             },
             //path 13
             {
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//0
-                    {MESSAGE_RIGHT_THINK},//1
-                    {MESSAGE_RIGHT},//2
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
-                    {MESSAGE_RIGHT},//5
+                        {MESSAGE_RIGHT},//0
+                    {IMAGE,R.drawable.sence_helping_back},
+                        {MESSAGE_RIGHT_THINK},//1
+                        {MESSAGE_RIGHT},//2
+                    {IMAGE,R.drawable.sence_helicopter},
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//4
             },
             //path 14
             {
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//0
-                    {MESSAGE_RIGHT},//1
-                    {MESSAGE_RIGHT},//2
-                    {MESSAGE_RIGHT},//3
+                    {IMAGE,R.drawable.sence_mountain_night_shoot},
+                        {MESSAGE_RIGHT},//0
+                        {MESSAGE_RIGHT},//1
+                        {MESSAGE_RIGHT},//2
+                        {MESSAGE_RIGHT},//3
 
             },
             //path 15
             {
-                    {MESSAGE_RIGHT_THINK},//0
-                    {MESSAGE_RIGHT},//1
-                    {MESSAGE_RIGHT},//2
+                    {IMAGE,R.drawable.sence_run_shoot},
+                        {MESSAGE_RIGHT_THINK},//0
+                        {MESSAGE_RIGHT},//1
+                        {MESSAGE_RIGHT},//2
+                        {MESSAGE_RIGHT},//3
             },
             //path 16
             {
-                    {MESSAGE_RIGHT_THINK},//0
-                    {MESSAGE_RIGHT},//1
-                    {MESSAGE_RIGHT},//2
+                        {MESSAGE_RIGHT_THINK},//0
+                    {IMAGE,R.drawable.sence_hide_meet_thief},
+                        {MESSAGE_RIGHT},//1
             },
             //path 17
             {
-                    {MESSAGE_RIGHT},//0
-                    {MESSAGE_RIGHT},//1
-                    {MESSAGE_RIGHT},//2
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
-                    {MESSAGE_RIGHT},//4
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//5
-                    {MESSAGE_RIGHT_THINK},//6
-                    {MESSAGE_RIGHT_THINK},//7
+                    {IMAGE,R.drawable.sence_aim_shot},
+                        {MESSAGE_RIGHT},//0
+                        {MESSAGE_RIGHT},//1
+                        {MESSAGE_LEFT,R.drawable.char_shout_1},//2
+                        {MESSAGE_RIGHT},//3
+                    {IMAGE,R.drawable.sence_they_shot},
+                        {MESSAGE_RIGHT_THINK},//4
+                        {MESSAGE_RIGHT_THINK},//5
+                        {MESSAGE_RIGHT_THINK},//6
             },
             //path 18
             {
-                    {MESSAGE_RIGHT_THINK},//0
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//1
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//2
-                    {MESSAGE_RIGHT},//3
-                    {MESSAGE_RIGHT_THINK},//4
-                    {MESSAGE_RIGHT_THINK},//5
-                    {MESSAGE_RIGHT_THINK},//6
-                    {MESSAGE_RIGHT_THINK},//7
-                    {MESSAGE_RIGHT},//8
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//9
-                    {MESSAGE_RIGHT},//10
-                    {MESSAGE_RIGHT},//11
-                    {MESSAGE_RIGHT},//12
+                    {IMAGE,R.drawable.sence_search_shot},
+                        {MESSAGE_LEFT,R.drawable.char_shout_1},//0
+                        {MESSAGE_LEFT,R.drawable.char_shout_1},//1
+                        {MESSAGE_RIGHT},//2
+                    {IMAGE,R.drawable.sence_aim_shot},
+                        {MESSAGE_RIGHT_THINK},//3
+                        {MESSAGE_RIGHT_THINK},//4
+                    {IMAGE,R.drawable.sence_they_shot},
+                        {MESSAGE_RIGHT_THINK},//5
+                    {IMAGE,R.drawable.sence_evidence},
+                        {MESSAGE_RIGHT_THINK},//6
+                    {IMAGE,R.drawable.sence_helicopter},
+                        {MESSAGE_RIGHT_THINK},//7
+                        {MESSAGE_RIGHT},//8
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//9
+                        {MESSAGE_RIGHT},//10
             },
 
             //path 19
             {
-                    {MESSAGE_RIGHT},//0
-                    {MESSAGE_RIGHT},//1
-                    {MESSAGE_RIGHT},//2
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//3
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
-                    {MESSAGE_RIGHT},//5
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//6
-                    {MESSAGE_RIGHT_THINK},//7
-                    {MESSAGE_RIGHT_THINK},//8
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//9
-                    {MESSAGE_RIGHT},//10
-                    {MESSAGE_RIGHT_THINK},//11
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//12
-                    {MESSAGE_RIGHT},//13
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//14
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//15
-                    {MESSAGE_RIGHT_THINK},//15
-                    {MESSAGE_RIGHT_THINK},//16
+                        {MESSAGE_RIGHT},//0
+                        {MESSAGE_RIGHT},//1
+                        {MESSAGE_RIGHT},//2
+                        {MESSAGE_RIGHT},//3
+                        {MESSAGE_LEFT,R.drawable.char_shout_1},//4
+                        {MESSAGE_RIGHT},//5
+                        {MESSAGE_LEFT,R.drawable.char_shout_1},//6
+                    {IMAGE,R.drawable.sence_mountain},
+                        {MESSAGE_RIGHT_THINK},//7
+                        {MESSAGE_RIGHT},//8
             },
             //path 20
             {
-                    {MESSAGE_RIGHT},//0
-                    {MESSAGE_RIGHT},//1
-                    {MESSAGE_RIGHT},//2
+                    {IMAGE,R.drawable.sence_hide},
+                        {MESSAGE_RIGHT_THINK},//0
+                        {MESSAGE_RIGHT},//1
+                        {MESSAGE_RIGHT},//2
+                        {MESSAGE_RIGHT},//3
             },
             //path 21
             {
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//0
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//1
-                    {MESSAGE_RIGHT_THINK},//2
-                    {MESSAGE_RIGHT},//3
-                    {MESSAGE_RIGHT}//4
+                    {IMAGE,R.drawable.sence_shot},
+                        {MESSAGE_LEFT,R.drawable.char_b_talk},//0
+                        {MESSAGE_RIGHT},//1
+                        {MESSAGE_RIGHT},//2
 
             },
             //path 22
             {
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//0
-                    {MESSAGE_RIGHT},//1
-                    {MESSAGE_RIGHT},//2
-                    {MESSAGE_RIGHT},//3
-                    {MESSAGE_RIGHT}//4
+                    {IMAGE,R.drawable.sence_mountain_night_shoot},
+                        {MESSAGE_RIGHT_THINK},//0
+                        {MESSAGE_RIGHT},//1
+                        {MESSAGE_RIGHT},//2
+                        {MESSAGE_RIGHT},//3
+                    {IMAGE,R.drawable.sence_forest_night},
+                        {MESSAGE_RIGHT}//4
 
             },
             //path 23
             {
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//0
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//1
-                    {MESSAGE_RIGHT_THINK},//2
+                    {IMAGE,R.drawable.sence_hide_meet_thief},
+                        {MESSAGE_LEFT,R.drawable.char_shout_1},//0
+                        {MESSAGE_LEFT,R.drawable.char_shout_2},//1
+                        {MESSAGE_RIGHT},//2
             },
             //path 24
             {
-                    {MESSAGE_RIGHT},//0
-                    {MESSAGE_RIGHT_THINK},//1
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//2
-                    {MESSAGE_RIGHT},//3
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//4
-                    {MESSAGE_LEFT,R.drawable.char_b_talk},//5
-                    {MESSAGE_RIGHT},//6
-                    {MESSAGE_RIGHT},//7
+                    {IMAGE,R.drawable.sence_they_shot},
+                        {MESSAGE_RIGHT_THINK},//0
+                        {MESSAGE_RIGHT_THINK},//1
             }
 
 
@@ -316,305 +332,301 @@ public class MessageThisSeason {
             // path0
             {
                     "IMAGE",
-                    "ณ ป่าตะวันตกของประเทศไทย",//0
+                        "ณ ป่าตะวันตกของประเทศไทย",//0
                     "IMAGE",
-                    "วันนี้โครตร้อนเลย",//1
-                    "ใช่ ร้อนจริงๆ",//2
-                    "งั้นคืนนี้เราพักที่ริมธารตรงนู้นแหละกัน",//3
-                    "งั้นขึ้งเปลเเลยนะครับ",//4
+                        "วันนี้โครตร้อนเลย",//1
+                        "ร้อนจริงๆ ปกติมันต้องเย็นกว่านี้แท้ๆ",//2
+                        "งั้น",//3
+                        "วันนี้พวกเราพอแค่นี้ม้ะ",//4
+                        "โธ่ เพิ่งพักมาตะกี้นี้เองนี้นะ\n"+"ไม่สมกับผู้พิทักษ์ป่าเลย",//5
+                        "เอาน่าๆ ฮ่าฮ่าฮ่า",//6
+                        "ใช่แล้ว พวกเราเป็นผู้พิทักษ์ป่าไทย",//7
+                        "เราจะคอยลาดตระเวนรอบๆบริเวณนี้",//8
+                        "เพื่อรักษาผืนป่าของไทยไว้",//9
+                        "ส่วนคนที่ผมคุยด้วยชื่อ แดง เป็นเพื่อนร่วมงาน",//10
+                        "ที่จริงพวกเราไม่ได้มีกันแค่สองคนหรอก",//11
                     "IMAGE",
-                    "พวกเราเป็นผู้พิทักษ์ป่าไทย\nคนที่ผมคุยด้วยก็เป็นเพื่อนที่ทำงาน",//5
+                         "แค่ตอนนี้แยกกันสำรวจพื้นที่อยู่\n" +
+                            "เลยแยก กันออกเป็นกลุ่มละสองคน",//12
                     "IMAGE",
-                    "เขาชื่อ แดง อายุเท่ากัน\n" +
-                            "ทำงานด้วยกันมา แปดปีแหละ",//6
+                        "งั้น คืนนี้เราตั้งแคมป์ตรงนู้นแหละกัน",//13
+                        "ฝากด้วยนะ เด๋วจะจดบันทึกการเดินทางสักหน่อย",//14
+                        "ไว้ใจได้เลย",//15
                     "IMAGE",
-                    "ที่จริงพวกเราก็มีอีกกันหลายคน\n" +
-                            "แต่ตอนนี้แยกกันสำรวจพื้นที่อยู่",//7
-                    "IMAGE",
-                    "เออเอาเลย ขึงเลย",//8
-                    "ขึ้งดีๆด้วยหละ ครั้งที่แล้วนอนๆหลุดเฉย",//9
-                    "ค้าบๆๆ"//10
+                        "เราจะผูกเปลไว้ที่ไหนดีนะ?"//16
 
 
             },
             //path 1&2
             {
-                    "เราขึ่งแปลเส็ดแล้ว",//0
-                    "พักดีกว่า",//1
-                    "วันนี้ก็เงียบสงบดีนะ",//2
-                    "เป็นพระอาทิตย์ตกที่สวยเหมือนเดิมนะ",//3.
-                    "เฮ้อ",//4
-                    "เอาหละ ต้องจัดของไว้ ก่อนนอน",//5
-                    "มีปืนกับกระเป๋ายักษ์\n" +
-                    "เอาอะไรไว้ข้างๆตัวตอนนอนดีนะ\n" //6
+                        "เราผูกเปลเสร็จแล้ว",//0
+                    "IMAGE",
+                        "เป็นพระอาทิตย์ตกที่สวยเหมือนเดิมเลย",//1
+                        "เฮ้อ ธรรมชาตินี้มันดีจริงๆเลยนะ",//2
+                        "มาพูดเพ้ออะไร ต้องไปเตรียมของต่อให้เสร็จไป",//3.
+                        "จ้าๆ",//4
+                        "ต้องจัดของไว้ให้ใกล้ตัว เวลานอน",//5
+                        "มีปืนกับกระเป๋ายักษ์\n" +
+                            "เอาอะไรไว้ข้างๆตัวตอนนอนดีนะ\n" //6
             },
             //path 2
             {
-                    "เราขึ่งแปลเส็ดแล้ว",//0
-                    "พักดีกว่า",//1
-                    "วันนี้ก็เงียบสงบดีนะ",//2
-                    "เป็นพระอาทิตย์ตกที่สวยเหมือนเดิมนะ",//3.
-                    "เฮ้อ",//4
-                    "เอาหละ ต้องจัดของไว้ ก่อนนอน",//5
-                    "มีปืนกับกระเป๋ายักษ์\n" +
-                            "เอาอะไรไว้ข้างๆตัวตอนนอนดีนะ\n" //6
+                        "เราผูกเปลเสร็จแล้ว",//0
+                    "IMAGE",
+                        "เป็นพระอาทิตย์ตกที่สวยเหมือนเดิมเลย",//1
+                        "เฮ้อ ธรรมชาตินี้มันดีจริงๆเลยนะ",//2
+                        "มาพูดเพ้ออะไร ต้องไปเตรียมของต่อให้เสร็จไป",//3.
+                        "จ้าๆ",//4
+                        "ต้องจัดของไว้ให้ใกล้ตัว เวลานอน",//5
+                        "มีปืนกับกระเป๋ายักษ์\n" +
+                                "เอาอะไรไว้ข้างๆตัวตอนนอนดีนะ\n" //6
             },
             //path 3
             {
-                    "ตกกลางคืน",//0
-                    "ปั้ง.   . ปั้ง...ปั้ง",//1
-                    "เห้ยๆตื่นๆ ไม่ดีแล้ว",//2
-                    "เสียดังมาจากทิศตะวันตก",//3
-                    "รีบไปดูเร็ว",//4
-                    "เราหยิบของใกล้ตัวขึ้นมา",//5
-                    "นี้เป็นครั้งที่เท่าไหร่แล้วนะ" +
-                            "ทุกครั้งที่มีเสียงปืน เมื่อเราไปถึงก็จะเจอแต่ซากสัตว์ที่ถูกยิงและโดนชำแหละ",//6
-                    "ไม่เคยที่จะจับคนร้ายได้เลย\n" +
-                            "มันก็เป็นโชคดีนะเพราะไม่มีพวกเราได้รับบาดเจ็บเลย",//7
-                    "แต่...",//8
-                    "พวกสัตว์ป่าไม่จำเป็นต้องมาตาย สัตว์ทุกตัวก็มีชีวิตของมันเอง...",//9
-                    "มนุษย์เราจะตัดสินชีวิตมันไม่ได้",//10
-                    "ปั้ง...ปั้ง",//11
-                    "เรารู้สึกถึงกระสุนที่วิ่งผ่านไปตัวเราไป",//12
-                    "หลบเร็ว มันเริ่มยิงพวกเราแล้ว",//13
-                    "เราจะทำอย่างไรดี\n" +
-                            "ตอนนี้มีแค่ปืนที่ติดมาด้วย"//14
+                    "IMAGE",
+                    "IMAGE",
+                        "ปั้ง.   . ปั้ง...ปั้ง",//0
+                        "เห้ยๆ ตื่นๆ ท่าไม่ดีแล้ว",//1
+                        "เสียงปืนดังมาจากทางทิศตะวันตก",//2
+                        "รีบไปดูเร็ว",//3
+                        "เราคว้าเอาของใกล้ตัวขึ้นมา",//4
+                        "ทุกครั้งที่มีเสียงปืน เมื่อเราไปถึงก็จะเจอแต่ซากสัตว์ที่ถูกยิงและโดนชำแหละ",//5
+                    "IMAGE",
+                        "ไม่เคยที่จะจับคนร้ายได้เลย\n" +
+                                "มันก็เป็นโชคดีนะเพราะไม่มีพวกเราได้รับบาดเจ็บเลย",//6
+                        "แต่...",//7
+                        "พวกสัตว์ป่าไม่จำเป็นต้องมาตาย สัตว์ทุกตัวก็มีชีวิตของมันเอง",//8
+                        "มนุษย์เราจะตัดสินชีวิตมันไม่ได้",//9
+                        "ปั้ง...ปั้ง",//10
+                    "IMAGE",
+                        "เรารู้สึกได้ถึงกระสุนปืนที่วิ่งผ่านไป",//11
+                        "หลบเร็ว มันเริ่มยิงพวกเราแล้ว",//12
+                    "IMAGE",
+                        "เราจะทำอย่างไรดี\n" +
+                                "ดีนะที่เราคว้าปืนติดมาด้วย"//13
             },
             //path 4
             {
-                    "ตกกลางคืน",//0
-                    "ปั้ง.   . ปั้ง...ปั้ง",//1
-                    "เห้ยๆตื่นๆ ไม่ดีแล้ว",//2
-                    "เสียดังมาจากทิศตะวันตก",//3
-                    "งรีบไปดูเร็ว",//4
-                    "เราหยิบของใกล้ตัวขึ้นมา",//5
-                    "นี้เป็นครั้งที่เท่าไหร่แล้วนะ\n" +
-                            "ทุกครั้งที่มีเสียงปืน เมื่อเราไปถึงก็จะเจอแต่ซากสัตว์ที่ถูกยิงและโดนชำแหละ",//6
-                    "ไม่เคยที่จะจับคนร้ายได้เลย\n" +
-                            "มันก็เป็นโชคดีนะดพราะไม่มีพวกเราได้รับบาทเจ็บเลย",//7
-                    "แต่...",//8
-                    "พวกสัตว์ป่าไม่จำเป็นต้องมาตาย สัตว์ทุกตัวก็มีชีวิตของมันเอง...",//9
-                    "มนุษย์เราจะตัดสินชีวิตมันไม่ได้",//10
-                    "หลบเร็ว เด๋วพวกมันจะเห็นเอา",//11
-                    "เราจะทำอย่างไรดี\n" +
-                            "ตอนนี้มีแค่กระเป่าเป้ที่ติดมาด้วย",//12
-                    "ด้านในกระเป่ามี\n" +
-                            "อาหารกระป๋อง น้ำขวด แผนที่ ไฟแช็ค ไฟฉาย" +
-                            "และก็โทรศัพท์"//13
+                    "IMAGE",
+                    "IMAGE",
+                        "ปั้ง.   . ปั้ง...ปั้ง",//0
+                        "เห้ยๆ ตื่นๆ ท่าไม่ดีแล้ว",//1
+                        "เสียงปืนดังมาจากทางทิศตะวันตก",//2
+                        "รีบไปดูเร็ว",//3
+                        "เราคว้าเอาของใกล้ตัวขึ้นมา",//4
+                        "ทุกครั้งที่มีเสียงปืน เมื่อเราไปถึงก็จะเจอแต่ซากสัตว์ที่ถูกยิงและโดนชำแหละ",//5
+                    "IMAGE",
+                        "ไม่เคยที่จะจับคนร้ายได้เลย\n" +
+                                "มันก็เป็นโชคดีนะเพราะไม่มีพวกเราได้รับบาดเจ็บเลย",//6
+                        "แต่...",//7
+                        "พวกสัตว์ป่าไม่จำเป็นต้องมาตาย สัตว์ทุกตัวก็มีชีวิตของมันเอง",//8
+                        "มนุษย์เราจะตัดสินชีวิตมันไม่ได้",//9
+                        "หลบเร็ว เด๋วพวกมันจะเห็นเอา",//10
+                    "IMAGE",
+                        "แมร่งเอ้ย ดันคว้ามาแต่กระเป๋า",//11
+                        "ด้านในกระเป่ามี\n" +
+                                "อาหารกระป๋อง น้ำขวด แผนที่ ไฟแช็ค ไฟฉาย" ,//12
+                        "และก็โทรศัพท์",//13
+                        "ทำอะไรกับของพวกนี้ได้บ้างเนี่ยยย"//14
             },
             // path5
             {
-                    "เราหลบเข้าสู่ที่ปลอดภัย",//0
-                    "นี่คือผู้พิทักษ์สัตว์ป่า",//1
-                    "ขอให้หยุด แล้วยอมมอบตัวซะ",//2
-                    "จะบ้ารึ ใครจะยอมให้จับ",//3
-                    "ปั้งๆ",//4
-                    "ถ้าพวกแกยอมจำนน จากโทษหนักจะกลายเป็นเบา",//5
-                    "ใครจะไปยอมกันเหล่า\n" +
-                            "ปั้งๆ",//6
-                    "เที่จริงพวกเราก็มีอีกกันหลายคน\n" +
-                            "แต่ตอนนี้แยกกันสำรวจพื้นที่อยู่",//7
-                    "พวกโจรกำลังจะหนีแล้ว",//8
+                        "นี่คือผู้พิทักษ์สัตว์ป่า",//0
+                        "ขอให้หยุดยิง แล้วยอมมอบตัวซะ",//1
+                    "IMAGE",
+                        "ปั้งๆ",//2
+                        "จะบ้ารึ ใครจะยอมให้จับกัน",//3
+                        "ถ้าพวกแกยอมจำนน จากโทษหนักจะกลายเป็นเบา",//4
+                        "ใครจะไปยอมกันเล่า",//5
+                        "ปั้งๆ",//6
+                        "เรารู้สึกได้ว่าพวกโจรกำลังจะหนีไปแล้ว",//7
             },
             // path6
             {
-                    "เอาหละ นะ",//0
-                    "ปั้งๆ",//1
-                    "ปั้งๆ",//2
-                    "ยิ่งสวนกันไปมา",//3
+                        "เอาหละ นะ",//0
+                    "IMAGE",
+                        "เราและนายพรานต่างยิ่งสวนกันไปมา",//1
+                        "ชิ ยิงกันไปยิงกันมาแบบนี้ มีแต่เปลืองกระสุน",//2
+                        "เราต้องย้ายที่แล้วหละ ย้ายไปไหนดี"//3
+
             },
             // path7
             {
-                    "เราหยิบโทรศัพท์ขึ้นมา",//0
-                    "จะบ้าหรอ โทรศัพท์ ตอนนี้นี่นั้น",//1
-                    "เรียกกำลังเสริมไง",//2
-                    "ใครจะมาเวลานี้",//3
-                    "แหนะ ไม่ได้หยิบปืนมาสินะ",//4
-                    "โว้ยเอานี้ไป",//5
-                    "ตรง ส่งปืนสั้นมา\n" +
-                            "และผลักเราเอาที่กันบัง"//6
+                        "เราหยิบโทรศัพท์ขึ้นมา",//0
+                        "จะบ้าหรอ โทรศัพท์ ตอนนี้นี่นั้น",//1
+                        "เรียกกำลังเสริมไง",//2
+                        "มันไม่มีสัญญานโว้ย",//3
+                        "เออ ลืมไปเลยแหะๆ",//4
+                        "โว้ยเอานี้ไป",//5
+                    "IMAGE",
+                        "ตอนนี้พวกเราต้องทำอะไรสักอย่างก่อน\n" +
+                                "เด๋วพวกนั้นได้ยินเสียงปืนก็ตามมาสมทบเอง",//6
+                        "เอาหละเราได้ปืนมาแล้ว\n" +
+                                "มาลุยกันสักตั้ง"//7
             },
             // path8
             {
-                    "เราออกมาจากที่กันบัง\n" +
-                            "ทำให้ศัตรูรู้ตำแหน่ง",//0
-                    "ปั้งๆ",//1
-                    "ใครจะมาเวลานี้",//2
-                    "ชิ ถ้าไม่ยิงสวนก็ต้องหลบก่อน\n" +
-                            "ทำไงดีนะ",//3
-                    "พวกมันเงียบไป\n" +
-                            "แปลก แปลกมาก",//4
+                        "เราออกมาจากที่กันบัง",//0
+                    "IMAGE",
+                        "ปั้งๆ\n"+"โชคไม่ดีที่พวกนายพรานเห็น",//1
+                        "ชิ ถ้าไม่ยิงสวนก็ต้องหลบก่อน\n" +
+                                "ทำไงดีนะ",//2
             },
             // path9
             {
-                    "พวกนายพรานหนีไปแล้ว",//0
-                    "ไม่เป็นอะไรใช่ไหม",//1
-                    "ก็ โอเค",//2
-                    "โอเคก็ดีแล้ว",//3
-                    "เป็นแบบนี้อีกแล้ว หนีไปได้ตลอด",//4
-                    "เห้อ ครั้งหน้าต้องจับให้ได้",//5
-                    "ไปเก็บหลักฐานกัน อาจจะใช้ในการตามตัวได้",//6
-                    "โอ็ส",//7
-                    "คร้งหน้าต้องจับให้ได้เลย",//8
-                    "แล้วก็เป็นแบบนี้ หนีไปได้สินะ",//9
-                    "ถึงแม้จะอีกกี่รอบ เราก็จะตามปกป้องรักษาพื้นป่านี้ไว้ให้ได้",//10
-                    "เพื่อสัตว์ทุกตัว และคนไทยทุกคน"//11
+                    "IMAGE",
+                        "ช้าไป พวกนายพรานหนีไปแล้ว",//0
+                        "ไม่เป็นอะไรใช่ไหม",//1
+                        "ก็ โอเค",//2
+                        "เห้อ ครั้งหน้าต้องจับให้ได้",//3
+                        "ไปเก็บหลักฐานกัน อาจจะใช้ในการตามตัวได้",//4
+                    "IMAGE",
+                        "เหมือนเดิม เจอแต่ซากสัตวฺ์อีกแล้ว",//5
+                        "ครั้งหน้าต้องจับให้ได้เลย"//6
             },
             // path10
             {
-                    "ปั้งๆ",//0
-                    "อ้าก",//1
-                    "ตรง ถูกยิงที่หัวไหล่ซ้าย\n" +
-                            "และกำลังล้มลง",//2
-                    "แย่แล้ว" +
-                            "จะทำไรต้องรีบทำแล้วหละ",//3
+                    "IMAGE",
+                        "อ้าก",//0
+                        "แดงถูกยิง",//1
+                        "แย่แล้ว" +
+                                "จะทำไรต้องรีบทำแล้วหละ",//2
             },
             // path11
             {
-                    "เราเริ่มเปิดฉากยิงปืน",//0
-                    "ไม่มีใครยิงสวนกลับมา",//1
-                    "เอะ เสียงปืนฝั่งนั้นเงียบลง",//2
-                    "พวกมันคงหลบไปเติมนัดด้านหลังสินะ",//3
+                    "IMAGE",
+                        "เรายืนขึ้นแล้วพยายามเล็งหาศัตรู",//0
+                        "แปลกจริง ทำไมมันเงียบขนาดนี้",//1
+                        "พวกมันคงกำลังเติมกระสุนอยู่สินะ",//2
             },
             // path12
             {
-                    "เราวิ่งข้ามไปหาเพื่อน",//0
-                    "เป็นไงบ้าง",//1
-                    "ไม่เป็นไรๆ",//2
-                    "ระวังๆ\n" +
-                            "ปั้งๆ",//3
-                    "โจรเริ่มยิงหนักขึ้น",//4
-                    "ในสถานาการแบบนี้ทำไงดี ทำไงดี"//5
+                        "เราวิ่งข้ามไปหาเพื่อน",//0
+                    "IMAGE",
+                        "เป็นไงบ้าง",//1
+                        "ดีนะที่ไม่โดนจุดสำคัญ",//2
+                    "IMAGE",
+                        "ระวังๆ\n" +
+                                "ปั้งๆ",//3
+                        "นายพรานเริ่มยิงหนักขึ้น",//4
+                        "ในสถานาการแบบนี้เราควรทำไงดี ทำไงดี"//5
             },
             // path13
             {
-                    "ไปเถอะ ไปเถอะหนีก่อน",//0
-                    "เราวิ่งหนีจนกลับมาถึงแคมป์ของเรา\n",//1
-                    "ตอนนี้โทรบอกที่ศูนย์แล้ว เค้ากำลังมารับ\n" +
-                            "เด๋วพวกเค้าจะเข้าไปหาหลักฐาน\n" +
-                            "หลังทุกอย่างสงบ",//2
-                    "ชิ ฝากไว้ก่อนไอ้พวกนั้น",//3
-                    "ครั้งหน้าต้องจับให้ได้เลย",//4
-                    "ใช่ ต้องจับให้ได้เลยี"//5
+                        "ไปเถอะ ถอยก่อน",//0
+                    "IMAGE",
+                        "เราพาแดงถอยจนปลอดภัยแล้ว",//1
+                        "ตอนนี้โทรบอกที่ศูนย์แล้ว พวกเค้าจะส่งเฮลิคอปเตอร์มารับ",//2
+                    "IMAGE",
+                        "ชิ ฝากไว้ก่อนไอ้พวกนั้น",//3
+                        "ครั้งหน้าต้องจับให้ได้เลย",//4
             },
             // path14
             {
-                    "ปั้งๆ",//0
-                    "เร่าอยู่ไกลเกินไปเสียเปรียบมาก",//1
-                    "ถ้าจะยิงให้โดน ก็ลำบาก",//2
-                    "ชตรง ดันมาเจ็บอีก",//3
+                    "IMAGE",
+                        "เราอยู่ไกลเกินไป เสียเปรียบมาก",//0
+                        "ถ้าจะยิงให้โดนคงต้องวิ่งเข้าไปใกล้กว่านี้",//1
+                        "แต่ แดงมันดันมาเจ็บอีก",//2
+                        "ต้องตัดสินใจดีๆแล้วหละ"//3
             },
             // path15
             {
-                    "ขณะ ที่กำลังเคลื่อนตัวไปนั้น",//0
-                    "มันน่าจะไม่ปลอดภัยนะ",//1
-                    "แต่มันจะมีโอกาสทำให้เรายิงโดนพวกมันได้",//2
+                    "IMAGE",
+                        "ขณะ ที่กำลังเคลื่อนตัวไปนั้น",//0
+                        "พวกนายพรานก็กระหน่ำยิง",//1
+                        "แย่แล้ว",//2
+                        "หลบหรือไปต่อดี",//3
             },
             // path16
             {
-                    "เมื่อถึงที่หิน\n" +
-                            "เรามองเห็นนายพรานหนึ่งคนกำลังหลบอยู่หลังต้นไม้",//0
-                    "มันกำลังเติมนัดอยู่",//1
-                    "มันจะมีคนอื่นอีกไหมนะ",//2
+                        "เราวิ่งจนมาถึงหินที่ใกล้กับนายพราน",//0
+                    "IMAGE",
+                        "นั้นไงมัน",//1
             },
             // path17
             {
-                    "โอ้ มันเติมกระสุนอยู่จริงๆด้วย",//0
-                    "ปั้งๆ",//1
-                    "ชิไม่โดน",//2
-                    "เห้ยๆ มันอ้อมมาแล้ว ยิงมันสิ ยิงมัน",//3
-                    "แย่แล้ว",//4
-                    "ปั้งๆ",//5
-                    "ในขณะนั้นเราก็โดนนายพรานอีกคน"+"อ้อมมาด้านหลัง",//6
-                    "และยิงเราพอดี..."//7
+                    "IMAGE",
+                        "ปั้งๆ",//0
+                        "ชิไม่โดน",//1
+                        "เห้ยๆ มันอ้อมมาแล้ว ยิงมันสิ ยิงมัน",//2
+                        "แย่แล้ว",//3
+                    "IMAGE",
+                        "ปั้งๆ",//4
+                        "ในขณะนั้นเราก็โดนนายพรานอีกคน "+"อ้อมมาด้านหลัง",//5
+                        "และยิงเราพอดี..."//6
             },
             // path18
             {
-                    "เห้ยเสร็จยังวะ นัดกุจะหมดแล้ว",//0
-                    "เออเสร็จแล้วๆ ไปเลยๆ หนีเลยๆ",//1
-                    "จังหวะนี้แหละ",//2
-                    "เรายิงปืนนัดแรกเราที่มือขวามของคนที่ถือปืน",//3
-                    "นายพรานอีกคนยิงสวนกลับมา",//4
-                    "แต่พวกของเรากลุ่มอื่นมาพอดี\n" +
-                            "และยิงมันได้พอดี",//5
-                    "ทำให้เราจับพวกมันได้ทั้งสองตน\n" +
-                            "ทั้งของกลาง และอาวุทปืน",//6
-                    "เราจับพวกมันได้แล้ว",//7
-                    "ดีพวกมันจะได้ไม่มากวนป่าพวกเราอีก",//8
-                    "จะไม่มีสัตว์ตาย ด้วยน้ำมือเจ้าพวกนี้อีกสักระยะ",//9
-                    "แต่สุดท้ายเด๋วคนพวกนี้ก็กลับมากอีก",//10
-                    "เอาเหอะ มีครั้งหน้า เราก็จะทำแบบนี้อีก",//11
-                    "โอ้ส"//12
+                    "IMAGE",
+                        "เห้ยเสร็จยังวะ นัดกุจะหมดแล้ว",//0
+                        "เออเสร็จแล้วๆ ไปเลยๆ หนีเลยๆ",//1
+                        "จังหวะนี้แหละ",//2
+                    "IMAGE",
+                        "เราเล็งปืนไปที่นายพรานแล้วยิง",//3
+                        "นายพรานอีกคนกำลังจะยิงสวนกลับมา",//4
+                    "IMAGE",
+                        "เสียงปืนนั้นไม่ใช้เสียงปืนของใคร\n" +
+                                "เป็นพวกเรานี่เองกลุ่มที่แยกไป",//5
+                    "IMAGE",
+                        "ทำให้เราจับพวกมันได้ทั้งสองคน\n" +
+                                "ทั้งของกลาง และอาวุทปืน",//6
+                    "IMAGE",
+                        "พวกมันคงจะได้ไม่กล้ามาทำอะไรแบบนี้ครั้ง",//7
+                        "จะไม่มีสัตว์ตาย ด้วยน้ำมือเจ้าพวกนี้อีกสักระยะ",//8
+                        "แต่สุดท้ายเด๋วคนพวกนี้ก็กลับมากอีก",//9
+                        "ถ้าพวกมันกล้ากลับมา เราก็จะจับมันทั้งหมด",//10
             },
             // path19
             {
-                    "เอาหวะ พวกมันคงยอมฟังเรา",//0
-                    "นี่คือผู้พิทักษ์สัตว์ป่า",//1
-                    "ขอให้หยุด แล้วยอมมอบตัวซะ",//2
-                    "จะบ้ารึ ใครจะยอมให้จับ",//3
-                    "ปั้งๆ",//4
-                    "ถ้าพวกแกยอมจำนน จากโทษหนักจะกลายเป็นเบา",//5
-                    "ใครจะไปยอมกันเหล่า\n" +
-                            "ปั้งๆ",//6
-                    "เราโดนยิงเข้าที่ท้อง",//7
-                    "แดงวิ่งเข้ามาหาเรา",//8
-                    "เห้ยเป็นไงบ้าง",//9
-                    "โดน ยิงเข้าที่ท้องนะสิ",//10
-                    "ตรงผยุงเราขึ้นแหละหนีกลับมาที่แคมป์",//11
-                    "หนีเถอะ อยากเอาชีวิตมาเสี่ยงขนาดนี่เลย",//12
-                    "แต่นี่มันงานเรา นะปกป้องพื้นป่านี้ไว้",//13
-                    "ไว้ครั้งหน้าแหละกัน",//14
-                    "ครั้งหน้าต้องจับได้แน่นอน",//15
-                    "เราไม่มีแรงที่จะตอบ\n" +
-                            "เลยต้องทำตามการตัดสินใจของเพื่อน",//16
-                    "เราสัญญากับตัวเองว่า คราวหน้า \n" +
-                            "เราจะกลับมาจับพวกมันให้หมด"//16
+                        "เอาหวะ พวกมันคงยอมฟังเรา",//0
+                        "เราส่องไฟฉายไปเพื่อจะเจรจา",//1
+                        "นี่คือผู้พิทักษ์ป่า",//2
+                        "ขอให้หยุด แล้วยอมมอบตัวซะ",//3
+                        "ใครจะยอมให้จับ",//4
+                        "ถ้าพวกแกยอมจำนน จากโทษหนักจะกลายเป็นเบา",//5
+                        "ใครจะไปยอมกันเหล่า",//6
+                    "IMAGE",
+                        "เราโดนยิงเข้าที่ท้อง",//7
+                        "ไม่น่าไปญาติดีกับพวกนี้เลย"//8
             },
             // path20
             {
-                    "ชิ ปืนอย่างเก่า" ,//0
-                    "แต่ยังพอยิงได้",//1
-                    "เอาหละ",//2
+                "IMAGE",
+                    "เราเช็คปืนของตัวเอง",//0
+                    "ชิ ปืนอย่างเก่า" ,//1
+                    "แต่ยังพอยิงได้",//2
+                    "เอาหละ",//3
             },
             // path21
             {
-                    "ปั้งๆ" ,//0
-                    "อ้าก",//1
-                    "ตรง ถูกยิงที่หัวไหล่ซ้าย\n" +
-                            "และกำลังล้มลง",//2
-                    "แย่แล้ว",//3
-                    "จะทำไรต้องรีบทำแล้วหละ",//4
+                "IMAGE",
+                    "อ้าก",//0
+                    "แย่แล้ว",//1
+                    "จะทำไรต้องรีบทำแล้วหละ",//2
             },
             // path22
             {
+                "IMAGE",
                     "ปั้งๆ" ,//0
                     "สถานการณ์เริ่มแย่แล้วหละสิ",//1
-                    "เพื่อนก็เจ็บ",//2
-                    "แต่เรายังไม่เห็นพวกมันอีกคนเลย\n" +
-                            "พวกพรานมันไม่น่าม่าล่าสัตว์ ในเวลาแบบนี้คนเดียวสิ",//3
+                    "แดงก็เจ็บ",//2
+                    "เรายังไม่เห็นพวกมันอีกคนเลย\n" +
+                            "พวกพรานมันไม่น่ามาล่าสัตว์ ในเวลาแบบนี้คนเดียวสิ",//3
+                "IMAGE",
                     "เอ้ะ ทำไมตอนนี้เสียงมันเงียบลง",//4
             },
             // path23
             {
+                "IMAGE",
                     "เห้ยเสร็จยังวะ นัดกุจะหมดแล้ว" ,//0
                     "เออเสร็จแล้วๆ ไปเลยๆ หนีเลย",//1
-                    "โจรก็เก็บของแล้วกำลังวิ่งนี้ไป",//2
+                    "นั้นไงพวกมัน",//2
             },
             // path24
             {
-                    "ปั้งๆ" ,//0
-                    "เราโดนยิงเข้าที่ท้อง\n" +
-                            "แหละล้มลง",//1
-                    "เห้ยเป็นไงบ้าง",//2
-                    "โดน ยิงเข้าที่ท้องนะสิ\n" +
-                            "รู้สึกว่าพวกเราจะทำอะไรไม่ได้เลย",//3
-                    "นอนนิ่งๆไว้ แล้วก็เงียบเดี๋ยวพวกมันเห็น",//4
-                    "พวกเราที่แยกไปคงกำลังตามเสียงปืนมา",//5
-                    "ชิ ทำไมพระเจ้าต้องเข้าข้างพวกชั่วๆด้วย\n" +
-                            "ไว้ครั้งหน้าแหละกัน" +
-                            "ครั้งหน้าต้องจับได้แน่นอน\n",//6
-                    "เราสัญญากับตัวเองว่า คราวหน้า \n" +
-                            "เราจะกลับมาจับพวกมันให้หมด"//7
+                    "IMAGE",
+                        "เราโดนยิง",//0
+                        "เจ็บ เจ็บมาก",//1
             },
 
 
@@ -644,7 +656,7 @@ public class MessageThisSeason {
                     //left
                     DO_CHOICE_DONATE,
                     //right
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
             },
             // path3
             {
@@ -663,9 +675,9 @@ public class MessageThisSeason {
             // path5
             {
                     //left
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
                     //right
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
             },
             // path6
             {
@@ -677,16 +689,16 @@ public class MessageThisSeason {
             // path7
             {
                     //left
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
                     //right
                     DO_CHOICE,
             },
             // path8
             {
                     //left
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
                     //right
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
             },
             // path9
             {
@@ -705,9 +717,9 @@ public class MessageThisSeason {
             // path11
             {
                     //left
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
                     //right
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
             },
             // path12
             {
@@ -719,16 +731,16 @@ public class MessageThisSeason {
             // path13
             {
                     //left
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
                     //right
                     DO_CHOICE,
             },
             // path14
             {
                     //left
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
                     //right
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
             },
             // path15
             {
@@ -740,23 +752,23 @@ public class MessageThisSeason {
             // path16
             {
                     //left
-                    DO_CHOICE_DONATE,
-                    //right
                     DO_CHOICE,
+                    //right
+                    DO_CHOICE_DONATE,
             },
             // path17
             {
                     //left
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
                     //right
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
             },
             // path18
             {
                     //left
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
                     //right
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
             },
             // path19
             {
@@ -768,16 +780,16 @@ public class MessageThisSeason {
             // path20
             {
                     //left
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
                     //right
                     DO_CHOICE,
             },
             // path21
             {
                     //left
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
                     //right
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
             },
             // path22
             {
@@ -789,16 +801,16 @@ public class MessageThisSeason {
             // path23
             {
                     //left
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
                     //right
                     DO_CHOICE,
             },
             // path24
             {
                     //left
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
                     //right
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
             }
 
 

@@ -99,7 +99,7 @@ public class  MainChatActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-        GifImageGenerator();
+//        GifImageGenerator();
         //loadHistory(chatHistory);
 
         adapter.notifyItemInserted(messages.size() - 1);
@@ -248,7 +248,7 @@ public class  MainChatActivity extends AppCompatActivity {
                     sendBtn.setVisibility(v.VISIBLE);
                     messages.add(chatMessage);
 
-                    GifImageGenerator();
+//                    GifImageGenerator();
                     displayChat();
 
                     if(chatMessage.getIsme()==MESSAGE_RIGHT_HURT){
@@ -307,214 +307,214 @@ public class  MainChatActivity extends AppCompatActivity {
         }
     }
 
-    private int GifImageGenerator() {
-        int mainImg = -1 ;
-        switch (path) {
-            case 0:
-                if (0 <= hit && hit < 1) {
-                    mainImg = (R.drawable.sence_mountain);
-                } else if (1 <= hit && hit < 5) {
-                    mainImg = (R.drawable.sence_twotravel);
-                } else if (5 <= hit && hit < 6) {
-                    mainImg = (R.drawable.sence_hero);
-                } else if (6 <= hit && hit < 7) {
-                    mainImg = (R.drawable.sence_two_allies);
-                } else if (7 <= hit && hit < 8) {
-                    mainImg = (R.drawable.sence_allies);
-                } else if (8 <= hit && hit < 11) {
-                    mainImg = (R.drawable.sence_twotravel);
-                }
-                break;
-
-            case 1:
-                mainImg = (R.drawable.sence_camp);
-                break;
-
-            case 2:
-                mainImg = (R.drawable.sence_camp);
-                break;
-
-            case 3:
-                if (0 <= hit && hit < 1) {
-                    mainImg = (R.drawable.sence_forest_night);
-                } else if (1 <= hit && hit < 5) {
-                    mainImg = (R.drawable.sence_forest_night_shoot);
-                } else if (5 <= hit && hit < 7) {
-                    mainImg = (R.drawable.sence_think);
-                } else if (7 <= hit && hit < 10) {
-                    mainImg = (R.drawable.sence_evidence);
-                } else if (10 <= hit && hit < 12) {
-                    mainImg = (R.drawable.sence_back_moutain2);
-                } else if (12 <= hit && hit < 13) {
-                    mainImg = (R.drawable.sence_hide);
-                }
-                break;
-
-            case 4:
-                if (0 <= hit && hit < 1) {
-                    mainImg = (R.drawable.sence_forest_night);
-                } else if (1 <= hit && hit < 5) {
-                    mainImg = (R.drawable.sence_forest_night_shoot);
-                } else if (5 <= hit && hit < 7) {
-                    mainImg = (R.drawable.sence_think);
-                } else if (7 <= hit && hit < 10) {
-                    mainImg = (R.drawable.sence_evidence);
-                } else if (10 <= hit && hit < 11) {
-                    mainImg = (R.drawable.sence_back_moutain2);
-                } else if (11 <= hit && hit < 13) {
-                    mainImg = (R.drawable.sence_bag);
-                }
-                break;
-
-            case 5:
-                if (0 <= hit && hit < 3) {
-                    mainImg = (R.drawable.sence_hide);
-                } else if (3 <= hit && hit < 9) {
-                    mainImg = (R.drawable.sence_forest_night_shoot);
-                }
-                break;
-
-            case 6:
-                mainImg = (R.drawable.sence_back_moutain);
-                break;
-
-            case 7:
-                mainImg = (R.drawable.sence_wtf);
-                break;
-
-            case 8:
-                if (0 <= hit && hit < 3) {
-                    mainImg = (R.drawable.sence_run);
-                } else if (3 <= hit && hit < 5) {
-                    mainImg = (R.drawable.sence_back_moutain);
-                }
-            case 9:
-                if (0 <= hit && hit < 3) {
-                    mainImg = (R.drawable.sence_forest_night);
-                } else if (3 <= hit && hit < 11) {
-                    mainImg = (R.drawable.sence_hero);
-                }
-                break;
-
-            case 10:
-                if (0 <= hit && hit < 2) {
-                    mainImg = (R.drawable.sence_forest_night);
-                } else if (2 <= hit && hit < 5) {
-                    mainImg = (R.drawable.sence_hero);
-                }
-                break;
-
-            case 11:
-                if (0 <= hit && hit < 1) {
-                    mainImg = (R.drawable.sence_forest_night_shoot);
-                } else if (1 <= hit && hit < 4) {
-                    mainImg = (R.drawable.sence_back_moutain);
-                }
-                break;
-
-            case 12:
-                if (0 <= hit && hit < 4) {
-                    mainImg = (R.drawable.sence_helping);
-                } else if (4 <= hit && hit < 8) {
-                    mainImg = (R.drawable.sence_back_moutain);
-                }
-                break;
-
-            case 13:
-                if (0 <= hit && hit < 3) {
-                    mainImg = (R.drawable.sence_forest_night);
-                } else if (3 <= hit && hit < 8) {
-                    mainImg = (R.drawable.sence_mountain_morning_out);
-                }
-                break;
-
-            case 14:
-                mainImg = (R.drawable.sence_forest_night_shoot);
-                break;
-
-            case 15:
-                mainImg = (R.drawable.sence_run);
-                break;
-
-            case 16:
-                mainImg = (R.drawable.sence_hide);
-                break;
-
-            case 17:
-                if (0 <= hit && hit < 1) {
-                    //theif
-                    mainImg = (R.drawable.sence_forest_night);
-                } else if (1 <= hit && hit < 3) {
-                    mainImg = (R.drawable.sence_shot_me);
-                } else if (3 <= hit && hit < 4) {
-                    mainImg = (R.drawable.sence_forest_night);
-                } else if (4 <= hit && hit < 5) {
-                    mainImg = (R.drawable.sence_shot_they);
-                } else if (5 <= hit && hit < 7) {
-                    //die
-                    mainImg = (R.drawable.sence_forest_night);
-                }
-                break;
-
-            case 18:
-                if (0 <= hit && hit < 2) {
-                    //theif
-                    mainImg = (R.drawable.sence_forest_night);
-                } else if (2 <= hit && hit < 3) {
-                    mainImg = (R.drawable.sence_shot_me);
-                } else if (3 <= hit && hit < 4) {
-                    mainImg = (R.drawable.sence_forest_night_shoot);
-                } else if (4 <= hit && hit < 5) {
-                    mainImg = (R.drawable.sence_shot_they);
-                } else if (5 <= hit && hit < 7) {
-                    mainImg = (R.drawable.sence_evidence);
-                } else if (7 <= hit && hit < 12) {
-                    mainImg = (R.drawable.sence_mountain_morning_out);
-                }
-                break;
-
-            case 19:
-                if (0 <= hit && hit < 3) {
-                    mainImg = (R.drawable.sence_hide);
-                } else if (3 <= hit && hit < 6) {
-                    mainImg = (R.drawable.sence_forest_night_shoot);
-                } else if (6 <= hit && hit < 10) {
-                    mainImg = (R.drawable.sence_helping);
-                } else if (10 <= hit && hit < 17) {
-                    mainImg = (R.drawable.sence_shot_they);
-                }
-                break;
-
-            case 20:
-                mainImg = (R.drawable.sence_hide);
-                break;
-
-            case 21:
-                if (0 <= hit && hit < 1) {
-                    mainImg = (R.drawable.sence_forest_night_shoot);
-                } else if (1 <= hit && hit < 5) {
-                    mainImg = (R.drawable.sence_shot);
-                }
-                break;
-
-            case 22:
-                if (0 <= hit && hit < 3) {
-                    mainImg = (R.drawable.sence_forest_night_shoot);
-                } else if (3 <= hit && hit < 8) {
-                    mainImg = (R.drawable.sence_back_moutain);
-                }
-                break;
-            case 23:
-                mainImg = (R.drawable.sence_forest_night);
-                break;
-            case 24:
-                if (0 <= hit && hit < 8) {
-                    mainImg = (R.drawable.sence_shot_they);
-                }
-                break;
-        }
-        return mainImg;
-    }
+//    private int GifImageGenerator() {
+//        int mainImg = -1 ;
+//        switch (path) {
+//            case 0:
+//                if (0 <= hit && hit < 1) {
+//                    mainImg = (R.drawable.sence_mountain);
+//                } else if (1 <= hit && hit < 5) {
+//                    mainImg = (R.drawable.sence_twotravel);
+//                } else if (5 <= hit && hit < 6) {
+//                    mainImg = (R.drawable.sence_hero);
+//                } else if (6 <= hit && hit < 7) {
+//                    mainImg = (R.drawable.sence_two_allies);
+//                } else if (7 <= hit && hit < 8) {
+//                    mainImg = (R.drawable.sence_allies);
+//                } else if (8 <= hit && hit < 11) {
+//                    mainImg = (R.drawable.sence_twotravel);
+//                }
+//                break;
+//
+//            case 1:
+//                mainImg = (R.drawable.sence_camp);
+//                break;
+//
+//            case 2:
+//                mainImg = (R.drawable.sence_camp);
+//                break;
+//
+//            case 3:
+//                if (0 <= hit && hit < 1) {
+//                    mainImg = (R.drawable.sence_forest_night);
+//                } else if (1 <= hit && hit < 5) {
+//                    mainImg = (R.drawable.sence_forest_night_shoot);
+//                } else if (5 <= hit && hit < 7) {
+//                    mainImg = (R.drawable.sence_think);
+//                } else if (7 <= hit && hit < 10) {
+//                    mainImg = (R.drawable.sence_evidence);
+//                } else if (10 <= hit && hit < 12) {
+//                    mainImg = (R.drawable.sence_back_moutain2);
+//                } else if (12 <= hit && hit < 13) {
+//                    mainImg = (R.drawable.sence_hide);
+//                }
+//                break;
+//
+//            case 4:
+//                if (0 <= hit && hit < 1) {
+//                    mainImg = (R.drawable.sence_forest_night);
+//                } else if (1 <= hit && hit < 5) {
+//                    mainImg = (R.drawable.sence_forest_night_shoot);
+//                } else if (5 <= hit && hit < 7) {
+//                    mainImg = (R.drawable.sence_think);
+//                } else if (7 <= hit && hit < 10) {
+//                    mainImg = (R.drawable.sence_evidence);
+//                } else if (10 <= hit && hit < 11) {
+//                    mainImg = (R.drawable.sence_back_moutain2);
+//                } else if (11 <= hit && hit < 13) {
+//                    mainImg = (R.drawable.sence_bag);
+//                }
+//                break;
+//
+//            case 5:
+//                if (0 <= hit && hit < 3) {
+//                    mainImg = (R.drawable.sence_hide);
+//                } else if (3 <= hit && hit < 9) {
+//                    mainImg = (R.drawable.sence_forest_night_shoot);
+//                }
+//                break;
+//
+//            case 6:
+//                mainImg = (R.drawable.sence_back_moutain);
+//                break;
+//
+//            case 7:
+//                mainImg = (R.drawable.sence_wtf);
+//                break;
+//
+//            case 8:
+//                if (0 <= hit && hit < 3) {
+//                    mainImg = (R.drawable.sence_run);
+//                } else if (3 <= hit && hit < 5) {
+//                    mainImg = (R.drawable.sence_back_moutain);
+//                }
+//            case 9:
+//                if (0 <= hit && hit < 3) {
+//                    mainImg = (R.drawable.sence_forest_night);
+//                } else if (3 <= hit && hit < 11) {
+//                    mainImg = (R.drawable.sence_hero);
+//                }
+//                break;
+//
+//            case 10:
+//                if (0 <= hit && hit < 2) {
+//                    mainImg = (R.drawable.sence_forest_night);
+//                } else if (2 <= hit && hit < 5) {
+//                    mainImg = (R.drawable.sence_hero);
+//                }
+//                break;
+//
+//            case 11:
+//                if (0 <= hit && hit < 1) {
+//                    mainImg = (R.drawable.sence_forest_night_shoot);
+//                } else if (1 <= hit && hit < 4) {
+//                    mainImg = (R.drawable.sence_back_moutain);
+//                }
+//                break;
+//
+//            case 12:
+//                if (0 <= hit && hit < 4) {
+//                    mainImg = (R.drawable.sence_helping);
+//                } else if (4 <= hit && hit < 8) {
+//                    mainImg = (R.drawable.sence_back_moutain);
+//                }
+//                break;
+//
+//            case 13:
+//                if (0 <= hit && hit < 3) {
+//                    mainImg = (R.drawable.sence_forest_night);
+//                } else if (3 <= hit && hit < 8) {
+//                    mainImg = (R.drawable.sence_mountain_morning_out);
+//                }
+//                break;
+//
+//            case 14:
+//                mainImg = (R.drawable.sence_forest_night_shoot);
+//                break;
+//
+//            case 15:
+//                mainImg = (R.drawable.sence_run);
+//                break;
+//
+//            case 16:
+//                mainImg = (R.drawable.sence_hide);
+//                break;
+//
+//            case 17:
+//                if (0 <= hit && hit < 1) {
+//                    //theif
+//                    mainImg = (R.drawable.sence_forest_night);
+//                } else if (1 <= hit && hit < 3) {
+//                    mainImg = (R.drawable.sence_shot_me);
+//                } else if (3 <= hit && hit < 4) {
+//                    mainImg = (R.drawable.sence_forest_night);
+//                } else if (4 <= hit && hit < 5) {
+//                    mainImg = (R.drawable.sence_shot_they);
+//                } else if (5 <= hit && hit < 7) {
+//                    //die
+//                    mainImg = (R.drawable.sence_forest_night);
+//                }
+//                break;
+//
+//            case 18:
+//                if (0 <= hit && hit < 2) {
+//                    //theif
+//                    mainImg = (R.drawable.sence_forest_night);
+//                } else if (2 <= hit && hit < 3) {
+//                    mainImg = (R.drawable.sence_shot_me);
+//                } else if (3 <= hit && hit < 4) {
+//                    mainImg = (R.drawable.sence_forest_night_shoot);
+//                } else if (4 <= hit && hit < 5) {
+//                    mainImg = (R.drawable.sence_shot_they);
+//                } else if (5 <= hit && hit < 7) {
+//                    mainImg = (R.drawable.sence_evidence);
+//                } else if (7 <= hit && hit < 12) {
+//                    mainImg = (R.drawable.sence_mountain_morning_out);
+//                }
+//                break;
+//
+//            case 19:
+//                if (0 <= hit && hit < 3) {
+//                    mainImg = (R.drawable.sence_hide);
+//                } else if (3 <= hit && hit < 6) {
+//                    mainImg = (R.drawable.sence_forest_night_shoot);
+//                } else if (6 <= hit && hit < 10) {
+//                    mainImg = (R.drawable.sence_helping);
+//                } else if (10 <= hit && hit < 17) {
+//                    mainImg = (R.drawable.sence_shot_they);
+//                }
+//                break;
+//
+//            case 20:
+//                mainImg = (R.drawable.sence_hide);
+//                break;
+//
+//            case 21:
+//                if (0 <= hit && hit < 1) {
+//                    mainImg = (R.drawable.sence_forest_night_shoot);
+//                } else if (1 <= hit && hit < 5) {
+//                    mainImg = (R.drawable.sence_shot);
+//                }
+//                break;
+//
+//            case 22:
+//                if (0 <= hit && hit < 3) {
+//                    mainImg = (R.drawable.sence_forest_night_shoot);
+//                } else if (3 <= hit && hit < 8) {
+//                    mainImg = (R.drawable.sence_back_moutain);
+//                }
+//                break;
+//            case 23:
+//                mainImg = (R.drawable.sence_forest_night);
+//                break;
+//            case 24:
+//                if (0 <= hit && hit < 8) {
+//                    mainImg = (R.drawable.sence_shot_they);
+//                }
+//                break;
+//        }
+//        return mainImg;
+//    }
 
     public void displayChat() {
         System.out.println(messages.size());

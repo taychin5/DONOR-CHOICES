@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
@@ -54,6 +55,9 @@ public class HomeFragment extends Fragment {
     private RecyclerView itemContainer2;
     private RecyclerView itemContainer3;
 
+    private TextView more1;
+    private TextView more2;
+    private TextView more3;
 
     private HomeFragmentRecyclerViewAdapter adapter;
     private HomeFragmentRecyclerViewAdapter2 adapter2;
@@ -200,8 +204,55 @@ public class HomeFragment extends Fragment {
         ViewPagerAdapter2 viewPagerAdapter2 = new ViewPagerAdapter2(context);
         viewPager2.setAdapter(viewPagerAdapter2);
 
+
+        more1 = view.findViewById(R.id.morehaed1);
+        more2 = view.findViewById(R.id.morehaed2);
+        more3 = view.findViewById(R.id.morehaed3);
+
+        more1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment newFragment = new ReadFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.content, newFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+                Home_activity.bnve.setCurrentItem(1);
+                Home_activity.toolbarTxt.setText("Explore");
+            }
+        });
+
+        more2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment newFragment = new ReadFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.content, newFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+                Home_activity.bnve.setCurrentItem(1);
+                Home_activity.toolbarTxt.setText("Explore");
+            }
+        });
+
+        more3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment newFragment = new ReadFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+// Replace whatever is in the fragment_container view with this fragment,
+// and add the transaction to the back stack if needed
+                transaction.replace(R.id.content, newFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+                Home_activity.bnve.setCurrentItem(1);
+                Home_activity.toolbarTxt.setText("Explore");
+            }
+        });
         return view;
     }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

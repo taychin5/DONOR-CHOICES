@@ -35,8 +35,9 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
-    private TextView toolbarTxt;
+    public static TextView toolbarTxt;
     private ActionBarDrawerToggle drawerToggle;
+    public static BottomNavigationViewEx bnve;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -73,7 +74,7 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
         // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        BottomNavigationViewEx bnve = (BottomNavigationViewEx) findViewById(R.id.navigation);
+        bnve = (BottomNavigationViewEx) findViewById(R.id.navigation);
         bnve.setIconSize(50, 50);
         bnve.enableItemShiftingMode(false);
         bnve.enableAnimation(false);
@@ -81,10 +82,6 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
         bnve.setItemHeight(dpToPx(65));
         toolbarTxt = findViewById(R.id.toolbar_title);
         toolbarTxt.setText("Donor choices");
-
-
-
-
 
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

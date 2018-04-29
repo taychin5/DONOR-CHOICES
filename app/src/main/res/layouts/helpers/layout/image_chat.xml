@@ -34,7 +34,7 @@
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/imgCharacter"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="225dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:scaleType="centerCrop"
