@@ -44,11 +44,10 @@
         app:layout_constraintTop_toTopOf="@+id/choose_toolbar" />
 
 
-
     <ImageView
         android:id="@+id/main_img"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
@@ -79,7 +78,7 @@
     <Button
         android:id="@+id/buttongo"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="54dp"
         android:background="@drawable/gradient"
         android:fontFamily="@font/athiti_bold"
         android:text="เริ่มการผจญภัยอีกครั้ง"

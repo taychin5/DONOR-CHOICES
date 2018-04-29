@@ -8,12 +8,18 @@
     android:minHeight="?attr/actionBarSize"
     app:contentInsetLeft="0dp"
     app:contentInsetStart="0dp"
+    android:elevation="5dp"
     app:titleTextColor="@android:color/white">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#a7c4c4c4"
+            app:layout_constraintBottom_toBottomOf="parent"></View>
         <TextView
             android:id="@+id/toolbar_title"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
@@ -27,7 +33,7 @@
             android:fontFamily="@font/athiti_bold"
             android:text="Toolbar Title"
             android:textColor="@color/colorBottomNavigation"
-            android:textSize="20sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

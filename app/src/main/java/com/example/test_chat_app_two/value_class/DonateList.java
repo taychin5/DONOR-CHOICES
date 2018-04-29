@@ -5,13 +5,15 @@ package com.example.test_chat_app_two.value_class;
  */
 
 public class DonateList {
-    private int when;
+    private String when;
+    private String time;
     private int story;
     private int patch;
     private String chooseDescription;
     private String charity;
 
-    public DonateList(int when, int story,String charity, int patch, String chooseDescription) {
+    public DonateList(String time,String when, int story,String charity, int patch, String chooseDescription) {
+        this.time = time;
         this.when = when;
         this.story = story;
         this.patch = patch;
@@ -19,13 +21,21 @@ public class DonateList {
         this.charity = charity;
     }
 
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
     public String getCharity() { return charity; }
     public void setCharity(String charity) { this.charity = charity; }
 
-    public int getWhen() {
+    public String getWhen() {
         return when;
     }
-    public void setWhen(int when) {
+    public void setWhen(String when) {
         this.when = when;
     }
 

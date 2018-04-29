@@ -181,6 +181,9 @@ class DonateFragmentRecyclerViewAdapter extends RecyclerView.Adapter<DonateFragm
     @Override
     public void onBindViewHolder(DonateFragmentRecyclerViewHolder holder, int position) {
         holder.textview.setText(donateListArrayList.get(position).getChooseDescription());
+        holder.dateTxt.setText(donateListArrayList.get(position).getWhen());
+        holder.timeTxt.setText(donateListArrayList.get(position).getTime());
+
 
     }
 
@@ -231,10 +234,15 @@ class DonateFragmentRecyclerViewAdapter extends RecyclerView.Adapter<DonateFragm
     class DonateFragmentRecyclerViewHolder extends RecyclerView.ViewHolder {
 
         TextView textview;
+        TextView dateTxt;
+        TextView timeTxt;
 
         public DonateFragmentRecyclerViewHolder(View itemView) {
             super(itemView);
             textview = (TextView) itemView.findViewById(R.id.Name);
+            dateTxt = itemView.findViewById(R.id.Date);
+            timeTxt = itemView.findViewById(R.id.Time);
+
         }
     }
 

@@ -54,6 +54,7 @@ public class  MainChatActivity extends AppCompatActivity {
     public static Button buttonOnRight;
     public static TextView textView;
     public static List<ChatMessage> messages = new ArrayList<>();
+    public static int donate;
     public static int hit;
     public static int totalHit;
     public static int path;
@@ -215,17 +216,16 @@ public class  MainChatActivity extends AppCompatActivity {
 //                        textWhatToDO.setText("hello test");
                         chooseWhatToDO(v);
                     }else {
-                        DonateList donateList = new DonateList(hit,path,"serb",path,"testSend");
-                        DonateFragment.donateListArrayList.add(donateList);
-
                         Intent intent = new Intent(getApplicationContext(), End_Activity.class);
                         intent.putExtra("path",path);
                         intent.putExtra("hit", hit);
+                        intent.putExtra("donate", donate);
                         startActivity(intent);
                         messages.clear();
                         path = 0;
                         hit = 0;
                         totalHit =0;
+                        donate = 0;
 
                         finish();
                     }

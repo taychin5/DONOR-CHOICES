@@ -121,8 +121,8 @@ public class MessageThisSeason {
                         {MESSAGE_RIGHT},//8
                         {MESSAGE_RIGHT},//9
                         {MESSAGE_LEFT,R.drawable.char_b_talk},//10
-                    {IMAGE,R.drawable.sence_bag},
                         {MESSAGE_RIGHT},//11
+                    {IMAGE,R.drawable.sence_bag},
                         {MESSAGE_RIGHT},//12
                         {MESSAGE_RIGHT},//13
                         {MESSAGE_RIGHT}//14
@@ -151,13 +151,13 @@ public class MessageThisSeason {
             //path 7
             {
                         {MESSAGE_RIGHT_THINK},//0
-                        {MESSAGE_LEFT,R.drawable.char_b_talk},//1
+                        {MESSAGE_LEFT,R.drawable.char_b_panic},//1
                         {MESSAGE_RIGHT},//2
-                        {MESSAGE_LEFT,R.drawable.char_b_talk},//3
+                        {MESSAGE_LEFT,R.drawable.char_b_panic},//3
                         {MESSAGE_RIGHT},//4
-                        {MESSAGE_LEFT,R.drawable.char_b_talk},//5
+                        {MESSAGE_LEFT,R.drawable.char_b_panic},//5
                     {IMAGE,R.drawable.sence_grab_gun},
-                        {MESSAGE_LEFT,R.drawable.char_b_talk},//6
+                        {MESSAGE_LEFT,R.drawable.char_b_panic},//6
                         {MESSAGE_RIGHT},//7
             },
             //path 8
@@ -363,7 +363,7 @@ public class MessageThisSeason {
                     "IMAGE",
                         "เป็นพระอาทิตย์ตกที่สวยเหมือนเดิมเลย",//1
                         "เฮ้อ ธรรมชาตินี้มันดีจริงๆเลยนะ",//2
-                        "มาพูดเพ้ออะไร ต้องไปเตรียมของต่อให้เสร็จไป",//3.
+                        "มาพูดเพ้ออะไร ไปเตรียมของต่อให้เสร็จไป",//3.
                         "จ้าๆ",//4
                         "ต้องจัดของไว้ให้ใกล้ตัว เวลานอน",//5
                         "มีปืนกับกระเป๋ายักษ์\n" +
@@ -375,7 +375,7 @@ public class MessageThisSeason {
                     "IMAGE",
                         "เป็นพระอาทิตย์ตกที่สวยเหมือนเดิมเลย",//1
                         "เฮ้อ ธรรมชาตินี้มันดีจริงๆเลยนะ",//2
-                        "มาพูดเพ้ออะไร ต้องไปเตรียมของต่อให้เสร็จไป",//3.
+                        "มาพูดเพ้ออะไร ไปเตรียมของต่อให้เสร็จไป",//3.
                         "จ้าๆ",//4
                         "ต้องจัดของไว้ให้ใกล้ตัว เวลานอน",//5
                         "มีปืนกับกระเป๋ายักษ์\n" +
@@ -422,8 +422,8 @@ public class MessageThisSeason {
                         "พวกสัตว์ป่าไม่จำเป็นต้องมาตาย สัตว์ทุกตัวก็มีชีวิตของมันเอง",//8
                         "มนุษย์เราจะตัดสินชีวิตมันไม่ได้",//9
                         "หลบเร็ว เด๋วพวกมันจะเห็นเอา",//10
-                    "IMAGE",
                         "แมร่งเอ้ย ดันคว้ามาแต่กระเป๋า",//11
+                    "IMAGE",
                         "ด้านในกระเป่ามี\n" +
                                 "อาหารกระป๋อง น้ำขวด แผนที่ ไฟแช็ค ไฟฉาย" ,//12
                         "และก็โทรศัพท์",//13
@@ -647,16 +647,16 @@ public class MessageThisSeason {
             // path1
             {
                     //left
-                    DO_CHOICE_DONATE,
-                    //right
                     DO_CHOICE,
+                    //right
+                    DO_CHOICE_DONATE,
             },
             // path2
             {
                     //left
-                    DO_CHOICE_DONATE,
-                    //right
                     DO_CHOICE,
+                    //right
+                    DO_CHOICE_DONATE,
             },
             // path3
             {
@@ -668,7 +668,7 @@ public class MessageThisSeason {
             // path4
             {
                     //left
-                    DO_CHOICE_DONATE,
+                    DO_CHOICE,
                     //right
                     DO_CHOICE,
             },
@@ -710,9 +710,9 @@ public class MessageThisSeason {
             // path10
             {
                     //left
-                    DO_CHOICE_DONATE,
-                    //right
                     DO_CHOICE,
+                    //right
+                    DO_CHOICE_DONATE,
             },
             // path11
             {
@@ -752,9 +752,9 @@ public class MessageThisSeason {
             // path16
             {
                     //left
-                    DO_CHOICE,
-                    //right
                     DO_CHOICE_DONATE,
+                    //right
+                    DO_CHOICE,
             },
             // path17
             {
@@ -834,16 +834,16 @@ public class MessageThisSeason {
                     // Right
                     {
                             //head
-                            "ขรึงไว้ริมแม่น้ำ",
+                            "ผูกเปลกับต้นไม้ในป่า",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "การผูกเปลไว้ในป่าจะทำให้ การผูกเปลมีความแข็งแรงและปลอดภัยมากยิ่งขึ้น"
                     },
                     // Left
                     {
                             //head
-                            "ขรึงไว้ในป่าข้างแม่น้ำ",
+                            "ผูกเปลไว้กับต้นไม้ริมแม่น้ำ",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "ผูกเปลไว้ริมแม่น้ำ ชื่นชมกับบรรยากาศติดแม่น้ำอย่างสวยงาม"
                     }
 
             },
@@ -855,16 +855,17 @@ public class MessageThisSeason {
                     // Right
                     {
                             //head
-                            "นำปืนไว้ข้างตัว",
+                            "นำปืนไว้ใกล้กว่ากระเป๋า",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "นำปืนไว้ข้างตัวตอนนอน เพื่อว่าตกกลางคืนนั้นจะเกิดเหตุอะไร เราจะสามารถป้องกันตัวได้" +
+                                    "ปืนกระบอกนี้ได้มาจากเงินบริจาคของมูลนิธิสืบนาคะเสถียร"
                     },
                     // Left
                     {
                             //head
-                            "นำกระเป๋าติดตัวไว้ข้างตัว",
+                            "นำกระเป๋าติดตัวไว้ตอนนอน",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "กระเป๋าสารพัดประโยชน์ ด้านในมีของอำนวนความสะดวกจำนวนมาก พกไว้สามารถดำรงชีวิตอยู่ในป่าได้เป็นสัปดาห์"
                     }
 
             },
@@ -876,16 +877,17 @@ public class MessageThisSeason {
                     // Right
                     {
                             //head
-                            "นำปืนไว้ข้างตัว",
+                            "นำปืนไว้ใกล้กว่ากระเป๋า",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "นำปืนไว้ข้างตัวตอนนอน เพื่อว่าตกกลางคืนนั้นจะเกิดเหตุอะไร เราจะสามารถป้องกันตัวได้" +
+                                    "ปืนกระบอกนี้ได้มาจากเงินบริจาคของมูลนิธิสืบนาคะเสถียร"
                     },
                     // Left
                     {
                             //head
-                            "นำกระเป๋าติดตัวไว้ข้างตัว",
+                            "นำกระเป๋าติดตัวไว้ตอนนอน",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "กระเป๋าสารพัดประโยชน์ ด้านในมีของอำนวนความสะดวกจำนวนมาก พกไว้สามารถดำรงชีวิตอยู่ในป่าได้เป็นสัปดาห์"
 
                     }
             },
@@ -896,16 +898,17 @@ public class MessageThisSeason {
                     // Right
                     {
                             //head
-                            "เปิดฉากยิงกับศัตรู",
+                            "ปิดฉากยิงกับศัตรู",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "ถ้ามันเปิดฉากยิงกับเราแล้ว เราก็สามารถที่จะยิงโต้ตอบกลับไปได้เช่นกันสิ การเลือกทางนี้อาจจะทำให้ตัวเองได้รับบาทเจ็บ"
                     },
                     // Left
                     {
                             //head
-                            "ตะโกนเจรจาร กับผู้ร้าย",
+                            "ตะโกนเจรจา กับนายพราน",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "ขั้นต้น เราควรที่จะเลือกสิ่งที่ เบาที่สุดนั้นคือการเจรจา ถ้าเกิดพวกนายพรานฟังเรา จะได้ไม่มีใครได้รับบาดเจ็บเลยสักฝ่าย\n" +
+                                    "แต่ ถ้าพวกมันไม่ฟังเราหละ"
 
                     }
             },
@@ -918,14 +921,15 @@ public class MessageThisSeason {
                             //head
                             "หยิบโทรศัพท์ขึ้นมาโทรหากำลังเสริม",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "มีพวกมากกว่า ก็ต้องย่อมชนะเป็นธรรมดา เรียกพวกเพื่อนๆที่แยกกันไปมารวใตัวกันก่อนเริ่มทำอะไร"
                     },
                     // Left
                     {
                             //head
-                            "ตะโกนเจรกับนายพราน",
+                            "หยิบไฟฉายส่องหานายพรายเพื่อเจรจา",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "ขั้นต้น เราควรที่จะเลือกสิ่งที่ เบาที่สุดนั้นคือการเจรจา ถ้าเกิดพวกนายพรานฟังเรา จะได้ไม่มีใครได้รับบาดเจ็บเลยสักฝ่าย\n" +
+                                    "แต่ ถ้าพวกมันไม่ฟังเราหละ"
 
                     }
             },
@@ -938,14 +942,14 @@ public class MessageThisSeason {
                             //head
                             "วิ่งตามโจรไป",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "ต้องรีบตามพวกโจรไปแล้ว ครั้งนี้จะคว้าน้ำเหลวไม่ได้อีก"
                     },
                     // Left
                     {
                             //head
                             "รอดูสถานการ",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "หรือว่าพวกโจรมันล่อเราออกไปเพื่อดักยิงหละ ไม่หละต้องมีจังหวะที่ดีกว่านี้ก่อน ถึงจะเริ่มทำอะไร"
 
                     }
             },
@@ -956,16 +960,16 @@ public class MessageThisSeason {
                     // Right
                     {
                             //head
-                            "หลบที่ก้อนหนิก้อนใหญ่ด้านหน้า",
+                            "หลบที่ต้นไม้ต้นใหญ่ด้านหน้า",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "เคลื่อนที่เข้าใกล้พวกนายพรานมากขึ้นเพื่อที่จะได้เห็นพวกนายพรานชัดเจน และจัดการพวกมันได้"
                     },
                     // Left
                     {
                             //head
-                            "ถอยกลับไปด้านหลังต้นไม้",
+                            "ถอยกลับไปด้านหลัง",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "การวิ่งเข้าไปใกล้มัน ก็ยิงอันตรายมากยิงขึ้น รออยู่ด้านหลังก่อนเผื่อจะมีจังหวะที่สามารถจับกุมพวกมันได้"
 
                     }
             },
@@ -978,14 +982,14 @@ public class MessageThisSeason {
                             //head
                             "เปิดฉากยิงกับศัตรู",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "ได้ปืนมาแล้ว จังหวะนี้แหละเราจ้องเริ่มจัดการกับพวกนายพรานเลย ช้าไม่ได้แล้ว"
                     },
                     // Left
                     {
                             //head
-                            "รอดูสถานการ",
+                            "หลบและรอดูท่าทีของนายพราน",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "ใจเย็น ต้องใจเย็น ใจร้อนไปอาจจะทำอะไรผิดพลาดได้ รอเพื่อนมาสมทบด้วย อะไรๆจะได้ง่ายขึ้น"
 
                     }
             },
@@ -996,16 +1000,16 @@ public class MessageThisSeason {
                     // Right
                     {
                             //head
-                            "วิ่งเขาไปใกล้ขึ้น",
+                            "ยิงสวนกับศัตรู",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "ยิงเลย เราต้องตอบโต้อะไรกลับบ้างแล้วหละ"
                     },
                     // Left
                     {
                             //head
                             "หลบก่อน",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "การไปต่อมันอันตรายเกินไป ตอนนี้พวกมันเริ่มยิงใส่เราแล้ว อันตรายหลบตรงต้นไม่ด้านหน้าดีกกว่า"
 
                     }
             },
@@ -1038,14 +1042,14 @@ public class MessageThisSeason {
                             //head
                             "วิ่งเข้าไปดูเพื่อน",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "ยังไงก็ตาม เพื่อนมาก่อนเสมอ พวกโจรยังไงครั้งหน้าเราก็ต้องจับมันได้ "
                     },
                     // Left
                     {
                             //head
-                            "เริ่มเปิดฉากยิงศัตรู",
+                            "ยืนขึ้นเตรียมตัวที่จะยิงกับนายพราน",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "จัดการพวกนายพรานให้หมด มันชักจะเลยเถิดไปกันใหญ่แล้ว"
 
                     }
             },
@@ -1058,14 +1062,14 @@ public class MessageThisSeason {
                             //head
                             "วิ่งเข้าไปใกล้กว่านี้",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "เราเชื่อว่าตอนนี้ถ้าเราขยับเข้าไปใกล้กว่านี้ มันจะยังไม่รู้สึกตัวแน่นอน มันจะเป็นประโยชน์กว่าเราอยู่ตรงนี้"
                     },
                     // Left
                     {
                             //head
-                            "เริ่มเปิดฉากยิง กับศัตรู",
+                            "ยิงกราดออกไป",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "ยืนตรงนี้แหละปลอดภัยแล้ว เราจะยิงมันจากตรงนี้แหละ"
 
                     }
             },
@@ -1076,16 +1080,16 @@ public class MessageThisSeason {
                     // Right
                     {
                             //head
-                            "หนีก่อน",
+                            "พาเพื่อนถอยก่อน",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "ถอยก่อนดีกว่า เราไม่ต้องการให้สถาณการณ์ แย่ลงไปกว่านี้แล้ว"
                     },
                     // Left
                     {
                             //head
-                            "เริ่มเปิดฉากยิง กับศัตรู",
+                            "ตัดสินใจที่จะสู้",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "ถ้าแดงโดนยิงที่จุดไม่สำคัญ เราจะสู้ ครั้งนี้แหละที่จะจับพวกมันให้ได้"
 
                     }
             },
@@ -1116,16 +1120,16 @@ public class MessageThisSeason {
                     // Right
                     {
                             //head
-                            "หนีก่อน",
+                            "พาเพื่อนถอยก่อน",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "ถอยก่อนดีกว่า เราไม่ต้องการให้สถาณการณ์ แย่ลงไปกว่านี้แล้ว"
                     },
                     // Left
                     {
                             //head
-                            "วิ่งเข้าชาร์ต จากด้านข้าง",
+                            "วิ่งเข้าชาร์ตพวกนายพราน",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "เป็นไงเป็นกัน ลุยยย ย้ากกกกก"
 
                     }
             },
@@ -1138,14 +1142,14 @@ public class MessageThisSeason {
                             //head
                             "เคลื่อนตัวต่อไป",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "ไม่ดีแล้วพวกมันเห็นเราแล้วหละ เราต้องรีบไปใกล้ๆมันจะได้จัดการพวกมัน"
                     },
                     // Left
                     {
                             //head
-                            "ถอยกลับไปตั้งหลัก",
+                            "ถอยหลังกลับไปตั้งหลัก",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "ไม่ไหวแล้ว อันตรายเกินไป การกระทำบ่าบิ่นไม่ช่วยอะไรหรอก กลับไปตั้งหลักก่อนดีกว่า"
 
                     }
             },
@@ -1158,14 +1162,14 @@ public class MessageThisSeason {
                             //head
                             "ยิง",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "เห็นมันแล้วจังหวะนี้แหละ จังหวะของเรา ยิงหละนะ"
                     },
                     // Left
                     {
                             //head
                             "เราเช็คปืนของตัวเอง",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "ก่อนจะยิง เราตรวจเช็คปืนของสภาพปืนเราก่อนสิ"
 
                     }
             },
@@ -1238,14 +1242,14 @@ public class MessageThisSeason {
                             //head
                             "เริ่มเปิดฉากยิง",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "เช็คปืนเสร็จแล้ว มันยิงได้เริ่มเปิดฉากยิงกับพวกมันเลย"
                     },
                     // Left
                     {
                             //head
                             "รอจังหวะอีกนิด",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "เราเชื่อว่าพวกนายพรานจะไม่เข้ามาล่าสัตว์เวลานี้ด้วยตัวคนเดียว รอดูก่อนว่ามันจะมีอีกคนไหม"
 
                     }
             },
@@ -1258,14 +1262,14 @@ public class MessageThisSeason {
                             //head
                             "วิ่งเข้าไปดูเพื่อน",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "ยังไงก็ตาม เพื่อนมาก่อนเสมอ พวกโจรยังไงครั้งหน้าเราก็ต้องจับมันได้"
                     },
                     // Left
                     {
                             //head
-                            "รอจังหวะอีกนิด",
+                            "เตรียมตัวเพื่อรอปะทะกับนายพราน",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "รอ ยังไงตอนนี้วิ่งออกไปจากที่กันบังก็อันตรายแล้ว จุดที่เราอยู่ก็เป็นจุดที่ดีแล้วด้วย ขอโทษด้วยนะแดง"
 
                     }
             },
@@ -1278,14 +1282,14 @@ public class MessageThisSeason {
                             //head
                             "เริ่มเปิดฉากยิง",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "ตอนนี้มันเงียบลงแล้วเป็นจังหวะของเราที่จะเริ่มเปิดฉากโจมตีกลับบ้าง"
                     },
                     // Left
                     {
                             //head
                             "เชื่อว่ามันจะมีอีกคนซุ่มอยู่",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "รอพวกมันอีกคงคงรอดักเราสินะ ไม่หลงกลหรอกนะ"
 
                     }
             },
@@ -1298,14 +1302,14 @@ public class MessageThisSeason {
                             //head
                             "วิ่งตามโจรไป",
                             //description
-                            "you choose right choice make you hit that hard"
+                            "พวกมันกำลังจะหนี จะปล่อยพวกมันไปได้ยังไงกันเล่า"
                     },
                     // Left
                     {
                             //head
                             "กลับไปดูเพื่อน",
                             //description
-                            "you choose left choice make you hit that hard"
+                            "ไม่ได้แล้ว เราปล่อยให้เพื่อนนอนเจ็บอยู่แบบนั้นไม่ได้แล้ว"
 
                     }
             },

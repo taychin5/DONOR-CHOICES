@@ -2,6 +2,7 @@ package com.example.test_chat_app_two.activities.homePage;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -75,11 +76,10 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         bnve = (BottomNavigationViewEx) findViewById(R.id.navigation);
-        bnve.setIconSize(50, 50);
+        //bnve.setIconSize(50, 50);
         bnve.enableItemShiftingMode(false);
         bnve.enableAnimation(false);
-        bnve.setTextVisibility(false);
-        bnve.setItemHeight(dpToPx(65));
+        bnve.setTextVisibility(true);
         toolbarTxt = findViewById(R.id.toolbar_title);
         toolbarTxt.setText("Donor choices");
 

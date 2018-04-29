@@ -3,6 +3,7 @@ package com.example.test_chat_app_two.activities.chatMessageMain;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
@@ -19,7 +20,7 @@ import java.text.DateFormat;
 import java.util.Date;
 
 
-public class PopChooseActivity extends Activity {
+public class PopChooseActivity extends AppCompatActivity {
 
     public TextView headTxt;
     public TextView description;
@@ -33,7 +34,7 @@ public class PopChooseActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pop_choose);
+        setContentView(R.layout.activity_pop_choose2);
 
         // load value from mainChatActivity
         loadSendValue();

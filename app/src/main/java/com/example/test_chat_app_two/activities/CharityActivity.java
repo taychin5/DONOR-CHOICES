@@ -38,8 +38,8 @@ public class CharityActivity extends AppCompatActivity {
 
 
 
-        charitynameTxt.setText(charityName);
-        charityDesTxt.setText(charityInfo.getCharityInfo());
+        charitynameTxt.setText("มูลนิธิสืบนาคะเสถียร");
+        charityDesTxt.setText("“ร่วมรักษาป่าใหญ่ให้คนไทยทั้งชาติ” โดยมุ่งถ่ายทอดสถานการณ์ความสำคัญของทรัพยากรธรรมชาติให้สังคมและผู้มีอำนาจตัดสินใจรับรู้ ผลักดันให้เกิดการมีส่วนร่วมในการอนุรักษ์ผืนป่า สัตว์ป่า และแหล่งธรรมชาติของประเทศ โดยมีผืนป่าตะวันตกเป็นพื้นที่ต้นแบบ นำไปสู่การบริหารจัดการผืนป่าอนุรักษ์อื่นๆ");
 
 
         toolbar = (Toolbar)findViewById(R.id.choose_toolbar);

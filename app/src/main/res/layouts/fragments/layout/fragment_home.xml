@@ -1,4 +1,4 @@
-   <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -69,25 +69,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginTop="16dp"
-                    android:clipChildren="false"
-                    android:padding="0dp"
-                    android:paddingEnd="4dp"
-                    android:paddingStart="4dp"
-                    android:scrollbars="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/head1"
-                    app:layout_constraintVertical_bias="1.0"
-                    tools:layout_conversion_absoluteHeight="186dp"
-                    tools:layout_conversion_absoluteWidth="431dp" />
-
                 <TextView
                     android:id="@+id/head1"
                     android:layout_width="wrap_content"
@@ -113,6 +94,38 @@
                     app:layout_constraintBottom_toTopOf="@+id/recyclerView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/athiti_medium"
+                    android:text="ค้นหาเรื่องราวการบริจาคใหม่ๆได้ที่นี่"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@+id/head1"
+                    app:layout_constraintTop_toTopOf="@+id/head1" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:clipChildren="false"
+                    android:padding="0dp"
+                    android:paddingEnd="4dp"
+                    android:paddingStart="4dp"
+                    android:scrollbars="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView18"
+                    app:layout_constraintVertical_bias="1.0"
+                    tools:layout_conversion_absoluteHeight="186dp"
+                    tools:layout_conversion_absoluteWidth="431dp" />
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
@@ -132,11 +145,11 @@
                     android:layout_width="0dp"
                     android:layout_height="280dp"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/head2" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
                 <TextView
                     android:id="@+id/head2"
@@ -165,6 +178,17 @@
                     app:layout_constraintBottom_toTopOf="@+id/viewPager2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/athiti_medium"
+                    android:text="ติดตามข่าวสารและความคืบหน้าของมูลนิธิต่างๆ"
+                    app:layout_constraintStart_toStartOf="@+id/head2"
+                    app:layout_constraintTop_toTopOf="@+id/head2" />
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
@@ -212,12 +236,23 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:paddingBottom="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/head3" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/athiti_medium"
+                    android:text="สนุกกับเรื่องราวติดอันดับการบริจาค"
+                    app:layout_constraintStart_toStartOf="@+id/head3"
+                    app:layout_constraintTop_toTopOf="@+id/head3" />
             </android.support.constraint.ConstraintLayout>
 
             <ImageView

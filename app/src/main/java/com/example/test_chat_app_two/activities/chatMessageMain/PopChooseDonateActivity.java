@@ -31,6 +31,8 @@ import com.example.test_chat_app_two.value_class.MessageThisSeason;
 import com.example.test_chat_app_two.R;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class PopChooseDonateActivity extends AppCompatActivity {
@@ -82,7 +84,7 @@ public class PopChooseDonateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-        AlertDialogBuilder.setTitle("คุณแน่ใจที่จะส่ง SMS")
+        AlertDialogBuilder.setTitle("คุณแน่ใจที่จะบริจาค")
         .setMessage("เรากำลังจะส่ง SMS เพื่อทำการบริจาคให้กับมูลนิธิสืบนาคะเสถียริ")
         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
@@ -98,11 +100,16 @@ public class PopChooseDonateActivity extends AppCompatActivity {
                 int newPath = messageStorage.generateNextPath(choose, MainChatActivity.path);
 
                 String des = messageStorage.getChooseDescription(MainChatActivity.path, choose, 0);
-                DonateList donateList = new DonateList(19, 1,MessageThisSeason.getThisCharity(), MainChatActivity.path, des);
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+                String format = sdf.format(Calendar.getInstance().getTime());
+                SimpleDateFormat sdf1 = new SimpleDateFormat("hh:mm");
+                String format2 = sdf1.format(Calendar.getInstance().getTime());
+                DonateList donateList = new DonateList(format2,format, 1,MessageThisSeason.getThisCharity(), MainChatActivity.path, des);
                 DonateFragment.donateListArrayList.add(donateList);
 
                 MainChatActivity.path = newPath;
                 MainChatActivity.hit = 0;
+                MainChatActivity.donate += 5;
 
                 MainChatActivity.sendBtn.setVisibility(View.VISIBLE);
                 MainChatActivity.sendBtn.setY(MainChatActivity.sendBtn.getHeight()+10);
