@@ -146,6 +146,7 @@ class SliderAdapter extends PagerAdapter{
     };
 
 
+    //test 
     @Override
     public int getCount() {
         return slide_headings.length;
