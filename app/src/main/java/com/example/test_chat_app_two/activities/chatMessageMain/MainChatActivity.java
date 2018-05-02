@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ import com.example.test_chat_app_two.R;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -247,7 +249,7 @@ public class  MainChatActivity extends AppCompatActivity {
 
                     sendBtn.setVisibility(v.VISIBLE);
                     messages.add(chatMessage);
-
+                    onSoundPlay();
 //                    GifImageGenerator();
                     displayChat();
 
@@ -541,6 +543,91 @@ public class  MainChatActivity extends AppCompatActivity {
 //
 //
 //    }
+
+    private void onSoundPlay(){
+        System.out.println("path  " + path + "hit   " + hit);
+        int[][] myarray1 = {
+                {} //0
+                ,{}//1
+                ,{}//2
+                ,{14}//3
+                ,{}//4
+                ,{}//5
+                ,{1}//6
+                ,{}//7
+                ,{1,2}//8
+                ,{}//9
+                ,{0}//10
+                ,{}//11
+                ,{6}//12
+                ,{1}//13
+                ,{}//14
+                ,{}//15
+                ,{}//16
+                ,{6,7}//17
+                ,{5,8}//18
+                ,{7}//19
+                ,{}//20
+                ,{0}//21
+                ,{0}//22
+                ,{}//23
+                ,{0}//24
+        };
+        int[][] myarray2 = {
+                {} //0
+                ,{}//1
+                ,{}//2
+                ,{1,2}//3
+                ,{1,2}//4
+                ,{}//5
+                ,{1}//6
+                ,{}//7
+                ,{1,2}//8
+                ,{}//9
+                ,{}//10
+                ,{}//11
+                ,{}//12
+                ,{}//13
+                ,{0}//14
+                ,{0}//15
+                ,{}//16
+                ,{0}//17
+                ,{}//18
+                ,{}//19
+                ,{}//20
+                ,{}//21
+                ,{}//22
+                ,{}//23
+                ,{}//24
+        };
+        if(checkArray(path,hit,myarray1)){
+         //   final MediaPlayer gun = MediaPlayer.create(getApplicationContext(),R.raw.sound_gun);
+         //   gun.start();
+            final MediaPlayer gun = MediaPlayer.create(this,R.raw.sound_gun);
+            gun.start();
+            return;
+        }
+        if(checkArray(path,hit,myarray2)){
+         //   final MediaPlayer gun = MediaPlayer.create(getApplicationContext(),R.ra);
+         //   gun.start();
+            final MediaPlayer gun = MediaPlayer.create(this,R.raw.sound_gun3);
+            gun.start();
+            return;
+        }
+
+    }
+
+    private boolean checkArray (int path,int value,int[][] myarray ) {
+
+
+        for(int i: myarray[path]){
+            if(i== value)
+                return true;
+        }
+        return Arrays.asList(myarray[path]).contains(value);
+    }
+
+
 
     @SuppressLint("ResourceAsColor")
     private void createChoiceButton(View v) {

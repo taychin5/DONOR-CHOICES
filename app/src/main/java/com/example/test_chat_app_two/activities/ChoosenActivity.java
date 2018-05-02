@@ -21,7 +21,7 @@ import com.example.test_chat_app_two.value_class.CharityInfo;
 
 import pl.droidsonroids.gif.GifImageView;
 
-public class ChoosenActivity extends AppCompatActivity {
+public class  ChoosenActivity extends AppCompatActivity {
 
     private int choosePosition;
     private String chooseTitle;
@@ -79,7 +79,7 @@ public class ChoosenActivity extends AppCompatActivity {
 
         charityNameTxt.setText("มูลนิธิสืบนาคะเสถียร");
 
-        desTxt.setText("การเดินทางออกลาดตระเวนของผู้พิทักษ์ป่าไทยที่กิดขึ้นเป็นประจำ แต่ครั้งนี้เราและเพื่อนแยกกลุ่มกันจนเหลือกันอยู่สองคน ในคืนนี้นเเสียงปืนที่ดังขึ้น การบุกรุกป่าเข้ามาอีกครั้ง ทุกการตัดสินใจมีผลต่อความเป็นและความตายของพวกเราทั้งสิ้น");
+        desTxt.setText("การเดินทางออกลาดตระเวนของผู้พิทักษ์ป่าไทยที่เกิดขึ้นเป็นประจำ แต่ครั้งนี้เราและเพื่อนแยกกลุ่มกันจนเหลือกันอยู่สองคน ในคืนนี้นเเสียงปืนที่ดังขึ้น การบุกรุกป่าเข้ามาอีกครั้ง ทุกการตัดสินใจมีผลต่อความเป็นและความตายของพวกเราทั้งสิ้น");
 
         charImg.setImageResource(R.drawable.panic_a);
 
