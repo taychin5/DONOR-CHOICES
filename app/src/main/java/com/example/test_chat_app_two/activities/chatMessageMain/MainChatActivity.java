@@ -247,7 +247,7 @@ public class  MainChatActivity extends AppCompatActivity {
                         chatMessage.setCharacterimg(messageStorage.isCharacterimg(path,hit));
                     }
 
-                    Toast.makeText(getApplicationContext(), "path  " + path + "\thit   "+hit , Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "path  " + path + "\thit   "+hit , Toast.LENGTH_SHORT).show();
 
                     sendBtn.setVisibility(v.VISIBLE);
                     messages.add(chatMessage);
