@@ -80,6 +80,8 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
         bnve.enableItemShiftingMode(false);
         bnve.enableAnimation(false);
         bnve.setTextVisibility(true);
+        Typeface type = Typeface.createFromAsset(getAssets(),"fonts/Athiti-Medium.ttf");
+        bnve.setTypeface(type);
         toolbarTxt = findViewById(R.id.toolbar_title);
         toolbarTxt.setText("Donor choices");
 

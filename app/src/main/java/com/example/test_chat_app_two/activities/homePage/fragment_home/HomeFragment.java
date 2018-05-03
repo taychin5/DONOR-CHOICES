@@ -110,7 +110,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onItemClick(View view, int position) {
-                Toast.makeText(getActivity(), "click" + position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "click" + position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), ChoosenActivity.class);
                 intent.putExtra("chooseTitle", Home_activity.mainStoryList.get(position).getStoryTitle());
                 intent.putExtra("choosePosition", position);
@@ -120,7 +120,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onLongItemClick(View view, int position) {
-                Toast.makeText(getActivity(), "LongClick", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "LongClick", Toast.LENGTH_SHORT).show();
             }
         }));
 

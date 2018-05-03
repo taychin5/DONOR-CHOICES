@@ -1,9 +1,19 @@
 package com.example.test_chat_app_two.activities;
 
+import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.telephony.SmsManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +23,7 @@ import android.widget.TextView;
 
 import com.example.test_chat_app_two.R;
 import com.example.test_chat_app_two.activities.chatMessageMain.MainChatActivity;
+import com.example.test_chat_app_two.activities.chatMessageMain.PopChooseDonateActivity;
 import com.example.test_chat_app_two.activities.homePage.Home_activity;
 
 public class End_Activity extends AppCompatActivity {
@@ -26,6 +37,7 @@ public class End_Activity extends AppCompatActivity {
     private TextView donateTxt;
     private ImageView mainImg ;
     private Button gobtn;
+    private Button donateBtn;
     private TextView charity;
 
 
@@ -40,6 +52,43 @@ public class End_Activity extends AppCompatActivity {
         initButton();
         setTextAndImage();
 
+        final AlertDialog.Builder AlertDialogBuilder;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            AlertDialogBuilder = new AlertDialog.Builder(End_Activity.this, android.R.style.Theme_Material_Dialog_Alert);
+        } else {
+            AlertDialogBuilder = new AlertDialog.Builder(End_Activity.this);
+        }
+
+        donateBtn = findViewById(R.id.donate);
+        donateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialogBuilder.setTitle("คุณแน่ใจที่จะบริจาคเพิ่มเติม")
+                        .setMessage("เรากำลังจะส่ง SMS เพื่อทำการบริจาคให้กับมูลนิธิสืบนาคะเสถียริ เพิ่ม 5 บาท")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                String phoneNumber = "0879811901";
+                                String messageSms = "T send path " +Integer.toString(MainChatActivity.path);
+
+                                sendSms(phoneNumber,messageSms);
+                                sendNotification();
+
+                                donate+=5;
+                                donateTxt.setText(donate+"  บาท");
+
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                                // do nothing
+                            }
+                        }).setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+            }
+        });
         charity = findViewById(R.id.name_char);
         charity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,5 +195,41 @@ public class End_Activity extends AppCompatActivity {
             donate = extras.getInt("donate");
             //The key argument here must match that used in the other activity
         }
+    }
+
+    void sendNotification(){
+        String CHANNEL_ID = "my_channel_01";
+        int importance = NotificationManager.IMPORTANCE_HIGH;
+        Intent intent = new Intent(this, Home_activity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.mipmap.ic_launcher_new)
+                        .setContentTitle("ทำการบริจาคเพิ่มเติ่มเรียบร้อย")
+                        .setContentText("ขอบคุณสำหรับการบริจาคให้กับ มูลนิธิสืบนาคะเสถียร")
+                        .setDefaults(Notification.DEFAULT_ALL)
+                        .setPriority(NotificationCompat.PRIORITY_MAX)
+                        .setContentIntent(pendingIntent)
+                        .setAutoCancel(true)
+                        .setChannelId(CHANNEL_ID);
+
+
+
+        // Gets an instance of the NotificationManager service//
+        NotificationManager mNotificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID, "Channel human readable title", importance);
+            mNotificationManager.createNotificationChannel(mChannel);
+        }
+        mNotificationManager.notify(001 , mBuilder.build());
+    }
+
+    public void sendSms(String phoneNumber , String Message){
+        SmsManager sms = SmsManager.getDefault();
+        sms.sendTextMessage(phoneNumber,null,"Test send for donate",null,null);
+
     }
 }
