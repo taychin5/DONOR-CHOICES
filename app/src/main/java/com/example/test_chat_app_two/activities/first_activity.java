@@ -1,8 +1,10 @@
 package com.example.test_chat_app_two.activities;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +24,7 @@ public class first_activity extends AppCompatActivity {
         setContentView(R.layout.activity_first_activity);
         firstTime=true;
 
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS},1);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

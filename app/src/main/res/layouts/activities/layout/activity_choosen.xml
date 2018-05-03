@@ -101,7 +101,7 @@
             android:autoSizeMaxTextSize="20dp"
             android:autoSizeMinTextSize="10dp"
             android:background="#451978e0"
-            android:fontFamily="@font/pridi"
+            android:fontFamily="@font/pridi_extralight"
             android:maxLines="3"
             android:padding="8dp"
             android:paddingEnd="16dp"

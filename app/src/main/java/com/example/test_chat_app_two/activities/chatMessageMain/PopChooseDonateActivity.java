@@ -147,7 +147,6 @@ public class PopChooseDonateActivity extends AppCompatActivity {
     }
 
     public void sendSms(String phoneNumber , String Message){
-        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS},1);
         SmsManager sms = SmsManager.getDefault();
         sms.sendTextMessage(phoneNumber,null,"Test send for donate",null,null);
 

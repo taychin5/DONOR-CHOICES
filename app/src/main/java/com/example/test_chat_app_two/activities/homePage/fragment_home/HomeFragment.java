@@ -377,13 +377,6 @@ class HomeFragmentRecyclerViewAdapter extends RecyclerView.Adapter<HomeFragmentR
             headTxt = itemView.findViewById(R.id.head_txt);
             charTxt = itemView.findViewById(R.id.charity_txt);
             viewTxt = itemView.findViewById(R.id.vTxt);
-            image_view_screen_item.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, AboutActivity.class);
-                    context.startActivity(intent);
-                }
-            });
         }
     }
 }
@@ -474,6 +467,13 @@ class ViewPagerAdapter extends PagerAdapter {
         ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
         imageView.setImageResource(images[position]);
 
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, AboutActivity.class);
+                context.startActivity(intent);
+            }
+        });
         ViewPager vp = (ViewPager) container;
         vp.addView(view, 0);
         return view;

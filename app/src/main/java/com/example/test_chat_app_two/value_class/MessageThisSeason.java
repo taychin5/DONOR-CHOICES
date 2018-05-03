@@ -56,7 +56,6 @@ public class MessageThisSeason {
                         {MESSAGE_LEFT,R.drawable.char_b_talk},//13
                         {MESSAGE_LEFT,R.drawable.char_b_talk},//14
                         {MESSAGE_RIGHT},//15
-                    {IMAGE,R.drawable.sence_twotravel},
                         {MESSAGE_RIGHT},//10
 
             },

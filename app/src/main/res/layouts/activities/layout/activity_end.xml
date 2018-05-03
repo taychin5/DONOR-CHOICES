@@ -177,7 +177,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:fontFamily="@font/athiti_medium"
-        android:text="บริจาคเพิ่มเติม 5 บาท\nให้กับมูลนิธิ"
+        android:text="บริจาคเพิ่มเติม\n 5บาทให้กับมูลนิธิ"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/donate"
         app:layout_constraintEnd_toEndOf="@+id/donate"
