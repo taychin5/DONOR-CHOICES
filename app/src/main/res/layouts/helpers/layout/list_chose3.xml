@@ -9,8 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#bcbcbc"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp"></View>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></View>
 
 
     <ImageView
@@ -28,11 +29,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="52dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/header"
@@ -55,11 +57,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/athiti_medium"
+            android:fontFamily="@font/pridi"
             android:padding="2dp"
             android:text="เพื่อ มูลนิธิเด็กพิการ"
             android:textColor="@color/colorPrimary"
-            android:textSize="12sp"
+            android:textSize="10sp"
             app:layout_constraintStart_toStartOf="@+id/header"
             app:layout_constraintTop_toTopOf="@+id/header" />
 
@@ -81,7 +83,7 @@
             android:id="@+id/viewtxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/athiti_medium"
             android:padding="2dp"
             android:text="317,865 views"

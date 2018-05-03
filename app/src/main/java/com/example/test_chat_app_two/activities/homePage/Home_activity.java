@@ -128,10 +128,10 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
         mainStoryList = new ArrayList<MainStory>();
 
         MainStory newMainStory = new MainStory();
-        newMainStory.setMainImage(R.drawable.sence1_1);
+        newMainStory.setMainImage(R.drawable.pic_dog);
         newMainStory.setNewActivity("Home_activity");
         newMainStory.setStoryTitle("การเดินทางของตูบ");
-        newMainStory.setCharity("มูลนิธิเพื่อนน้องไทย");
+        newMainStory.setCharity("มูลนิธิเพื่อการรักษาสุนัขจรจัด");
         newMainStory.setDes("บทความที่ฉันได้เขียน" +
                 "มาจากบทเรียนที่เธอเคยเรียน" +
                 "วาจาที่ฉันเอ่ยไป" +
@@ -156,10 +156,10 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
 
 
         MainStory newMainStory1 = new MainStory();
-        newMainStory1.setMainImage(R.drawable.sence1_2);
+        newMainStory1.setMainImage(R.drawable.sence_mountain);
         newMainStory1.setNewActivity("Home_activity1");
-        newMainStory1.setStoryTitle("เดินทางปลอดภัยนะครับ");
-        newMainStory1.setCharity("มูลนิธิปอเต็กตึ้ง");
+        newMainStory1.setStoryTitle("ป่าตะวันตก ในคืนนั้น");
+        newMainStory1.setCharity("มูลสืบนาคะเสถียร");
         newMainStory1.setDes("อยากให้เธอได้รับรู้ว่าฉันดีใจ" +
                 "มากเท่าไรที่ได้เจอเธอ" +
                 "วันที่เคยเหงาและเดียวดาย" +
@@ -179,7 +179,7 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
         mainStoryList.add(newMainStory1);
 
         MainStory newMainStory2 = new MainStory();
-        newMainStory2.setMainImage(R.drawable.giphy);
+        newMainStory2.setMainImage(R.drawable.sence_run);
         newMainStory2.setNewActivity("Home_activity1");
         newMainStory2.setStoryTitle("การเดินทางของทหารพราน");
         newMainStory2.setCharity("มูลนิธิเพื่อทหารพราน");
@@ -191,7 +191,7 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
         mainStoryList.add(newMainStory2);
 
         MainStory newMainStory3 = new MainStory();
-        newMainStory3.setMainImage(R.drawable.sence1_1);
+        newMainStory3.setMainImage(R.drawable.kid);
         newMainStory3.setNewActivity("Home_activity");
         newMainStory3.setStoryTitle("แง่ๆ เด็กร้อง แง่ๆ");
         newMainStory3.setCharity("บ้านเด็กอ่อนพญาไทย");
@@ -224,13 +224,14 @@ public class Home_activity extends AppCompatActivity implements DonateFragment.O
         mainStoryList.add(newMainStory4);
 
         MainStory newMainStory5 = new MainStory();
-        newMainStory5.setMainImage(R.drawable.giphy);
+        newMainStory5.setMainImage(R.drawable.kao);
         newMainStory5.setNewActivity("Home_activity1");
         newMainStory5.setStoryTitle("วิ่งแบบพี่ตูน");
         newMainStory5.setCharity("ก้าวคนละก้าว");
         newMainStory5.setDes("วิ่งแบบพี่ตูน วิ่งแบบพี่ตูน วิ่งแบบพี่ตูน วิ่งวิ่งวิ่งวิ่งวิ่งแบบพี่ตูน วิ่งแบบพี่ตูนวิ่งแบบพี่ตูน วิ่งแบบพี่ตูน วิ่งแบบพี่ตูน วิ่งวิ่งวิ่งวิ่งวิ่งแบบพี่ตูน วิ่งแบบพี่ตูน");
 
         mainStoryList.add(newMainStory5);
+
 
 
 

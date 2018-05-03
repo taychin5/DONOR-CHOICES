@@ -15,7 +15,7 @@
         android:layout_marginTop="4dp"
         android:alpha="80"
         android:background="@drawable/new_btn_m"
-        android:fontFamily="@font/athiti_medium"
+        android:fontFamily="@font/pridi"
         android:maxWidth="256dp"
         android:padding="8dp"
         android:text="TextView"

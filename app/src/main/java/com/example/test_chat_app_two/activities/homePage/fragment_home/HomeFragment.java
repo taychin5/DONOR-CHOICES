@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.test_chat_app_two.R;
+import com.example.test_chat_app_two.activities.AboutActivity;
 import com.example.test_chat_app_two.activities.ChoosenActivity;
 import com.example.test_chat_app_two.activities.homePage.Home_activity;
 import com.example.test_chat_app_two.helper.RecyclerItemClickListener;
@@ -376,6 +377,13 @@ class HomeFragmentRecyclerViewAdapter extends RecyclerView.Adapter<HomeFragmentR
             headTxt = itemView.findViewById(R.id.head_txt);
             charTxt = itemView.findViewById(R.id.charity_txt);
             viewTxt = itemView.findViewById(R.id.vTxt);
+            image_view_screen_item.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, AboutActivity.class);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }
@@ -531,11 +539,8 @@ class ViewPagerAdapter2 extends PagerAdapter {
         mainImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(context, ChoosenActivity.class);
-//                intent.putExtra("chooseTitle", Home_activity.mainStoryList.get(position).getStoryTitle());
-//                intent.putExtra("choosePosition", position);
-//                intent.putExtra("charityName",Home_activity.mainStoryList.get(position).getCharity());
-//                context.startActivity(intent);
+                Intent intent = new Intent(context, AboutActivity.class);
+                context.startActivity(intent);
             }
         });
         return view;

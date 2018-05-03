@@ -25,6 +25,12 @@ import com.example.test_chat_app_two.R;
 import com.example.test_chat_app_two.activities.chatMessageMain.MainChatActivity;
 import com.example.test_chat_app_two.activities.chatMessageMain.PopChooseDonateActivity;
 import com.example.test_chat_app_two.activities.homePage.Home_activity;
+import com.example.test_chat_app_two.activities.homePage.fragment_home.DonateFragment;
+import com.example.test_chat_app_two.value_class.DonateList;
+import com.example.test_chat_app_two.value_class.MessageThisSeason;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class End_Activity extends AppCompatActivity {
     private int path;
@@ -77,6 +83,13 @@ public class End_Activity extends AppCompatActivity {
 
                                 donate+=5;
                                 donateTxt.setText(donate+"  บาท");
+                                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+                                String format = sdf.format(Calendar.getInstance().getTime());
+                                SimpleDateFormat sdf1 = new SimpleDateFormat("hh:mm");
+                                String format2 = sdf1.format(Calendar.getInstance().getTime());
+                                DonateList donateList = new DonateList(format2,format, 1, MessageThisSeason.getThisCharity(), 0,"บริจาคเพิ่มเติ่ม");
+                                DonateFragment.donateListArrayList.add(donateList);
+
 
                             }
                         })

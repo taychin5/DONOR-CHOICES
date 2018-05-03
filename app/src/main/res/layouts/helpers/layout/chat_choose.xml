@@ -15,7 +15,7 @@
         android:layout_marginTop="4dp"
         android:alpha="80"
         android:background="@drawable/gradient"
-        android:fontFamily="@font/athiti_semibold"
+        android:fontFamily="@font/pridi_medium"
         android:maxWidth="256dp"
         android:padding="8dp"
         android:text="TextView"

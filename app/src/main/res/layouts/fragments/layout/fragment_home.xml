@@ -101,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
-                    android:fontFamily="@font/athiti_medium"
+                    android:fontFamily="@font/pridi_extralight"
                     android:text="ค้นหาเรื่องราวการบริจาคใหม่ๆได้ที่นี่"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="@+id/head1"
@@ -185,7 +185,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
-                    android:fontFamily="@font/athiti_medium"
+                    android:fontFamily="@font/pridi_extralight"
                     android:text="ติดตามข่าวสารและความคืบหน้าของมูลนิธิต่างๆ"
                     app:layout_constraintStart_toStartOf="@+id/head2"
                     app:layout_constraintTop_toTopOf="@+id/head2" />
@@ -249,7 +249,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
-                    android:fontFamily="@font/athiti_medium"
+                    android:fontFamily="@font/pridi_extralight"
                     android:text="สนุกกับเรื่องราวติดอันดับการบริจาค"
                     app:layout_constraintStart_toStartOf="@+id/head3"
                     app:layout_constraintTop_toTopOf="@+id/head3" />

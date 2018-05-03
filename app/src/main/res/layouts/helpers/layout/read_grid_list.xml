@@ -56,10 +56,10 @@
             android:id="@+id/charityTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/athiti_medium"
+            android:fontFamily="@font/pridi_medium"
             android:text="TextView"
             android:textColor="@color/colorBottomNavigation"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/MainTitle"
             app:layout_constraintTop_toBottomOf="@+id/MainTitle" />
 

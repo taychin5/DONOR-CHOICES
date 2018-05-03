@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,15 +8,35 @@
     android:layout_height="match_parent"
     tools:context="com.example.test_chat_app_two.activities.ChoosenActivity">
 
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/choose_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/toolbar_trans"
+        android:background="?android:attr/colorBackground"
         android:minHeight="?attr/actionBarSize"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
         android:theme="?attr/actionBarTheme"
         android:elevation="5dp"/>
 
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="5dp"
+        android:fontFamily="@font/athiti_medium"
+        android:text="TextView"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/choose_toolbar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/choose_toolbar" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -25,14 +47,14 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/choose_toolbar"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/tag3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:background="#FF1978E0"
+            android:background="@drawable/tag"
             android:fontFamily="@font/athiti_medium"
             android:padding="4dp"
             android:text="#ประเทศไทย"
@@ -60,19 +82,6 @@
 
 
         <TextView
-            android:id="@+id/header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/athiti_medium"
-            android:text="TextView"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/mainImage"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
             android:id="@+id/charity_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -92,13 +101,13 @@
             android:autoSizeMaxTextSize="20dp"
             android:autoSizeMinTextSize="10dp"
             android:background="#451978e0"
-            android:fontFamily="@font/athiti_light"
+            android:fontFamily="@font/pridi"
             android:maxLines="3"
             android:padding="8dp"
             android:paddingEnd="16dp"
             android:paddingStart="16dp"
             android:text="@string/paragraphtestlong"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -159,20 +168,6 @@
             app:layout_constraintTop_toBottomOf="@+id/desTxt" />
 
         <TextView
-            android:id="@+id/charity_project"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:autoSizeMaxTextSize="10sp"
-            android:autoSizeMinTextSize="6sp"
-            android:fontFamily="@font/athiti_medium"
-            android:text="โครงการเพื่อน้องใหม่"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/charity_name"
-            app:layout_constraintStart_toEndOf="@+id/charity_name"
-            app:layout_constraintTop_toTopOf="@+id/charity_name" />
-
-        <TextView
             android:id="@+id/headerMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -183,8 +178,6 @@
             android:textColor="#000"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:autoSizeMaxTextSize="20sp"
-            app:autoSizeMinTextSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mainImage" />
 
@@ -193,7 +186,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:background="#FF1978E0"
+            android:background="@drawable/tag"
             android:fontFamily="@font/athiti_medium"
             android:padding="4dp"
             android:text="#สวมบทบาท"
@@ -208,7 +201,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:background="#FF1978E0"
+            android:background="@drawable/tag"
             android:fontFamily="@font/athiti_medium"
             android:padding="4dp"
             android:text="#เรื่องใหม่"
@@ -241,5 +234,4 @@
             app:layout_constraintTop_toTopOf="@+id/textView16" />
 
     </android.support.constraint.ConstraintLayout>
-
 </android.support.constraint.ConstraintLayout>

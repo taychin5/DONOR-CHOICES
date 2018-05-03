@@ -13,6 +13,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/new_btn_r"
+        android:fontFamily="@font/pridi"
         android:maxWidth="250dp"
         android:padding="8dp"
         android:paddingBottom="24dp"
@@ -20,7 +21,6 @@
         android:text="TextView"
         android:textColor="@android:color/background_light"
         android:textSize="14sp"
-        android:fontFamily="@font/athiti_medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

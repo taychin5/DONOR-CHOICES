@@ -86,7 +86,7 @@ public class ChatAdapterRecylerView extends RecyclerView.Adapter<MessageViewHold
                 break;
             case CHOOSE_DONATE :
                 itemView = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.chat_choose, parent, false);
+                        .inflate(R.layout.chat_choose_donate, parent, false);
                 break;
             default:itemView = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.left_chat, parent, false);
