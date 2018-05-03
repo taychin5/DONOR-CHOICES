@@ -19,10 +19,10 @@
 
             <ImageView
                 android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
                 android:layout_marginTop="8dp"
-                android:scaleType="fitCenter"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="24dp"
                 android:fontFamily="@font/athiti_semibold"
                 android:text="แอปพลิเคชั่นที่เพิ่มความสนุก\nและเรื่องราวให้กับ “การบริจาค”"
                 android:textAlignment="center"
@@ -53,9 +53,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/athiti"
-                android:text="เราจะเปลี่ยนความรู้สึกของการบริจาค จากความสงสารและหดหู่เห็นใจ
-ให้กลายเป็นความสนุก เราเชื่อว่าการบริจาคที่ทำให้โลกดีขึ้นนั้นต้องเกิดจากความรู้สึกที่ดี
-เช่นเดียวกับสิ่งที่กำลังจะ ดีขึ้นจากการบริจาค"
+                android:text="เราจะเปลี่ยนความรู้สึกของการบริจาค จากความสงสารและหดหู่เห็นใจ\nให้กลายเป็นความสนุก เราเชื่อว่าการบริจาคที่ทำให้โลกดีขึ้นนั้นต้องเกิดจากความรู้สึกที่ดี\nเช่นเดียวกับสิ่งที่กำลังจะ ดีขึ้นจากการบริจาค"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="12sp"
@@ -83,9 +81,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:fontFamily="@font/athiti"
-                android:text=" เราจะรวบรวมมูลนิธิที่มาเข้าร่วมโครงการกับเรา
-            นำมาสร้างเป็นเกมทางเลือก ผู้เล่นจะได้รับรู้เรื่องราวของโครงการนั้นๆ
-            พร้อมกับความสนุก อีกทั้งผู้อ่านจะได้บริจาคไปพร้อมกับการอ่านเรื่องราวของ ผ่านระบบ SMS ให้กับมูลนิธิโดยตรง"
+                android:text=" เราจะรวบรวมมูลนิธิที่มาเข้าร่วมโครงการกับเรา\nนำมาสร้างเป็นเกมทางเลือก ผู้เล่นจะได้รับรู้เรื่องราวของโครงการนั้นๆ\nพร้อมกับความสนุก อีกทั้งผู้อ่านจะได้บริจาคไปพร้อมกับการอ่านเรื่องราวของ\nผ่านระบบ SMS ให้กับมูลนิธิโดยตรง"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -100,8 +96,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/athiti_semibold"
-                android:text="เราจะเป็นตัวกลางที่นำเอาเรื่องราวของมูลนิธิต่าง
-มานำเสนอในรูปแบบของเกมทางเลือก"
+                android:text="เราจะเป็นตัวกลางที่นำเอาเรื่องราวของมูลนิธิต่าง\n มานำเสนอในรูปแบบของเกมทางเลือก"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="18sp"
@@ -114,7 +109,7 @@
                 android:id="@+id/textView12"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
+                android:layout_marginBottom="64dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
