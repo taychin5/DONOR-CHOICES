@@ -12,6 +12,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.test_chat_app_two.value_class.MessageThisSeason;
 import com.example.test_chat_app_two.R;
@@ -60,6 +61,7 @@ public class PopChooseActivity extends AppCompatActivity {
 
                 MessageThisSeason messageStorage = new MessageThisSeason();
                 int newPath = messageStorage.generateNextPath(choose, MainChatActivity.path);
+
 
                 MainChatActivity.path = newPath;
                 MainChatActivity.hit = 0;

@@ -47,10 +47,10 @@
     <ImageView
         android:id="@+id/main_img"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="254dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:scaleType="centerCrop"
         android:src="@drawable/sence_camp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,9 @@
         android:ellipsize="end"
         android:fontFamily="@font/athiti_light"
         android:maxLines="4"
+        android:padding="8dp"
         android:text="@string/paragraphtestlong"
+        android:textAlignment="center"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -146,6 +148,25 @@
         app:layout_constraintEnd_toEndOf="@+id/donate_num"
         app:layout_constraintStart_toStartOf="@+id/donate_num"
         app:layout_constraintTop_toBottomOf="@+id/donate_num" />
+
+    <Button
+        android:id="@+id/donate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/gradient_yellow"
+        android:elevation="10dp"
+        android:fontFamily="@font/athiti_bold"
+        android:padding="8dp"
+        android:paddingEnd="24dp"
+        android:paddingStart="24dp"
+        android:text="บริจาคเพิ่มเติม"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_char" />
 
 
 </android.support.constraint.ConstraintLayout>

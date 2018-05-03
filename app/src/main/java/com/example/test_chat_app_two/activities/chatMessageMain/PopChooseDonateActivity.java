@@ -1,5 +1,6 @@
 package com.example.test_chat_app_two.activities.chatMessageMain;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -10,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -92,7 +94,7 @@ public class PopChooseDonateActivity extends AppCompatActivity {
                 String phoneNumber = "0879811901";
                 String messageSms = "T send path " +Integer.toString(MainChatActivity.path);
 
-                // sendSms(phoneNumber,messageSms);
+                sendSms(phoneNumber,messageSms);
 
                 sendNotification();
 
@@ -145,6 +147,7 @@ public class PopChooseDonateActivity extends AppCompatActivity {
     }
 
     public void sendSms(String phoneNumber , String Message){
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS},1);
         SmsManager sms = SmsManager.getDefault();
         sms.sendTextMessage(phoneNumber,null,"Test send for donate",null,null);
 

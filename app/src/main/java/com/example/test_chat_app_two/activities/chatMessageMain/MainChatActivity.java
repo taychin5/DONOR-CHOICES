@@ -26,6 +26,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.example.test_chat_app_two.activities.End_Activity;
 import com.example.test_chat_app_two.activities.homePage.fragment_home.DonateFragment;
@@ -246,6 +247,7 @@ public class  MainChatActivity extends AppCompatActivity {
                         chatMessage.setCharacterimg(messageStorage.isCharacterimg(path,hit));
                     }
 
+                    Toast.makeText(getApplicationContext(), "path  " + path + "\thit   "+hit , Toast.LENGTH_SHORT).show();
 
                     sendBtn.setVisibility(v.VISIBLE);
                     messages.add(chatMessage);
@@ -614,7 +616,6 @@ public class  MainChatActivity extends AppCompatActivity {
             gun.start();
             return;
         }
-
     }
 
     private boolean checkArray (int path,int value,int[][] myarray ) {
